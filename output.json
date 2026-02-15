@@ -1,0 +1,625 @@
+[
+  {
+    "SERIES": "TREAST",
+    "CATEGORY": "Finance",
+    "SUB-CATEGORY": "Monetary Data",
+    "INDICATOR": "US Treasuries Held by the Fed",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "WSHOMCB",
+    "CATEGORY": "Finance",
+    "SUB-CATEGORY": "Monetary Data",
+    "INDICATOR": "Mortgage Backed Sec Held by the Fed",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "WALCL",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Monetary Factors",
+    "INDICATOR": "All Fed Reserve Banks - Total Assets",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "TOTBKCR",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Bank Credit of All Commercial Banks",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "TOTALSEC",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Securitized Total Consumer Loans",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "TOTALSL",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Total Consumer Credit Outstanding",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "INVEST",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Investment",
+    "INDICATOR": "Total Investments All Commercial Banks",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "USGSEC",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Investment",
+    "INDICATOR": "US Treasury and Agency Securities at All Commercial Banks",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "CONSUMER",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Loans",
+    "INDICATOR": "Total Consumer Loans",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BUSLOANS",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Loans",
+    "INDICATOR": "Total Commercial/Industrial Loans",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "DALLCACBEP",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Delinquencies",
+    "INDICATOR": "Delinquencies On All Loans And Leases",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "T10Y2Y",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "US 10-YR / 2-YR Spread",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "TB3MS",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "3-Month T-Bill: Secondary Market Rate",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "DGS10",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "10-Yr Treasury Const. Maturity Rate",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "GFDEBTN",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Government Debt (Public)",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "FYOINT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Interest on National Debt",
+    "PERIOD": "A"
+  },
+  {
+    "SERIES": "FYONET",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Spending",
+    "PERIOD": "A"
+  },
+  {
+    "SERIES": "FYFR",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Receipts",
+    "PERIOD": "A"
+  },
+  {
+    "SERIES": "FYFSD",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Budget Deficit/Surplus",
+    "PERIOD": "A"
+  },
+  {
+    "SERIES": "CDSP",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Consumer Debt/Income Ratio",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "PERMIT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "New Home Permits",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "HSN1F",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "New Home Sales",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "CMDEBT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Outstanding Mortgage Debt",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "DGORDER",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Ind. Production",
+    "INDICATOR": "Manufacturers' New Orders",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "TCU",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Ind. Production",
+    "INDICATOR": "Capacity Utilization: Total Industry",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "TTLCONS",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Construction",
+    "INDICATOR": "Total Construction Spending",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BUSINV",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Total Business Inventories",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "ALTSALES",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Light Weight Vehicle Sales",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "UMCSENT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Univ of Michigan: Consumer Sentiment",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "STLFSI",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "St. Louis Financial Stress Index",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "OILPRICE",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Spot Oil Price - West Texas Intermediate",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "CPIAUCSL",
+    "CATEGORY": "Consumer Prices",
+    "SUB-CATEGORY": "CPI",
+    "INDICATOR": "Consumer Price Index: Seasonally Adj.",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "UNRATE",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Civilian Total Unemployment Rate",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "UEMP27OV",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Long Term Unemployment: >27 WKS",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "UEMPMED",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Length of Unemployment",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "CE16OV",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Total US Workforce",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EMRATIO",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "US Employment/Population Ratio",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "POP",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Population",
+    "INDICATOR": "US Population",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "AHEMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Hourly Earnings: Manufacturing",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "AWHMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Weekly Hours: Manufacturing",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "AWOTMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Weekly OT Hours: Manufacturing",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "DEXUSUK",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "USD/GBP Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "DEXUSEU",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "USD/EUR Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "DEXJPUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "JPN/USD Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "DEXMXUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "MXP/USD Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "DEXCAUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "CAD/USD Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "DEXCHUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "CNY/USD Currency Exchange Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "COMPOUT",
+    "CATEGORY": "Financial Data",
+    "SUB-CATEGORY": "Monetary",
+    "INDICATOR": "Commercial Paper Outstanding",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "VIXCLS",
+    "CATEGORY": "Financial Data",
+    "SUB-CATEGORY": "Volatility Inexes",
+    "INDICATOR": "CBOE Volatility Index",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "GDP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross Domestic Product",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "GNP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross National Product",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "GDI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross Domestic Income",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "NETFI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Current Account Balance",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "EXPGS",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Exports Goods & Services",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "IMPGS",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Imports Goods & Services",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "DGI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Defense Budget",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "FGRECPT",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Tax Receipts",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "TGDEF",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Budget Deficit",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "CP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Industry",
+    "INDICATOR": "Corporate Profits After Tax",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "DIVIDEND",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Industry",
+    "INDICATOR": "Corporate Dividends",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "PI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Personal",
+    "INDICATOR": "Personal Income",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "PSAVE",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Savings & Inv.",
+    "INDICATOR": "Personal Savings",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "PSAVERT",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Savings & Inv.",
+    "INDICATOR": "Personal Savings Rate",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "MORTGAGE30US",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "30yr Mortgage",
+    "INDICATOR": "30-yr Conventional Mortgage Rate",
+    "PERIOD": "W"
+  },
+  {
+    "SERIES": "DPCREDIT",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "FRB Rates",
+    "INDICATOR": "Discount Rate",
+    "PERIOD": "D"
+  },
+  {
+    "SERIES": "FEDFUNDS",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "FRB Rates",
+    "INDICATOR": "Effective Federal Funds Rate",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "M1",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M1",
+    "INDICATOR": "M1 Money Supply",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "M2",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M2",
+    "INDICATOR": "M2 Money Supply",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "M1V",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M1",
+    "INDICATOR": "Velocity of M1 Money Stock",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "M2V",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M2",
+    "INDICATOR": "Velocity of M2 Money Stock",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "PPIACO",
+    "CATEGORY": "Producer Prices",
+    "SUB-CATEGORY": "PPI",
+    "INDICATOR": "Producer Price Index: All Commodities",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPCH",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from China",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPJP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Japan",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPMX",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Mexico",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPCA",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Canada",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPGE",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Germany",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "IMPUK",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from UK",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPCH",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to China",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPJP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Japan",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPMX",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Mexico",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPCA",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Canada",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPGE",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Germany",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "EXPUK",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to UK",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPGEXP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports: Goods",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPGIMP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports: Goods",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPGTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Goods",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPSIMP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports: Services",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPSTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Services",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "BOPGSTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Goods & Services",
+    "PERIOD": "M"
+  }
+]
