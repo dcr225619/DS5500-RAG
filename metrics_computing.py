@@ -73,7 +73,7 @@ class TimeSeriesAnalyzer:
         
         changes['total'] = {
             'absolute': float(end_val - start_val),
-            'percentage': float((end_val - start_val) / start_val * 100),
+            'percentage': round(float((end_val - start_val) / start_val * 100), 2),
             'from_date': self.df.index[0].strftime('%Y-%m-%d'),
             'to_date': self.df.index[-1].strftime('%Y-%m-%d')
         }
@@ -117,7 +117,7 @@ class TimeSeriesAnalyzer:
         return {
             'recent_volatility': float(recent_volatility),
             'earlier_volatility': float(earlier_volatility),
-            'change': float((recent_volatility - earlier_volatility) / earlier_volatility * 100) if earlier_volatility > 0 else 0,
+            'change': round(float((recent_volatility - earlier_volatility) / earlier_volatility * 100), 2) if earlier_volatility > 0 else 0,
             'assessment': 'increased' if recent_volatility > earlier_volatility * 1.2 else 'decreased' if recent_volatility < earlier_volatility * 0.8 else 'stable'
         }
     
