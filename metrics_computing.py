@@ -115,8 +115,8 @@ class TimeSeriesAnalyzer:
         earlier_volatility = rolling_std.iloc[:window].mean()
         
         return {
-            'recent_volatility': float(recent_volatility),
-            'earlier_volatility': float(earlier_volatility),
+            'recent_volatility': round(float(recent_volatility), 2),
+            'earlier_volatility': round(float(earlier_volatility), 2),
             'change': round(float((recent_volatility - earlier_volatility) / earlier_volatility * 100), 2) if earlier_volatility > 0 else 0,
             'assessment': 'increased' if recent_volatility > earlier_volatility * 1.2 else 'decreased' if recent_volatility < earlier_volatility * 0.8 else 'stable'
         }

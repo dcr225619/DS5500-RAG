@@ -8,6 +8,8 @@ import time
 BASE_URL = 'https://api.stlouisfed.org/fred/'
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
+today = datetime.today()
+
 # indicator_guide_compact.txt, indicator_guide_by_category.txt, indicator_guide_optimized.txt, indicator_guide_with_examples.txt
 with open('files/indicator_guide_compact.txt', encoding='utf-8') as f:
     indicator_mapping = f.read()
@@ -20,8 +22,8 @@ When asked about economic data, use the get_fred_data function with the appropri
 IMPORTANT: 
 1. Always specify start_date and end_date based on the user's question. Always use YYYY-MM-DD format, NOT relative dates like "-2y"
 2. If no time period specified, use recent 1 year by default
-3. If you only need today's or most recent data, use today - 1 year as start date and today as end date
-4. Today is {datetime.today().strftime('%Y-%m-%d')}
+3. If you only need today's or most recent data, use {(today - timedelta(days=365)).strftime('%Y-%m-%d')} as start date and {today.strftime('%Y-%m-%d')} as end date
+4. Today is {today.strftime('%Y-%m-%d')}
 """
 
 TOOLS = [
@@ -71,8 +73,8 @@ def fix_date_parameters(series_id, start_date, end_date):
         start_dt = today - timedelta(days=365)  # 1 years ago
         end_dt = today
     
-    # 2. both start and end are today
-    if start_dt.date() == end_dt.date() == today.date():
+    # 2. both start and end are the same day
+    if start_dt.date() == end_dt.date():
         print(f"  Detected same-day query, expanding to 1 years")
         start_dt = today - timedelta(days=365)
         end_dt = today
@@ -102,8 +104,8 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1):
     Returns:
         dict: API results
     """
-    # fix obvious date problem
-    start_date, end_date = fix_date_parameters(series_id, start_date, end_date)
+    # # fix obvious date problem
+    # start_date, end_date = fix_date_parameters(series_id, start_date, end_date)
     
     for attempt in range(max_retries):
         result = call_fred_api(series_id, start_date, end_date)
@@ -191,10 +193,17 @@ class FredLLMAgent:
             extracted_calls = []
             for tool_call in assistant_message["tool_calls"]:
                 args = tool_call["function"]["arguments"]
+
+                series_id = args.get('series_id', '').strip()
+                start_date = args.get('start_date') or args.get('start', '')
+                end_date = args.get('end_date') or args.get('end', '')
+                # fix date parameters
+                start_date, end_date = fix_date_parameters(series_id, start_date, end_date)
+
                 extracted_calls.append({
-                    'series_id': args.get('series_id', '').strip(),
-                    'start_date': args.get('start_date') or args.get('start', ''),
-                    'end_date': args.get('end_date') or args.get('end', '')
+                    'series_id': series_id,
+                    'start_date': start_date,
+                    'end_date': end_date
                 })
             
             return {
@@ -353,7 +362,7 @@ class FredLLMAgent:
                 tool_result = {
                     'series_id': result.get('series_id', ''),
                     'indicator': result.get('indicator_name', ''),
-                    'data_points': len(result.get('data', [])),
+                    'data_points': result.get('data', []),
                     'analysis': result.get('analysis', {})
                 }
             else:
@@ -395,14 +404,17 @@ def process_question(question, verbose=True):
 
 
 if __name__ == "__main__":
-    questions = [
-        "What's the most recent federal funds rate?",
-        "What's the current unemployment rate?",
-        "Show me the latest GDP data",
-        # "How's the real estate market in the past 2 years?",
-    ]
+    import pandas as pd
+
+    with open('data/QA.json') as f:
+        file = json.load(f)
+    
+    # file = [
+    #     "Show me GDP data for Q1 2024",
+    # ]
     
     agent = FredLLMAgent(verbose=True)
     
-    for question in questions:
-        result = agent.process_question(question)
+    for question in file:
+        result = agent.process_question(question['question'])
+        # result = agent.process_question(question)

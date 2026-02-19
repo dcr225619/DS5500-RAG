@@ -23,7 +23,6 @@ def call_fred_api(series_id, start_date, end_date):
     """call FRED API to get data"""
     indicators_map = load_indicator_metadata()
     frequency = None
-    indicator_name = series_id
     
     if series_id in indicators_map:
         frequency = indicators_map[series_id]['PERIOD'].lower()
@@ -44,7 +43,15 @@ def call_fred_api(series_id, start_date, end_date):
     
     if response.status_code == 200:
         data = response.json()
-        if 'observations' in data and len(data['observations']) > 0:
+        if 'observations' in data and len(data['observations']) < 2:
+            # no analysis result for single data point
+            return {
+                'success': True,
+                'series_id': series_id,
+                'indicator_name': indicator_name,
+                'data': data['observations']
+            }
+        elif 'observations' in data and len(data['observations']) >= 2:
             try:
                 analyzer = TimeSeriesAnalyzer(data['observations'])
                 analysis = analyzer.generate_summary()
@@ -54,11 +61,11 @@ def call_fred_api(series_id, start_date, end_date):
                     'series_id': series_id,
                     'indicator_name': indicator_name,
                     'data': data['observations'],
-                    'analysis': analysis  # 添加分析结果
+                    'analysis': analysis
                 }
             except Exception as e:
                 print(f"Warning: Analysis failed: {e}")
-                # 即使分析失败，仍返回原始数据
+                # return original data if analysis failed
                 return {
                     'success': True,
                     'series_id': series_id,
