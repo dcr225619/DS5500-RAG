@@ -302,6 +302,6 @@ if __name__ == "__main__":
     
     results = evaluator.run_all_tests()
     
-    evaluator.export_results(results,'files/evaluation_results_compact2.json' )
+    evaluator.export_results(results,'files/evaluation_results_output.json' )
 
     print(f'Execution time: {time.time() - start: .2f}')

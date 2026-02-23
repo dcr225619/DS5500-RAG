@@ -14,10 +14,39 @@ today = datetime.today()
 with open('files/indicator_guide_compact.txt', encoding='utf-8') as f:
     indicator_mapping = f.read()
 
+# def build_indicator_guide(output_json_path='output.json'):
+#     with open(output_json_path, 'r', encoding='utf-8') as f:
+#         indicators = json.load(f)
+    
+#     lines = []
+#     current_category = None
+    
+#     # divided by CATEGORY
+#     from itertools import groupby
+#     sorted_indicators = sorted(indicators, key=lambda x: (x['CATEGORY'], x['SUB-CATEGORY']))
+    
+#     for item in sorted_indicators:
+#         if item['CATEGORY'] != current_category:
+#             current_category = item['CATEGORY']
+#             lines.append(f"\n## {current_category}")
+        
+#         period_map = {'M': 'Monthly', 'Q': 'Quarterly', 'W': 'Weekly', 'D': 'Daily', 'A': 'Annual'}
+#         period = period_map.get(item['PERIOD'], item['PERIOD'])
+        
+#         lines.append(
+#             f"- {item['SERIES']}: {item['INDICATOR']} | {item['UNITS']} | {period}"
+#         )
+    
+#     return "\n".join(lines)
+
+# indicator_mapping = build_indicator_guide()
+
 INDICATOR_GUIDE = indicator_mapping + f"""
 Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
 When asked about economic data, use the get_fred_data function with the appropriate series_id.
+
+You will receive data from ALL tool calls. You MUST reference and analyze EVERY dataset and analysis returned, not just the last one.
 
 IMPORTANT: 
 1. Always specify start_date and end_date based on the user's question. Always use YYYY-MM-DD format, NOT relative dates like "-2y"
@@ -51,7 +80,7 @@ TOOLS = [
     }
 ]
 
-def fix_date_parameters(series_id, start_date, end_date):
+def fix_date_parameters(start_date, end_date):
     """
     fix date parameters to ensure data retrieval
     
@@ -87,7 +116,7 @@ def fix_date_parameters(series_id, start_date, end_date):
     return start_dt.strftime('%Y-%m-%d'), end_dt.strftime('%Y-%m-%d')
 
 
-def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1):
+def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, compact_mode=False):
     """
     call FRED API, fall back if fail
     
@@ -104,11 +133,9 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1):
     Returns:
         dict: API results
     """
-    # # fix obvious date problem
-    # start_date, end_date = fix_date_parameters(series_id, start_date, end_date)
     
     for attempt in range(max_retries):
-        result = call_fred_api(series_id, start_date, end_date)
+        result = call_fred_api(series_id, start_date, end_date, compact_mode=compact_mode)
         
         if result['success'] and result.get('data'):
             if attempt > 0:
@@ -147,7 +174,7 @@ class FredLLMAgent:
     
     def extract_tool_calls(self, question):
         """
-        extract llm tool calls without executing for retrieval test
+        extract tool calls without execution
         
         Returns:
             dict: {
@@ -180,7 +207,6 @@ class FredLLMAgent:
             
             assistant_message = result["message"]
             
-            # directly response if no tool call
             if "tool_calls" not in assistant_message:
                 return {
                     'success': True,
@@ -189,19 +215,17 @@ class FredLLMAgent:
                     'raw_response': result
                 }
             
-            # parse tool calls
             extracted_calls = []
             for tool_call in assistant_message["tool_calls"]:
                 args = tool_call["function"]["arguments"]
 
-                series_id = args.get('series_id', '').strip()
                 start_date = args.get('start_date') or args.get('start', '')
                 end_date = args.get('end_date') or args.get('end', '')
-                # fix date parameters
-                start_date, end_date = fix_date_parameters(series_id, start_date, end_date)
+                start_date, end_date = fix_date_parameters(start_date, end_date)
 
                 extracted_calls.append({
-                    'series_id': series_id,
+                    'tool_call_id': tool_call.get('id', f'call_{len(extracted_calls)}'),  # for matching tool call responds with tool calls
+                    'series_id': args.get('series_id', '').strip(),
                     'start_date': start_date,
                     'end_date': end_date
                 })
@@ -231,7 +255,9 @@ class FredLLMAgent:
             list of dict with API results
         """
         results = []
-        
+        # use compact summary mode for multiple tool calls to save tokens
+        use_compact = len(tool_calls) > 2
+    
         for idx, call in enumerate(tool_calls):
             series_id = call['series_id']
             start_date = call['start_date'] or (datetime.today() - timedelta(days=730)).strftime('%Y-%m-%d')
@@ -241,7 +267,7 @@ class FredLLMAgent:
                 results.append({
                     'success': False,
                     'error': 'No series_id provided',
-                    'tool_call_index': idx
+                    'tool_call_id': call.get('tool_call_id', f'call_{idx}')
                 })
                 continue
             
@@ -249,30 +275,36 @@ class FredLLMAgent:
                 print(f"  Tool call {idx + 1}: {series_id} ({start_date} to {end_date})")
             
             if use_fallback:
-                api_result = call_fred_api_with_fallback(series_id, start_date, end_date)
+                api_result = call_fred_api_with_fallback(
+                    series_id, start_date, end_date, 
+                    compact_mode=use_compact  #
+                )
             else:
-                api_result = call_fred_api(series_id, start_date, end_date)
+                api_result = call_fred_api(
+                    series_id, start_date, end_date,
+                    compact_mode=use_compact  #
+                )
 
-            # plot data
-            def plot_line(observations, title=None):
-                # sort by date to ensure chronological order from past to present
-                dates = [datetime.strptime(obs['date'], "%Y-%m-%d") for obs in observations]
-                values = [float(obs['value']) for obs in observations]
-                plt.figure(figsize=(12, 6))
-                plt.plot(dates, values, color='r')
-                if title is not None:
-                    plt.title(title)
-                plt.xlabel('Date', fontsize=10)
-                plt.ylabel('Value', fontsize=10)
-                plt.xticks(rotation=45, ha='right')  # rotate x-axis labels for better readability
-                plt.legend()
-                plt.grid(True, alpha=0.3) # alpha adjusts transparency
-                plt.tight_layout()
-                plt.show()
+                # # plot data
+                # def plot_line(observations, title=None):
+                #     # sort by date to ensure chronological order from past to present
+                #     dates = [datetime.strptime(obs['date'], "%Y-%m-%d") for obs in observations]
+                #     values = [float(obs['value']) for obs in observations]
+                #     plt.figure(figsize=(12, 6))
+                #     plt.plot(dates, values, color='r')
+                #     if title is not None:
+                #         plt.title(title)
+                #     plt.xlabel('Date', fontsize=10)
+                #     plt.ylabel('Value', fontsize=10)
+                #     plt.xticks(rotation=45, ha='right')  # rotate x-axis labels for better readability
+                #     plt.legend()
+                #     plt.grid(True, alpha=0.3) # alpha adjusts transparency
+                #     plt.tight_layout()
+                #     plt.show()
 
-            # plot_line(api_result['data'], title=f'{api_result['indicator_name']}')
+                # plot_line(api_result['data'], title=f'{api_result['indicator_name']}')
             
-            api_result['tool_call_index'] = idx
+            api_result['tool_call_id'] = call.get('tool_call_id', f'call_{idx}')
             results.append(api_result)
         
         return results
@@ -362,7 +394,6 @@ class FredLLMAgent:
                 tool_result = {
                     'series_id': result.get('series_id', ''),
                     'indicator': result.get('indicator_name', ''),
-                    'data_points': result.get('data', []),
                     'analysis': result.get('analysis', {})
                 }
             else:
@@ -372,6 +403,7 @@ class FredLLMAgent:
             
             messages.append({
                 "role": "tool",
+                "tool_call_id": result.get('tool_call_id', ''),
                 "content": json.dumps(tool_result, ensure_ascii=False)
             })
         
@@ -406,15 +438,15 @@ def process_question(question, verbose=True):
 if __name__ == "__main__":
     import pandas as pd
 
-    with open('data/QA.json') as f:
-        file = json.load(f)
+    # with open('data/QA.json') as f:
+    #     file = json.load(f)
     
-    # file = [
-    #     "Show me GDP data for Q1 2024",
-    # ]
+    file = [
+        "How did manufacturing labor market change during 2022?",
+    ]
     
     agent = FredLLMAgent(verbose=True)
     
-    for question in file:
-        result = agent.process_question(question['question'])
-        # result = agent.process_question(question)
+    for idx, question in enumerate(file):
+        # result = agent.process_question(question['question'])
+        result = agent.process_question(question)

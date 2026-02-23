@@ -50,7 +50,6 @@ class TimeSeriesAnalyzer:
                 'date': self.df['value'].idxmin().strftime('%Y-%m-%d')
             },
             'mean': float(self.df['value'].mean()),
-            'median': float(self.df['value'].median()),
             'std': float(self.df['value'].std()),
             'latest': {
                 'value': float(self.df['value'].iloc[-1]),
@@ -121,30 +120,66 @@ class TimeSeriesAnalyzer:
             'assessment': 'increased' if recent_volatility > earlier_volatility * 1.2 else 'decreased' if recent_volatility < earlier_volatility * 0.8 else 'stable'
         }
     
-    def generate_integrated_timeseries(self, include_inflections=True, inflection_prominence=None):
-        """
-        generate indicators for every date
+    def get_notable_periods(self):
+        """get notable periods by identifying the greatest MoM and YoY increase and decrease"""
+        values = self.df['value'].values
+        dates = self.df.index
         
-        Returns:
-            list of dicts: [
-                {
-                    'date': '2024-01-01',
-                    'value': 100.5,
-                    'mom_absolute': None or float,
-                    'mom_percentage': None or float,
-                    'yoy_absolute': None or float,
-                    'yoy_percentage': None or float,
-                    'inflection_type': None or 'peak' or 'trough'
-                },
-                ...
-            ]
-        """
+        notable = {}
+        
+        # find the greatest MoM increase and decrease
+        if len(values) > 1:
+            mom_changes = [(values[i] - values[i-1]) / values[i-1] * 100 
+                          for i in range(1, len(values)) if values[i-1] != 0]
+            if mom_changes:
+                max_increase_idx = np.argmax(mom_changes) + 1
+                max_decrease_idx = np.argmin(mom_changes) + 1
+                
+                notable['largest_mom_increase'] = {
+                    'date': dates[max_increase_idx].strftime('%Y-%m-%d'),
+                    'percentage': round(float(mom_changes[max_increase_idx-1]), 2),
+                    'from_value': float(values[max_increase_idx-1]),
+                    'to_value': float(values[max_increase_idx])
+                }
+                
+                notable['largest_mom_decrease'] = {
+                    'date': dates[max_decrease_idx].strftime('%Y-%m-%d'),
+                    'percentage': round(float(mom_changes[max_decrease_idx-1]), 2),
+                    'from_value': float(values[max_decrease_idx-1]),
+                    'to_value': float(values[max_decrease_idx])
+                }
+        
+        # find the greatest YoY increase and decrease
+        if len(values) > 12:
+            yoy_changes = [(values[i] - values[i-12]) / values[i-12] * 100 
+                          for i in range(12, len(values)) if values[i-12] != 0]
+            if yoy_changes:
+                max_yoy_increase_idx = np.argmax(yoy_changes) + 12
+                max_yoy_decrease_idx = np.argmin(yoy_changes) + 12
+                
+                notable['largest_yoy_increase'] = {
+                    'date': dates[max_yoy_increase_idx].strftime('%Y-%m-%d'),
+                    'percentage': round(float(yoy_changes[max_yoy_increase_idx-12]), 2),
+                    'from_value': float(values[max_yoy_increase_idx-12]),
+                    'to_value': float(values[max_yoy_increase_idx])
+                }
+                
+                notable['largest_yoy_decrease'] = {
+                    'date': dates[max_yoy_decrease_idx].strftime('%Y-%m-%d'),
+                    'percentage': round(float(yoy_changes[max_yoy_decrease_idx-12]), 2),
+                    'from_value': float(values[max_yoy_decrease_idx-12]),
+                    'to_value': float(values[max_yoy_decrease_idx])
+                }
+        
+        return notable
+    
+    def generate_integrated_timeseries(self, include_inflections=True, inflection_prominence=None):
         values = self.df['value'].values
         dates = self.df.index
         
         integrated_data = []
         
-        # detect inflection
+        # inflection point check
         inflection_dates = {}
         if include_inflections and len(self.df) >= 5:
             if inflection_prominence is None:
@@ -158,7 +193,7 @@ class TimeSeriesAnalyzer:
             for idx in troughs_idx:
                 inflection_dates[dates[idx].strftime('%Y-%m-%d')] = 'trough'
         
-        # integrate data
+        # go through all the dates to integrate data
         for i in range(len(values)):
             date_str = dates[i].strftime('%Y-%m-%d')
             
@@ -183,54 +218,151 @@ class TimeSeriesAnalyzer:
                 data_point['yoy_absolute'] = None
                 data_point['yoy_percentage'] = None
             
+            # inflection point target
             data_point['inflection_type'] = inflection_dates.get(date_str, None)
             
             integrated_data.append(data_point)
         
         return integrated_data
     
-    def generate_summary(self, include_inflections=True, inflection_prominence=None):
+    def generate_summary(self, indicator_name,
+                            include_full_timeseries=False,
+                            recent_n_points=12,
+                            include_inflections=True,
+                            inflection_prominence=None,
+                            compact_mode=False):
         """
+        Args:
+            include_full_timeseries
+            recent_n_points
+            include_inflections
+            inflection_prominence: significance threshold for inflection point detection
+            compact_mode
+        
         Returns:
-            dict with:
-                - basic_stats
-                - changes (overall)
-                - trend
-                - volatility
-                - timeseries_data (inflection, mom, yoy)
+            dict: summary
         """
+        basic_stats = self.calculate_basic_stats()
+        changes = self.calculate_changes()
+        trend = self.assess_trend()
+        volatility = self.detect_volatility_changes()
+        notable = self.get_notable_periods()
+        
+        # generate complete time series data
+        full_timeseries = self.generate_integrated_timeseries(
+            include_inflections=include_inflections,
+            inflection_prominence=inflection_prominence
+        )
+        
+        # COMPACT MODE: only return most important information
+        if compact_mode:
+            summary = {
+                'data_points': len(self.df),
+                'time_range': {
+                    'start': self.df.index[0].strftime('%Y-%m-%d'),
+                    'end': self.df.index[-1].strftime('%Y-%m-%d')
+                },
+                'current': basic_stats['latest'],
+                'extremes': {
+                    'max': basic_stats['max'],
+                    'min': basic_stats['min']
+                },
+                'trend': trend['description'],
+                'total_change_pct': round(changes['total']['percentage'], 2),
+                'recent_five_data': full_timeseries[-min(5, recent_n_points):]
+            }
+            return summary
+        
+        # DETAILED SUMMARY
         summary = {
-            'basic_stats': self.calculate_basic_stats(),
-            'changes': self.calculate_changes(),
-            'trend': self.assess_trend(),
-            'data_points': len(self.df),
-            'time_span': {
-                'start': self.df.index[0].strftime('%Y-%m-%d'),
-                'end': self.df.index[-1].strftime('%Y-%m-%d'),
-                'days': (self.df.index[-1] - self.df.index[0]).days
+            # 1. overview
+            'overview': {
+                'metric_name': f'{indicator_name}',
+                'data_points': len(self.df),
+                'time_range': {
+                    'start': self.df.index[0].strftime('%Y-%m-%d'),
+                    'end': self.df.index[-1].strftime('%Y-%m-%d'),
+                    'span_days': (self.df.index[-1] - self.df.index[0]).days
+                },
+                'latest_value': {
+                    'value': basic_stats['latest']['value'],
+                    'date': basic_stats['latest']['date']
+                }
             },
-            'timeseries_data': self.generate_integrated_timeseries(
-                include_inflections=include_inflections,
-                inflection_prominence=inflection_prominence
-            )
+            
+            # 2. key stats
+            'key_statistics': {
+                'current': {
+                    'value': basic_stats['latest']['value'],
+                    'date': basic_stats['latest']['date']
+                },
+                'all_time_high': {
+                    'value': basic_stats['max']['value'],
+                    'date': basic_stats['max']['date']
+                },
+                'all_time_low': {
+                    'value': basic_stats['min']['value'],
+                    'date': basic_stats['min']['date']
+                },
+                'average': round(basic_stats['mean'], 2),
+                'std_deviation': round(basic_stats['std'], 2)
+            },
+            
+            # 3. trend analysis
+            'trend_analysis': {
+                'overall_trend': trend['description'],
+                'direction': trend['trend'],
+                'strength': trend['strength'],
+                'total_change': {
+                    'absolute': round(changes['total']['absolute'], 2),
+                    'percentage': round(changes['total']['percentage'], 2),
+                    'description': f"Changed from {basic_stats['earliest']['value']} ({basic_stats['earliest']['date']}) to {basic_stats['latest']['value']} ({basic_stats['latest']['date']})"
+                }
+            },
+            
+            # 4. notable changes
+            'notable_changes': notable,
+            
+            # 5. recent data
+            'recent_data': {
+                'description': f'Most recent {min(recent_n_points, len(full_timeseries))} data points',
+                'data': full_timeseries[-recent_n_points:] if recent_n_points else []
+            }
         }
         
-        volatility = self.detect_volatility_changes()
+        # add volatility analysis
         if volatility:
-            summary['volatility'] = volatility
+            summary['volatility_analysis'] = volatility
         
+        # add inflection information
         if include_inflections:
-            inflection_count = sum(1 for d in summary['timeseries_data'] if d['inflection_type'] is not None)
-            peak_count = sum(1 for d in summary['timeseries_data'] if d['inflection_type'] == 'peak')
-            trough_count = sum(1 for d in summary['timeseries_data'] if d['inflection_type'] == 'trough')
+            peaks = [d for d in full_timeseries if d['inflection_type'] == 'peak']
+            troughs = [d for d in full_timeseries if d['inflection_type'] == 'trough']
             
-            summary['inflection_summary'] = {
-                'total_count': inflection_count,
-                'peak_count': peak_count,
-                'trough_count': trough_count
+            summary['inflection_points'] = {
+                'total_count': len(peaks) + len(troughs),
+                'peaks': {
+                    'count': len(peaks),
+                    'dates': [p['date'] for p in peaks]
+                },
+                'troughs': {
+                    'count': len(troughs),
+                    'dates': [t['date'] for t in troughs]
+                },
+                'most_recent_inflection': None
             }
+            
+            # find the most recent inflection 
+            all_inflections = sorted(peaks + troughs, key=lambda x: x['date'], reverse=True)
+            if all_inflections:
+                summary['inflection_points']['most_recent_inflection'] = all_inflections[0]
+        
+        # optional: include full data
+        if include_full_timeseries:
+            summary['full_timeseries'] = full_timeseries
         
         return summary
+    
     
     def print_summary(self):
         """
@@ -239,21 +371,17 @@ class TimeSeriesAnalyzer:
         summary = self.generate_summary()
         print(summary)
 
-# ==================== 测试代码 ====================
+
 if __name__ == '__main__':
-    # 测试用例1：从JSON文件读取
     import json
     
-    # 假设你有FRED API返回的数据
     with open('./FRED data/AHEMAN.json', 'r') as f:
         data = json.load(f)
     
     analyzer = TimeSeriesAnalyzer(data=data['observations'])
-    
-    # 打印格式化摘要
+
     analyzer.print_summary()
-    
-    # 获取JSON格式的摘要（用于传给LLM）
+
     summary = analyzer.generate_summary()
     print("\nJSON Summary for LLM:")
     print(json.dumps(summary, indent=2))

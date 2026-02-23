@@ -19,7 +19,7 @@ def load_indicator_metadata():
         indicators = json.load(f)
     return {item['SERIES']: item for item in indicators}
 
-def call_fred_api(series_id, start_date, end_date):
+def call_fred_api(series_id, start_date, end_date, compact_mode=False):
     """call FRED API to get data"""
     indicators_map = load_indicator_metadata()
     frequency = None
@@ -27,6 +27,7 @@ def call_fred_api(series_id, start_date, end_date):
     if series_id in indicators_map:
         frequency = indicators_map[series_id]['PERIOD'].lower()
         indicator_name = indicators_map[series_id]['INDICATOR']
+        units = indicators_map[series_id]['UNITS']
     
     params = {
         'series_id': series_id,
@@ -49,20 +50,42 @@ def call_fred_api(series_id, start_date, end_date):
                 'success': True,
                 'series_id': series_id,
                 'indicator_name': indicator_name,
+                'units': units,
                 'data': data['observations']
             }
         elif 'observations' in data and len(data['observations']) >= 2:
             try:
                 analyzer = TimeSeriesAnalyzer(data['observations'])
-                analysis = analyzer.generate_summary()
+                # analysis = analyzer.generate_summary(compact_mode=compact_mode)
+                
+                # decide compact mode or not according to the size of data
+                if compact_mode or len(data['observations']) > 60:
+                    # less than 5 data points -> compact mode
+                    summary = analyzer.generate_summary(
+                        indicator_name=indicator_name,
+                        include_full_timeseries=False,
+                        recent_n_points=5,
+                        include_inflections=False,
+                        compact_mode=True
+                    )
+                else:
+                    summary = analyzer.generate_summary(
+                        indicator_name=indicator_name,
+                        include_full_timeseries=False,
+                        recent_n_points=min(12, len(data['observations'])),
+                        include_inflections=len(data['observations']) >= 5,
+                        compact_mode=False
+                    )
                 
                 return {
                     'success': True,
                     'series_id': series_id,
                     'indicator_name': indicator_name,
                     'data': data['observations'],
-                    'analysis': analysis
+                    'raw_data': summary.get('overview', {}),
+                    'analysis': summary
                 }
+
             except Exception as e:
                 print(f"Warning: Analysis failed: {e}")
                 # return original data if analysis failed
@@ -70,6 +93,7 @@ def call_fred_api(series_id, start_date, end_date):
                     'success': True,
                     'series_id': series_id,
                     'indicator_name': indicator_name,
+                    'units': units,
                     'data': data['observations']
                 }
     
@@ -85,9 +109,12 @@ if __name__ == "__main__":
     cnt = 0
     failed_list = []
 
-    for series, data in INDICATORS_MAP.items():
+    for idx, (series, data) in enumerate(INDICATORS_MAP.items()):
 
-        res = call_fred_api(series, start_date='2000-01-01', end_date=datetime.today().strftime('%Y-%m-%d'))
+        if idx > 2:
+            break
+
+        res = call_fred_api(series, start_date='2025-01-01', end_date=datetime.today().strftime('%Y-%m-%d'))
 
         # def plot_line(y, title=None):
         #     plt.plot(y.index, y['value'], color='r')

@@ -4,6 +4,7 @@
     "CATEGORY": "Finance",
     "SUB-CATEGORY": "Monetary Data",
     "INDICATOR": "US Treasuries Held by the Fed",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "W"
   },
   {
@@ -11,6 +12,7 @@
     "CATEGORY": "Finance",
     "SUB-CATEGORY": "Monetary Data",
     "INDICATOR": "Mortgage Backed Sec Held by the Fed",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "W"
   },
   {
@@ -18,6 +20,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Monetary Factors",
     "INDICATOR": "All Fed Reserve Banks - Total Assets",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "W"
   },
   {
@@ -25,6 +28,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Commercial Credit",
     "INDICATOR": "Bank Credit of All Commercial Banks",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "W"
   },
   {
@@ -32,6 +36,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Commercial Credit",
     "INDICATOR": "Securitized Total Consumer Loans",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -39,6 +44,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Commercial Credit",
     "INDICATOR": "Total Consumer Credit Outstanding",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -46,6 +52,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Investment",
     "INDICATOR": "Total Investments All Commercial Banks",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -53,6 +60,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Investment",
     "INDICATOR": "US Treasury and Agency Securities at All Commercial Banks",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -60,6 +68,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Loans",
     "INDICATOR": "Total Consumer Loans",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -67,6 +76,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Loans",
     "INDICATOR": "Total Commercial/Industrial Loans",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -74,6 +84,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Delinquencies",
     "INDICATOR": "Delinquencies On All Loans And Leases",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -81,6 +92,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Interest Rates",
     "INDICATOR": "US 10-YR / 2-YR Spread",
+    "UNITS": "Percent",
     "PERIOD": "W"
   },
   {
@@ -88,6 +100,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Interest Rates",
     "INDICATOR": "3-Month T-Bill: Secondary Market Rate",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -95,6 +108,7 @@
     "CATEGORY": "Banking",
     "SUB-CATEGORY": "Interest Rates",
     "INDICATOR": "10-Yr Treasury Const. Maturity Rate",
+    "UNITS": "Percent",
     "PERIOD": "W"
   },
   {
@@ -102,6 +116,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Federal Government",
     "INDICATOR": "Federal Government Debt (Public)",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -109,6 +124,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Federal Government",
     "INDICATOR": "Interest on National Debt",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "A"
   },
   {
@@ -116,6 +132,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Federal Government",
     "INDICATOR": "Federal Spending",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "A"
   },
   {
@@ -123,6 +140,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Federal Government",
     "INDICATOR": "Federal Receipts",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "A"
   },
   {
@@ -130,6 +148,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Federal Government",
     "INDICATOR": "Budget Deficit/Surplus",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "A"
   },
   {
@@ -137,6 +156,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Household Sector",
     "INDICATOR": "Consumer Debt/Income Ratio",
+    "UNITS": "Percent",
     "PERIOD": "Q"
   },
   {
@@ -144,6 +164,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Household Sector",
     "INDICATOR": "New Home Permits",
+    "UNITS": "Thousands of Units",
     "PERIOD": "M"
   },
   {
@@ -151,6 +172,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Household Sector",
     "INDICATOR": "New Home Sales",
+    "UNITS": "Thousands",
     "PERIOD": "M"
   },
   {
@@ -158,6 +180,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Household Sector",
     "INDICATOR": "Outstanding Mortgage Debt",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -165,6 +188,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Ind. Production",
     "INDICATOR": "Manufacturers' New Orders",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -172,6 +196,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Ind. Production",
     "INDICATOR": "Capacity Utilization: Total Industry",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -179,6 +204,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Construction",
     "INDICATOR": "Total Construction Spending",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -186,6 +212,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "Total Business Inventories",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -193,6 +220,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "Light Weight Vehicle Sales",
+    "UNITS": "Millions of Units",
     "PERIOD": "M"
   },
   {
@@ -200,6 +228,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "Univ of Michigan: Consumer Sentiment",
+    "UNITS": "Index 1966:Q1=100",
     "PERIOD": "M"
   },
   {
@@ -207,6 +236,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "St. Louis Financial Stress Index",
+    "UNITS": "Index",
     "PERIOD": "W"
   },
   {
@@ -214,6 +244,7 @@
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "Spot Oil Price - West Texas Intermediate",
+    "UNITS": "Dollars per Barrel",
     "PERIOD": "M"
   },
   {
@@ -221,6 +252,7 @@
     "CATEGORY": "Consumer Prices",
     "SUB-CATEGORY": "CPI",
     "INDICATOR": "Consumer Price Index: Seasonally Adj.",
+    "UNITS": "Index 1982-1984=100",
     "PERIOD": "M"
   },
   {
@@ -228,6 +260,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Household Survey",
     "INDICATOR": "Civilian Total Unemployment Rate",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -235,6 +268,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Household Survey",
     "INDICATOR": "Long Term Unemployment: >27 WKS",
+    "UNITS": "Thousands of Persons",
     "PERIOD": "M"
   },
   {
@@ -242,6 +276,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Household Survey",
     "INDICATOR": "Length of Unemployment",
+    "UNITS": "Weeks",
     "PERIOD": "M"
   },
   {
@@ -249,6 +284,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Household Survey",
     "INDICATOR": "Total US Workforce",
+    "UNITS": "Thousands of Persons",
     "PERIOD": "M"
   },
   {
@@ -256,6 +292,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Household Survey",
     "INDICATOR": "US Employment/Population Ratio",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -263,6 +300,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Population",
     "INDICATOR": "US Population",
+    "UNITS": "Thousands",
     "PERIOD": "M"
   },
   {
@@ -270,6 +308,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Est. Survey",
     "INDICATOR": "Avg Hourly Earnings: Manufacturing",
+    "UNITS": "Dollars per Hour",
     "PERIOD": "M"
   },
   {
@@ -277,6 +316,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Est. Survey",
     "INDICATOR": "Avg Weekly Hours: Manufacturing",
+    "UNITS": "Hours",
     "PERIOD": "M"
   },
   {
@@ -284,6 +324,7 @@
     "CATEGORY": "Empl & Population",
     "SUB-CATEGORY": "Est. Survey",
     "INDICATOR": "Avg Weekly OT Hours: Manufacturing",
+    "UNITS": "Hours",
     "PERIOD": "M"
   },
   {
@@ -291,6 +332,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "USD/GBP Currency Exchange Rate",
+    "UNITS": "U.S. Dollars to One U.K. Pound Sterling",
     "PERIOD": "D"
   },
   {
@@ -298,6 +340,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "USD/EUR Currency Exchange Rate",
+    "UNITS": "U.S. Dollars to One Euro",
     "PERIOD": "D"
   },
   {
@@ -305,6 +348,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "JPN/USD Currency Exchange Rate",
+    "UNITS": "Japanese Yen to One U.S. Dollar",
     "PERIOD": "D"
   },
   {
@@ -312,6 +356,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "MXP/USD Currency Exchange Rate",
+    "UNITS": "Mexican Pesos to One U.S. Dollar",
     "PERIOD": "D"
   },
   {
@@ -319,6 +364,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "CAD/USD Currency Exchange Rate",
+    "UNITS": "Canadian Dollars to One U.S. Dollar",
     "PERIOD": "D"
   },
   {
@@ -326,6 +372,7 @@
     "CATEGORY": "Exchange Rates",
     "SUB-CATEGORY": "Daily Rates",
     "INDICATOR": "CNY/USD Currency Exchange Rate",
+    "UNITS": "Chinese Yuan Renminbi to One U.S. Dollar",
     "PERIOD": "D"
   },
   {
@@ -333,6 +380,7 @@
     "CATEGORY": "Financial Data",
     "SUB-CATEGORY": "Monetary",
     "INDICATOR": "Commercial Paper Outstanding",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "W"
   },
   {
@@ -340,6 +388,7 @@
     "CATEGORY": "Financial Data",
     "SUB-CATEGORY": "Volatility Inexes",
     "INDICATOR": "CBOE Volatility Index",
+    "UNITS": "Index",
     "PERIOD": "D"
   },
   {
@@ -347,6 +396,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "GDP/GNP",
     "INDICATOR": "US Gross Domestic Product",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -354,6 +404,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "GDP/GNP",
     "INDICATOR": "US Gross National Product",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -361,6 +412,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "GDP/GNP",
     "INDICATOR": "US Gross Domestic Income",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -368,6 +420,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Imports & Exports",
     "INDICATOR": "US Current Account Balance",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -375,6 +428,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Imports & Exports",
     "INDICATOR": "US Exports Goods & Services",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -382,6 +436,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Imports & Exports",
     "INDICATOR": "US Imports Goods & Services",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -389,6 +444,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Govt Accounting",
     "INDICATOR": "Fed Govt: Defense Budget",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -396,6 +452,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Govt Accounting",
     "INDICATOR": "Fed Govt: Tax Receipts",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -403,6 +460,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Govt Accounting",
     "INDICATOR": "Fed Govt: Budget Deficit",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -410,6 +468,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Industry",
     "INDICATOR": "Corporate Profits After Tax",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -417,6 +476,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Industry",
     "INDICATOR": "Corporate Dividends",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
   },
   {
@@ -424,6 +484,7 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Personal",
     "INDICATOR": "Personal Income",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -431,13 +492,23 @@
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Savings & Inv.",
     "INDICATOR": "Personal Savings",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "Q"
+  },
+  {
+    "SERIES": "PCE",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Personal",
+    "INDICATOR": "Personal Consumption Expenditures",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M"
   },
   {
     "SERIES": "PSAVERT",
     "CATEGORY": "GDP & Components",
     "SUB-CATEGORY": "Savings & Inv.",
     "INDICATOR": "Personal Savings Rate",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -445,6 +516,7 @@
     "CATEGORY": "Interest Rates",
     "SUB-CATEGORY": "30yr Mortgage",
     "INDICATOR": "30-yr Conventional Mortgage Rate",
+    "UNITS": "Percent",
     "PERIOD": "W"
   },
   {
@@ -452,6 +524,7 @@
     "CATEGORY": "Interest Rates",
     "SUB-CATEGORY": "FRB Rates",
     "INDICATOR": "Discount Rate",
+    "UNITS": "Percent",
     "PERIOD": "D"
   },
   {
@@ -459,6 +532,7 @@
     "CATEGORY": "Interest Rates",
     "SUB-CATEGORY": "FRB Rates",
     "INDICATOR": "Effective Federal Funds Rate",
+    "UNITS": "Percent",
     "PERIOD": "M"
   },
   {
@@ -466,6 +540,7 @@
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M1",
     "INDICATOR": "M1 Money Supply",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -473,6 +548,7 @@
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M2",
     "INDICATOR": "M2 Money Supply",
+    "UNITS": "Billions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -480,6 +556,7 @@
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M1",
     "INDICATOR": "Velocity of M1 Money Stock",
+    "UNITS": "Ratio",
     "PERIOD": "Q"
   },
   {
@@ -487,6 +564,7 @@
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M2",
     "INDICATOR": "Velocity of M2 Money Stock",
+    "UNITS": "Ratio",
     "PERIOD": "Q"
   },
   {
@@ -494,6 +572,7 @@
     "CATEGORY": "Producer Prices",
     "SUB-CATEGORY": "PPI",
     "INDICATOR": "Producer Price Index: All Commodities",
+    "UNITS": "Index 1982=100",
     "PERIOD": "M"
   },
   {
@@ -501,6 +580,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from China",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -508,6 +588,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from Japan",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -515,6 +596,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from Mexico",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -522,6 +604,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from Canada",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -529,6 +612,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from Germany",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -536,6 +620,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports from UK",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -543,6 +628,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to China",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -550,6 +636,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to Japan",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -557,6 +644,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to Mexico",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -564,6 +652,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to Canada",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -571,6 +660,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to Germany",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -578,6 +668,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports to UK",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -585,6 +676,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Exports",
     "INDICATOR": "Exports: Goods",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -592,6 +684,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports: Goods",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -599,6 +692,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Balance",
     "INDICATOR": "Balance: Goods",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -606,6 +700,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Imports",
     "INDICATOR": "Imports: Services",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -613,6 +708,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Balance",
     "INDICATOR": "Balance: Services",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   },
   {
@@ -620,6 +716,7 @@
     "CATEGORY": "Trade",
     "SUB-CATEGORY": "Balance",
     "INDICATOR": "Balance: Goods & Services",
+    "UNITS": "Millions of Dollars",
     "PERIOD": "M"
   }
 ]
