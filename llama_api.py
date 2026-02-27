@@ -46,12 +46,14 @@ Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
 When asked about economic data, use the get_fred_data function with the appropriate series_id.
 
-You will receive data from ALL tool calls. You MUST reference and analyze EVERY dataset and analysis returned, not just the last one.
+You will receive data from ALL tool calls.
 
 IMPORTANT: 
 1. Always specify start_date and end_date based on the user's question. Always use YYYY-MM-DD format, NOT relative dates like "-2y"
 2. If no time period specified, use recent 1 year by default
-3. If you only need today's or most recent data, use {(today - timedelta(days=365)).strftime('%Y-%m-%d')} as start date and {today.strftime('%Y-%m-%d')} as end date
+3. Each series_id should only be called ONCE with a single continuous date range.
+   - WRONG: calling GDP twice with 2018-2020 and 2021-2023
+   - RIGHT: calling GDP once with 2018-2023
 4. Today is {today.strftime('%Y-%m-%d')}
 """
 
@@ -198,6 +200,8 @@ class FredLLMAgent:
         try:
             result = self.call_llm(messages)
             
+            # print(result)
+
             if "message" not in result:
                 return {
                     'success': False,
@@ -221,6 +225,8 @@ class FredLLMAgent:
 
                 start_date = args.get('start_date') or args.get('start', '')
                 end_date = args.get('end_date') or args.get('end', '')
+                
+                # fix problematic dates
                 start_date, end_date = fix_date_parameters(start_date, end_date)
 
                 extracted_calls.append({
@@ -379,7 +385,7 @@ class FredLLMAgent:
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
+                "content": f"You are an US economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
             },
             {
                 "role": "user",
@@ -389,7 +395,7 @@ class FredLLMAgent:
         ]
         
         # add tool responses
-        for result in api_results:
+        for idx, result in enumerate(api_results):
             if result['success']:
                 tool_result = {
                     'series_id': result.get('series_id', ''),
@@ -400,14 +406,31 @@ class FredLLMAgent:
                 tool_result = {
                     'error': result.get('error', 'Unknown error')
                 }
-            
+
+            if idx == len(api_results) - 1:
+                series_list = ', '.join(r['series_id'] for r in api_results if r['success'])
+                tool_result['reminder'] = (
+                    f"IMPORTANT: You must analyze ALL {len(api_results)} indicators "
+                    f"including {series_list}. Do not skip any."
+                )
+
             messages.append({
                 "role": "tool",
                 "tool_call_id": result.get('tool_call_id', ''),
                 "content": json.dumps(tool_result, ensure_ascii=False)
             })
         
+        # # DYNAMIC UPDATE system prompt to make sure that the llm uses all the data and answer the question
+        # series_list = ', '.join(r['series_id'] for r in api_results if r['success'])
+        # 
+        # messages[0]['content'] = (
+        #     f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}\n\n"
+        #     f"REQUIRED: You have received {len(api_results)} datasets ({series_list}). "
+        #     f"You MUST explicitly analyze ALL of them in your response. Do not skip any."
+        # )
+
         final_result = self.call_llm(messages)
+
         final_answer = final_result.get("message", {}).get("content", "No response generated")
         
         execution_time = time.time() - start_time
@@ -431,22 +454,37 @@ class FredLLMAgent:
 
 
 def process_question(question, verbose=True):
-    agent = FredLLMAgent(verbose=verbose)
+
+    # original version
+    # agent = FredLLMAgent(model="llama3.2", verbose=True)
+
+    # fine-tuned-1 version
+    agent = FredLLMAgent(model="llama-finetuned-v1", verbose=True)
+
     return agent.process_question(question)
 
 
 if __name__ == "__main__":
     import pandas as pd
 
-    # with open('data/QA.json') as f:
-    #     file = json.load(f)
+    with open('data/QA.json', encoding='utf-8') as f:
+        file = json.load(f)
     
-    file = [
-        "How did manufacturing labor market change during 2022?",
-    ]
-    
-    agent = FredLLMAgent(verbose=True)
+    # file = [
+    #     # "How did unemployment and inflation change in 2024?",
+    #     # "What's the trade balance trend between goods and services over the past 2 years?"
+    #     # "What's the date today?",
+    #       "Show me GDP data for Q1 2024"
+    # ]
+
+    # agent = FredLLMAgent(model="llama-finetuned-v1", verbose=True)
+
+    agent = FredLLMAgent(model="llama3.2", verbose=True)
     
     for idx, question in enumerate(file):
-        # result = agent.process_question(question['question'])
-        result = agent.process_question(question)
+        if idx < 1:
+            continue
+        if idx >= 4:
+            break 
+        result = agent.process_question(question['question'])
+        # result = agent.process_question(question)

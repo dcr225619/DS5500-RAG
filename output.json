@@ -240,10 +240,10 @@
     "PERIOD": "W"
   },
   {
-    "SERIES": "OILPRICE",
+    "SERIES": "WTISPLC",
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
-    "INDICATOR": "Spot Oil Price - West Texas Intermediate",
+    "INDICATOR": "Spot Crude Oil Price - West Texas Intermediate",
     "UNITS": "Dollars per Barrel",
     "PERIOD": "M"
   },
@@ -717,6 +717,14 @@
     "SUB-CATEGORY": "Balance",
     "INDICATOR": "Balance: Goods & Services",
     "UNITS": "Millions of Dollars",
+    "PERIOD": "M"
+  },
+  {
+    "SERIES": "FIXHAI",
+    "CATEGORY": "Production & Business Activity",
+    "SUB-CATEGORY": "Housing",
+    "INDICATOR": "US Housing Affordability Index (Fixed)",
+    "UNITS": "Index",
     "PERIOD": "M"
   }
 ]

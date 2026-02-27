@@ -12,7 +12,6 @@ scope:
 2. start_date and end_date
 """
 
-
 class AccuracyEvaluator:
     def __init__(self, test_cases_file=None):
         """
@@ -191,8 +190,8 @@ class AccuracyEvaluator:
         """
         question = test_case['question']
         question_id = test_case['question_id']
-        expected_series_ids = test_case['expected_series_ids']
-        expected_date_range = test_case.get('expected_date_range')
+        expected_series_ids = test_case.get('expected_series_ids', [])
+        expected_date_range = test_case.get('expected_date_range', {})
         
         print(f"\n{'='*60}")
         print(f"Question: {question}")
@@ -200,23 +199,44 @@ class AccuracyEvaluator:
         
         extraction = self.agent.extract_tool_calls(question)
         
+        if not test_case.get("tool_call_required", True):
+            # non-tool-call-required question:
+            # if no tool call extracted -> score=1
+            # if tool call extracted -> score=0
+            made_tool_call = extraction['success'] and bool(extraction.get('tool_calls'))
+            if made_tool_call:
+                return {
+                    'question_id': question_id,
+                    'success': False,
+                    'error': 'Model incorrectly made a tool call for a non-tool-call question',
+                    'series_id_score': 0,
+                    'date_range_score': 0,
+                    'overall_score': 0
+                }
+            else:
+                return {
+                    'question_id': question_id,
+                    'success': True,
+                    'series_id_evaluation': {'score': 1.0, 'correct': [], 'missing': [], 'extra': []},
+                    'date_range_evaluation': {'score': 1.0, 'details': 'No tool call expected or made'},
+                    'overall_score': 1.0
+                }
+
+        # tool-call-required question but no tool call extracted
         if not extraction['success']:
-            print(f"Extraction failed: {extraction.get('error')}")
             return {
                 'question_id': question_id,
                 'success': False,
-                'error': extraction.get('error'),
+                'error': extraction.get('error', 'Tool call extraction failed'),
                 'series_id_score': 0,
                 'date_range_score': 0,
                 'overall_score': 0
             }
-        
+
         actual_calls = extraction['tool_calls']
         
         series_eval = self.evaluate_series_id(actual_calls, expected_series_ids)
-        
         date_eval = self.evaluate_date_range(actual_calls, expected_date_range)
-        
         overall_score = series_eval['score'] * 0.5 + date_eval['score'] * 0.5
         
         return {
@@ -239,6 +259,8 @@ class AccuracyEvaluator:
         print(f"{'#'*60}")
         
         for i, test_case in enumerate(self.test_cases, 1):
+            if i >= 327:
+                break
             print(f"\n[Test {i}/{len(self.test_cases)}]")
             result = self.evaluate_single_case(test_case)
             results.append(result)
@@ -248,18 +270,34 @@ class AccuracyEvaluator:
         if not successful_tests:
             print("\nAll tests failed!")
             return {'results': results, 'summary': None}
+
         
-        avg_series_score = sum(r['series_id_evaluation']['score'] 
-                              for r in successful_tests) / len(successful_tests)
-        avg_date_score = sum(r['date_range_evaluation']['score'] 
-                            for r in successful_tests) / len(successful_tests)
-        avg_overall_score = sum(r['overall_score'] 
-                               for r in successful_tests) / len(successful_tests)
+        avg_series_score = sum(
+            r['series_id_evaluation']['score']
+            for r in successful_tests
+            if 'series_id_evaluation' in r
+        ) / len(successful_tests)
+
+        avg_date_score = sum(
+            r['date_range_evaluation']['score']
+            for r in successful_tests
+            if 'date_range_evaluation' in r
+        ) / len(successful_tests)
+
+        avg_overall_score = sum(r['overall_score'] for r in successful_tests) / len(successful_tests)
+
         
+        tool_call_tests = [r for r in results if self.test_cases[results.index(r)].get('tool_call_required', True)]
+        non_tool_tests  = [r for r in results if not self.test_cases[results.index(r)].get('tool_call_required', True)]
+
         summary = {
             'total_tests': len(self.test_cases),
             'successful_tests': len(successful_tests),
             'failed_tests': len(self.test_cases) - len(successful_tests),
+            'tool_call_tests': len(tool_call_tests),
+            'tool_call_passed': sum(1 for r in tool_call_tests if r['success']),
+            'non_tool_call_tests': len(non_tool_tests),
+            'non_tool_call_passed': sum(1 for r in non_tool_tests if r['success']),
             'avg_series_id_score': round(avg_series_score, 2),
             'avg_date_range_score': round(avg_date_score, 2),
             'avg_overall_score': round(avg_overall_score, 2)
@@ -268,13 +306,18 @@ class AccuracyEvaluator:
         print(f"\n{'#'*60}")
         print("SUMMARY")
         print(f"{'#'*60}")
-        print(f"Total tests: {summary['total_tests']}")
-        print(f"Successful: {summary['successful_tests']}")
-        print(f"Failed: {summary['failed_tests']}")
-        print(f"\nAverage Scores:")
-        print(f"  Series ID: {summary['avg_series_id_score']}")
-        print(f"  Date Range: {summary['avg_date_range_score']}")
-        print(f"  Overall: {summary['avg_overall_score']}")
+        print(f"Total tests:        {summary['total_tests']}")
+        print(f"Successful:         {summary['successful_tests']}")
+        print(f"Failed:             {summary['failed_tests']}")
+        print(f"\nBreakdown:")
+        print(f"  Tool-call tests:      {summary['tool_call_tests']} "
+              f"(passed: {summary['tool_call_passed']})")
+        print(f"  Non-tool-call tests:  {summary['non_tool_call_tests']} "
+              f"(passed: {summary['non_tool_call_passed']})")
+        print(f"\nAverage Scores (successful tests only):")
+        print(f"  Series ID:   {summary['avg_series_id_score']}")
+        print(f"  Date Range:  {summary['avg_date_range_score']}")
+        print(f"  Overall:     {summary['avg_overall_score']}")
         print(f"{'#'*60}\n")
         
         return {
@@ -283,7 +326,6 @@ class AccuracyEvaluator:
         }
     
     def export_results(self, results, filepath='files/evaluation_results.json'):
-        """export results to json file"""
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         print(f"\nResults exported to {filepath}")
@@ -297,11 +339,11 @@ if __name__ == "__main__":
     evaluator = AccuracyEvaluator()
     
     # add test cases
-    path = 'data/QA.json'
+    path = 'data/QA2.json'
     evaluator.load_test_cases(path)
     
     results = evaluator.run_all_tests()
     
-    evaluator.export_results(results,'files/evaluation_results_output.json' )
+    evaluator.export_results(results,'files/origin/evaluation_results_compact6.json' )
 
     print(f'Execution time: {time.time() - start: .2f}')

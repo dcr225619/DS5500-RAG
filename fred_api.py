@@ -35,6 +35,7 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
         'file_type': 'json',
         'observation_start': start_date,
         'observation_end': end_date,
+        'frequency': frequency
     }
     
     if frequency:
@@ -44,20 +45,29 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
     
     if response.status_code == 200:
         data = response.json()
-        if 'observations' in data and len(data['observations']) < 2:
-            # no analysis result for single data point
-            return {
-                'success': True,
-                'series_id': series_id,
-                'indicator_name': indicator_name,
-                'units': units,
-                'data': data['observations']
-            }
-        elif 'observations' in data and len(data['observations']) >= 2:
-            try:
-                analyzer = TimeSeriesAnalyzer(data['observations'])
-                # analysis = analyzer.generate_summary(compact_mode=compact_mode)
-                
+        try:
+            analyzer = TimeSeriesAnalyzer(data['observations'])
+            # analysis = analyzer.generate_summary(compact_mode=compact_mode)
+
+            if 'observations' in data and len(data['observations']) < 2:
+                # compact analysis result for single data point
+                summary = analyzer.generate_summary(
+                            indicator_name=indicator_name,
+                            include_full_timeseries=True,
+                            recent_n_points=5,
+                            include_inflections=False,
+                            compact_mode=True
+                        )
+
+                return {
+                    'success': True,
+                    'series_id': series_id,
+                    'indicator_name': indicator_name,
+                    'units': units,
+                    'analysis': summary
+                }
+
+            elif 'observations' in data and len(data['observations']) >= 2:
                 # decide compact mode or not according to the size of data
                 if compact_mode or len(data['observations']) > 60:
                     # less than 5 data points -> compact mode
@@ -81,21 +91,20 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                     'success': True,
                     'series_id': series_id,
                     'indicator_name': indicator_name,
-                    'data': data['observations'],
-                    'raw_data': summary.get('overview', {}),
+                    'units': units,
                     'analysis': summary
                 }
 
-            except Exception as e:
-                print(f"Warning: Analysis failed: {e}")
-                # return original data if analysis failed
-                return {
-                    'success': True,
-                    'series_id': series_id,
-                    'indicator_name': indicator_name,
-                    'units': units,
-                    'data': data['observations']
-                }
+        except Exception as e:
+            print(f"Warning: Analysis failed: {e}")
+            # return original data if analysis failed
+            return {
+                'success': True,
+                'series_id': series_id,
+                'indicator_name': indicator_name,
+                'units': units,
+                'data': data['observations']
+            }
     
     return {
         'success': False,
@@ -104,32 +113,35 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
 
 
 if __name__ == "__main__":
-    INDICATORS_MAP = load_indicator_metadata()
+    # INDICATORS_MAP = load_indicator_metadata()
 
-    cnt = 0
-    failed_list = []
+    # cnt = 0
+    # failed_list = []
 
-    for idx, (series, data) in enumerate(INDICATORS_MAP.items()):
+    # for idx, (series, data) in enumerate(INDICATORS_MAP.items()):
 
-        if idx > 2:
-            break
+    #     if idx > 2:
+    #         break
 
-        res = call_fred_api(series, start_date='2025-01-01', end_date=datetime.today().strftime('%Y-%m-%d'))
+    #     res = call_fred_api(series, start_date='2025-01-01', end_date=datetime.today().strftime('%Y-%m-%d'))
 
-        # def plot_line(y, title=None):
-        #     plt.plot(y.index, y['value'], color='r')
-        #     if title is not None:
-        #         plt.title(title)
-        #     plt.xlabel('Date', fontsize=10)
-        #     plt.ylabel('Value', fontsize=10)
-        #     plt.legend()
-        #     plt.grid(True, alpha=0.3) # alpha adjusts transparency
-        #     plt.tight_layout()
-        #     plt.show()
+    #     # def plot_line(y, title=None):
+    #     #     plt.plot(y.index, y['value'], color='r')
+    #     #     if title is not None:
+    #     #         plt.title(title)
+    #     #     plt.xlabel('Date', fontsize=10)
+    #     #     plt.ylabel('Value', fontsize=10)
+    #     #     plt.legend()
+    #     #     plt.grid(True, alpha=0.3) # alpha adjusts transparency
+    #     #     plt.tight_layout()
+    #     #     plt.show()
 
-        if not res['success']:
-            print(res['error'])
-        else:
-            cnt += 1
+    #     if not res['success']:
+    #         print(res['error'])
+    #     else:
+    #         cnt += 1
 
-    print(f'{cnt} data read successfully.')
+    # print(f'{cnt} data read successfully.')
+
+    res = call_fred_api("GDP", start_date='2024-01-01', end_date='2025-01-01')
+    print(res)

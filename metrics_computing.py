@@ -81,6 +81,14 @@ class TimeSeriesAnalyzer:
     
     def assess_trend(self):
         """use linear regression to access overall trend"""
+        if len(self.df) < 2:
+            return {
+                'trend': 'insufficient data',
+                'strength': 'N/A',
+                'slope': 0.0,
+                'description': 'insufficient data for trend analysis'
+            }
+
         x = np.arange(len(self.df))
         y = self.df['value'].values
         
@@ -105,6 +113,9 @@ class TimeSeriesAnalyzer:
     
     def detect_volatility_changes(self, window=6):
         """detect volatility changes"""
+        if len(self.df) < 2:  # already guarded at window*2, but be explicit
+            return None
+
         if len(self.df) < window * 2:
             return None
         
@@ -122,6 +133,9 @@ class TimeSeriesAnalyzer:
     
     def get_notable_periods(self):
         """get notable periods by identifying the greatest MoM and YoY increase and decrease"""
+        if len(self.df) < 2:
+            return {}
+
         values = self.df['value'].values
         dates = self.df.index
         
@@ -206,17 +220,17 @@ class TimeSeriesAnalyzer:
             if i >= 1 and values[i-1] != 0:
                 data_point['mom_absolute'] = round(float(values[i] - values[i-1]), 2)
                 data_point['mom_percentage'] = round(float((values[i] - values[i-1]) / values[i-1] * 100), 2)
-            else:
-                data_point['mom_absolute'] = None
-                data_point['mom_percentage'] = None
+            # else:
+            #     data_point['mom_absolute'] = None
+            #     data_point['mom_percentage'] = None
             
             # YoY
             if i >= 12 and values[i-12] != 0:
                 data_point['yoy_absolute'] = round(float(values[i] - values[i-12]), 2)
                 data_point['yoy_percentage'] = round(float((values[i] - values[i-12]) / values[i-12] * 100), 2)
-            else:
-                data_point['yoy_absolute'] = None
-                data_point['yoy_percentage'] = None
+            # else:
+            #     data_point['yoy_absolute'] = None
+            #     data_point['yoy_percentage'] = None
             
             # inflection point target
             data_point['inflection_type'] = inflection_dates.get(date_str, None)
@@ -254,7 +268,7 @@ class TimeSeriesAnalyzer:
             inflection_prominence=inflection_prominence
         )
         
-        # COMPACT MODE: only return most important information
+        # COMPACT SUMMARY: only return most important information
         if compact_mode:
             summary = {
                 'data_points': len(self.df),
@@ -292,10 +306,10 @@ class TimeSeriesAnalyzer:
             
             # 2. key stats
             'key_statistics': {
-                'current': {
-                    'value': basic_stats['latest']['value'],
-                    'date': basic_stats['latest']['date']
-                },
+                # 'current': {
+                #     'value': basic_stats['latest']['value'],
+                #     'date': basic_stats['latest']['date']
+                # },
                 'all_time_high': {
                     'value': basic_stats['max']['value'],
                     'date': basic_stats['max']['date']
@@ -323,7 +337,7 @@ class TimeSeriesAnalyzer:
             # 4. notable changes
             'notable_changes': notable,
             
-            # 5. recent data
+            # 5. recent_n_points recent data
             'recent_data': {
                 'description': f'Most recent {min(recent_n_points, len(full_timeseries))} data points',
                 'data': full_timeseries[-recent_n_points:] if recent_n_points else []
@@ -357,7 +371,7 @@ class TimeSeriesAnalyzer:
             if all_inflections:
                 summary['inflection_points']['most_recent_inflection'] = all_inflections[0]
         
-        # optional: include full data
+        # optional: include all data
         if include_full_timeseries:
             summary['full_timeseries'] = full_timeseries
         
