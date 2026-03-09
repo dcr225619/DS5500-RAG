@@ -1,5 +1,0 @@
-https://www.kaggle.com/datasets/sai14karthik/nasdq-dataset
-
-finetune: tool calls -> conv
-
-finetune2: gpt conversations -> conv2

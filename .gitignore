@@ -8,12 +8,7 @@ gpt_key.py
 retrieval_accuracy_test.py
 llama_url.py
 ConvFinQA-main
-data\nasdaq-daily-stock-prices
-data\01-16-2025-FR-(Final).pdf
-data\fundamentals_dataset.csv
-data\nasdaq100_metrics_ratios.csv
-data\nasdq.csv
-data\ref notes.txt
+nasdaq
 files
 FinQA
 FRED data
