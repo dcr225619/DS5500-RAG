@@ -1,9 +1,12 @@
 .gitignore
+finetune
 finetune1
+finetune2
+finetune3
 fred_key.py
+gpt_key.py
 retrieval_accuracy_test.py
 llama_url.py
-test_context_window.py
 ConvFinQA-main
 data
 files

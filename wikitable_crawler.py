@@ -8,7 +8,7 @@ url = "https://en.wikipedia.org/wiki/Federal_Reserve_Economic_Data"
 
 # add User-Agent to avoid 403 error
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
 
 # get the page content
@@ -29,8 +29,8 @@ df = tables[0]
 
 # transform into json
 import json
-json_data = df.to_json(orient='records', force_ascii=False)
+json_data = df.to_json(orient="records", force_ascii=False)
 
 # save to file
-with open('output.json', 'w', encoding='utf-8') as f:
+with open("output.json", "w", encoding="utf-8") as f:
     json.dump(json.loads(json_data), f, ensure_ascii=False, indent=2)

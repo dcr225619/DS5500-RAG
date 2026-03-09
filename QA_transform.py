@@ -10,7 +10,7 @@ into llm conversations that are suitable for llama 3.1 fine-tuning.
 
 INDICATORS_MAP = load_indicator_metadata()
 
-with open('files/indicator_guide_compact.txt', encoding='utf-8') as f:
+with open("files/indicator_guide_compact.txt", encoding="utf-8") as f:
     indicator_mapping = f.read()
 
 today = datetime.today()
@@ -28,17 +28,17 @@ IMPORTANT:
 3. Each series_id should only be called ONCE with a single continuous date range.
    - WRONG: calling GDP twice with 2018-2020 and 2021-2023
    - RIGHT: calling GDP once with 2018-2023
-4. Today is {today.strftime('%Y-%m-%d')}
+4. Today is {today.strftime("%Y-%m-%d")}
 """
 
-with open('data/QA.json', encoding='utf-8') as f:
+with open("data/QA.json", encoding="utf-8") as f:
     file = json.load(f)
 
 results = []
 for idx, q in enumerate(file):
-    question = q['question']
+    question = q["question"]
 
-    # edge case: don't need tool call
+    # edge case: don"t need tool call
     # choose direct responds according to respond type
     if not q.get("tool_call_required", True):
         response_type = q.get("response_type", "direct_answer")
@@ -103,7 +103,7 @@ for idx, q in enumerate(file):
             alt_descriptions = []
             for sid in alternatives:
                 if sid in INDICATORS_MAP:
-                    name = INDICATORS_MAP[sid]['INDICATOR']
+                    name = INDICATORS_MAP[sid]["INDICATOR"]
                     alt_descriptions.append(f"{name} ({sid})")
             alt_text = ", ".join(alt_descriptions) if alt_descriptions else "no close alternatives available"
             assistant_content = (
@@ -137,27 +137,27 @@ for idx, q in enumerate(file):
         continue 
 
     # deal with relative dates
-    if 'relative_start' in dates:
-        relative = dates['relative_start']
-        if relative.endswith('y'):
+    if "relative_start" in dates:
+        relative = dates["relative_start"]
+        if relative.endswith("y"):
             years = int(relative[:-1])
-            expected_start = (today - timedelta(days=365 * years)).strftime('%Y-%m-%d')
-        elif relative.endswith('m'):
+            expected_start = (today - timedelta(days=365 * years)).strftime("%Y-%m-%d")
+        elif relative.endswith("m"):
             months = int(relative[:-1])
-            expected_start = (today - timedelta(days=30 * months)).strftime('%Y-%m-%d')
+            expected_start = (today - timedelta(days=30 * months)).strftime("%Y-%m-%d")
         else:
-            expected_start = dates.get('start', '')
+            expected_start = dates.get("start", "")
     else:
-        expected_start = dates.get('start', '')
+        expected_start = dates.get("start", "")
 
-    if dates.get('relative_end') == 'today':
-        expected_end = today.strftime('%Y-%m-%d')
+    if dates.get("relative_end") == "today":
+        expected_end = today.strftime("%Y-%m-%d")
     else:
-        expected_end = dates.get('end', '')
+        expected_end = dates.get("end", "")
 
     # combine all the tool calls
     tool_calls_content = "\n".join([
-        f'<tool_call>\n{json.dumps({"name": "get_fred_data", "arguments": {"series_id": sid, "start_date": expected_start, "end_date": expected_end}})}\n</tool_call>'
+        json.dumps({"name": "get_fred_data", "arguments": {"series_id": sid, "start_date": expected_start, "end_date": expected_end}})
         for sid in series_ids
     ])
 
@@ -181,5 +181,5 @@ for idx, q in enumerate(file):
     results.append(template)
 
 # file
-with open('data/QA_finetune2.json', 'w', encoding='utf-8') as f:
+with open("data/QA_conv.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)

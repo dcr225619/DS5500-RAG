@@ -1,6 +1,7 @@
 import requests
 from fred_key import fred_key
 from fred_api import load_indicator_metadata, call_fred_api
+from series_retriever import SeriesRetriever
 import json
 from datetime import datetime, timedelta
 import time
@@ -8,29 +9,30 @@ import time
 BASE_URL = "https://api.stlouisfed.org/fred/"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
-# indicator_guide_compact.txt, indicator_guide_by_category.txt, indicator_guide_optimized.txt, indicator_guide_with_examples.txt
-with open("files/indicator_guide_compact.txt", encoding="utf-8") as f:
-    indicator_mapping = f.read()
+retriever = SeriesRetriever()
 
-INDICATOR_GUIDE = indicator_mapping + f"""
-Note: frequency: (A)=Yearly, (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily
+GUIDE_SUFFIX = f"""
+Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
-When asked about economic data available above, use the get_fred_data function with the appropriate series_id to gain data to support your response.
-
-Otherwise, directly answer the question.
-
-For vague or unspecified request, ask for further clarification and explanation.
+When asked about economic data, use the get_fred_data function with the appropriate series_id.
 
 You will receive data from ALL tool calls.
 
-IMPORTANT: 
+IMPORTANT:
 1. Always specify start_date and end_date based on the user's question. Always use YYYY-MM-DD format, NOT relative dates like "-2y"
 2. If no time period specified, use recent 1 year by default
 3. Each series_id should only be called ONCE with a single continuous date range.
    - WRONG: calling GDP twice with 2018-2020 and 2021-2023
    - RIGHT: calling GDP once with 2018-2023
-4. Today is {datetime.today().strftime("%Y-%m-%d")}
+4. Today is {datetime.today().strftime('%Y-%m-%d')}
 """
+
+def build_indicator_guide(question: str, top_k: int = 8) -> str:
+    """
+    Dynamically build a prompt section with only the most relevant series
+    for the given question, instead of listing all 90+ series every time.
+    """
+    return retriever.build_prompt_section(question, top_k=top_k) + GUIDE_SUFFIX
 
 TOOLS = [
     {
@@ -126,10 +128,11 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
 
 
 class FredLLMAgent:
-    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True):
+    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, top_k=5):
         self.model = model
         self.api_url = api_url
         self.verbose = verbose  # print process or not
+        self.top_k = top_k
         
     def call_llm(self, messages):
         payload = {
@@ -154,10 +157,19 @@ class FredLLMAgent:
                 "error": str (if failed)
             }
         """
+        # dynamically search for top k series
+        guide = build_indicator_guide(question, top_k=self.top_k)
+
+        if self.verbose:
+            print(f"\n  [Retriever] top-{self.top_k} series for this question:")
+            relevant = retriever.retrieve(question, top_k=self.top_k)
+            for s in relevant:
+                print(f"    [{s['similarity']:.3f}] {s['SERIES']}: {s['INDICATOR']}")
+
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
+                "content": f"You are an economic data assistant with access to FRED API. {guide}"
             },
             {
                 "role": "user",

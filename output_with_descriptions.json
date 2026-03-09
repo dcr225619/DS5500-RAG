@@ -1,0 +1,830 @@
+[
+  {
+    "SERIES": "TREAST",
+    "CATEGORY": "Finance",
+    "SUB-CATEGORY": "Monetary Data",
+    "INDICATOR": "US Treasuries Held by the Fed",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "W",
+    "description": "US Treasuries Held by the Fed measures the total value of U.S. government securities that the Federal Reserve owns. This indicator is significant as it reflects the Fed's monetary policy stance and its role in influencing interest rates and liquidity in the economy. Typically, this figure rises when the Fed is engaging in expansionary monetary policy, such as during economic downturns, and falls when the Fed is tightening policy. Users might ask about this topic using terms like 'how much debt does the Fed own?', 'what are Fed's Treasury holdings?', or 'impact of Fed's bond purchases on the economy?'."
+  },
+  {
+    "SERIES": "WSHOMCB",
+    "CATEGORY": "Finance",
+    "SUB-CATEGORY": "Monetary Data",
+    "INDICATOR": "Mortgage Backed Sec Held by the Fed",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "W",
+    "description": "The Mortgage Backed Securities (MBS) Held by the Federal Reserve measures the total value of mortgage-backed securities that the Fed holds as part of its monetary policy operations. This indicator is significant as it reflects the Fed's involvement in the housing market and its efforts to influence interest rates and liquidity. Typically, this figure rises during economic downturns when the Fed purchases more securities to stimulate the economy, and it may fall when the economy is strengthening and the Fed reduces its holdings. Related terms users might search for include 'Fed mortgage securities', 'how much MBS does the Fed own', and 'impact of Fed on mortgage rates'."
+  },
+  {
+    "SERIES": "WALCL",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Monetary Factors",
+    "INDICATOR": "All Fed Reserve Banks - Total Assets",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "W",
+    "description": "The Total Assets of All Federal Reserve Banks measures the total value of assets held by the Federal Reserve System, expressed in millions of dollars. This indicator is significant as it reflects the monetary policy stance of the Federal Reserve, influencing liquidity in the banking system and overall economic conditions. Typically, total assets rise during periods of economic stimulus, such as quantitative easing, and may fall when the Fed is tightening monetary policy. Users might ask about this topic using terms like 'Federal Reserve balance sheet', 'how much money does the Fed have', or 'Fed assets and economic impact'."
+  },
+  {
+    "SERIES": "TOTBKCR",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Bank Credit of All Commercial Banks",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "W",
+    "description": "Bank Credit of All Commercial Banks measures the total amount of loans and credit extended by commercial banks to businesses and consumers. This indicator is significant as it reflects the availability of credit in the economy, which can influence spending, investment, and overall economic growth. Typically, bank credit rises during economic expansions when demand for loans increases, and falls during recessions when lending standards tighten and borrowing decreases. Users might ask about this topic using terms like 'how much are banks lending?', 'what is the total bank credit?', or 'bank loans trends'."
+  },
+  {
+    "SERIES": "TOTALSEC",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Securitized Total Consumer Loans",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Securitized Total Consumer Loans measures the total amount of consumer loans that have been packaged and sold as securities in the financial markets. This indicator is significant as it reflects the health of consumer lending and the broader credit market, indicating how much debt consumers are taking on and how lenders are managing that risk. Typically, this figure rises during economic expansions when consumer confidence is high and falls during recessions when lending standards tighten and consumer demand decreases. Related terms users might search for include 'consumer debt securities', 'loan securitization', and 'consumer credit market trends'."
+  },
+  {
+    "SERIES": "TOTALSL",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Commercial Credit",
+    "INDICATOR": "Total Consumer Credit Outstanding",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Consumer Credit Outstanding measures the total amount of credit extended to consumers by financial institutions, including credit cards, loans, and other forms of credit. This indicator is significant as it reflects consumer borrowing behavior and overall economic health; rising consumer credit can indicate increased consumer confidence and spending, while falling credit may suggest economic caution. Typically, total consumer credit rises during economic expansions when consumers are more willing to borrow and spend, and falls during recessions when borrowing tends to decrease. Related terms users might use include 'consumer debt levels', 'how much do people owe', and 'credit card debt statistics'."
+  },
+  {
+    "SERIES": "INVEST",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Investment",
+    "INDICATOR": "Total Investments All Commercial Banks",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Investments All Commercial Banks measures the total amount of investments held by commercial banks, expressed in millions of dollars. This indicator is significant as it reflects the banks' willingness to invest in various financial instruments, which can influence liquidity and credit availability in the economy. Typically, this figure rises during economic expansions when banks are more confident and willing to invest, and falls during recessions when they may become more risk-averse. Related terms users might search for include 'bank investments', 'commercial bank assets', and 'financial institution investments'."
+  },
+  {
+    "SERIES": "USGSEC",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Investment",
+    "INDICATOR": "US Treasury and Agency Securities at All Commercial Banks",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "US Treasury and Agency Securities at All Commercial Banks measures the total value of U.S. government and agency securities held by commercial banks. This indicator is significant as it reflects the level of investment in safe, liquid assets, which can signal banks' confidence in the economy and their liquidity positions. Typically, this figure rises during periods of economic uncertainty as banks seek safer investments, while it may fall when banks are more willing to invest in riskier assets during economic growth. Related terms users might use include 'government bonds held by banks', 'bank investments in treasury securities', and 'commercial bank holdings of government debt'."
+  },
+  {
+    "SERIES": "CONSUMER",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Loans",
+    "INDICATOR": "Total Consumer Loans",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Consumer Loans measures the total amount of loans extended to consumers by financial institutions, expressed in millions of dollars. This indicator is significant as it reflects consumer borrowing behavior, which can signal consumer confidence and spending power in the economy. Typically, total consumer loans rise during economic expansions when consumers are more willing to borrow and spend, and fall during recessions when borrowing tends to decrease due to uncertainty. Related terms users might search for include 'consumer debt', 'personal loans', and 'how much do people borrow'."
+  },
+  {
+    "SERIES": "BUSLOANS",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Loans",
+    "INDICATOR": "Total Commercial/Industrial Loans",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Commercial/Industrial Loans measures the total amount of loans extended by commercial banks to businesses for various purposes, including operational expenses and capital investments. This indicator is significant as it reflects the level of business investment and economic activity; higher loan amounts suggest businesses are expanding and confident in future growth. In economic expansions, this figure typically rises as businesses seek funding, while it may fall during recessions when companies are more cautious about borrowing. Related terms users might use include 'business loans', 'corporate borrowing', and 'bank loans to companies'."
+  },
+  {
+    "SERIES": "DALLCACBEP",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Delinquencies",
+    "INDICATOR": "Delinquencies On All Loans And Leases",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "Delinquencies on All Loans and Leases measures the total amount of loans and leases that are overdue by borrowers, expressed in billions of dollars. This indicator is significant as it reflects the financial health of consumers and businesses, indicating potential stress in the economy when delinquencies rise. Typically, delinquencies increase during economic downturns when individuals and companies may struggle to meet their financial obligations, and they tend to decrease in periods of economic growth. Related terms users might search for include 'loan defaults', 'overdue loans', and 'borrowing problems'."
+  },
+  {
+    "SERIES": "T10Y2Y",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "US 10-YR / 2-YR Spread",
+    "UNITS": "Percent",
+    "PERIOD": "W",
+    "description": "The US 10-YR / 2-YR Spread measures the difference in interest rates between 10-year and 2-year U.S. Treasury securities. This spread is significant as it reflects investor expectations about future economic growth and inflation; a widening spread often indicates confidence in economic expansion, while a narrowing spread can signal potential recession. Typically, the spread rises when the economy is growing and falls during periods of economic uncertainty or contraction. Related terms users might search for include 'interest rate spread', 'yield curve', and 'bond market indicators'."
+  },
+  {
+    "SERIES": "TB3MS",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "3-Month T-Bill: Secondary Market Rate",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "The 3-Month T-Bill: Secondary Market Rate measures the interest rate on U.S. Treasury bills that mature in three months, reflecting the return investors receive for lending money to the government for that short period. This rate is significant as it serves as a benchmark for short-term interest rates and indicates the market's expectations for future interest rates and economic conditions. Typically, the rate rises during periods of economic growth and inflation expectations, while it falls during economic downturns or when the Federal Reserve lowers interest rates to stimulate the economy. Related terms users might search for include 'short-term interest rates', 'Treasury bill rates', and '3-month T-Bill yield'."
+  },
+  {
+    "SERIES": "DGS10",
+    "CATEGORY": "Banking",
+    "SUB-CATEGORY": "Interest Rates",
+    "INDICATOR": "10-Yr Treasury Const. Maturity Rate",
+    "UNITS": "Percent",
+    "PERIOD": "W",
+    "description": "The 10-Year Treasury Constant Maturity Rate measures the yield on U.S. government bonds that mature in ten years. It is a key indicator of investor sentiment and expectations regarding future interest rates and economic conditions. Typically, this rate rises when the economy is strong and inflation expectations increase, while it falls during economic downturns or periods of uncertainty. Users might ask about this topic using terms like '10-year bond yield', 'Treasury rates', or 'interest rates on government bonds'."
+  },
+  {
+    "SERIES": "GFDEBTN",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Government Debt (Public)",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "Q",
+    "description": "Federal Government Debt (Public) measures the total amount of money that the federal government owes to external creditors, expressed in millions of dollars. This indicator is significant as it reflects the government's fiscal health and its ability to manage public finances, influencing interest rates and economic stability. Typically, government debt rises during economic downturns due to increased borrowing for stimulus measures and falls during periods of economic growth when revenues increase. Related terms users might search for include 'national debt', 'government borrowing', and 'public debt levels'."
+  },
+  {
+    "SERIES": "FYOINT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Interest on National Debt",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "A",
+    "description": "Interest on National Debt measures the total interest payments made by the federal government on its outstanding debt. This indicator is significant as it reflects the government's borrowing costs and fiscal health, influencing budgetary decisions and economic policy. Typically, interest payments rise when national debt increases or when interest rates go up, while they may fall if debt decreases or interest rates decline. Users might ask about topics like 'how much does the government pay in interest on its debt?' or 'what is the cost of servicing national debt?'"
+  },
+  {
+    "SERIES": "FYONET",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Spending",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "A",
+    "description": "Federal Spending measures the total amount of money the federal government spends on goods, services, and programs within a given period, expressed in millions of dollars. It is significant as it reflects government fiscal policy, influences economic growth, and can impact inflation and employment levels. Typically, federal spending rises during economic downturns to stimulate growth and may fall during periods of economic expansion as the government aims to reduce deficits. Related terms users might search for include 'government budget', 'federal expenditures', and 'national spending'."
+  },
+  {
+    "SERIES": "FYFR",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Federal Receipts",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "A",
+    "description": "Federal Receipts measures the total income collected by the federal government, primarily from taxes, fees, and other revenues. It is significant as it indicates the government's financial health and its ability to fund programs and services. Federal Receipts typically rise during periods of economic growth when incomes and corporate profits increase, and fall during recessions when tax revenues decline. Related terms users might use include 'government revenue', 'federal income', and 'tax collections'."
+  },
+  {
+    "SERIES": "FYFSD",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Federal Government",
+    "INDICATOR": "Budget Deficit/Surplus",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "A",
+    "description": "The Budget Deficit/Surplus measures the difference between the federal government's total revenue and its total expenditures over a specific period, expressed in millions of dollars. A budget deficit occurs when expenditures exceed revenues, indicating that the government is borrowing to cover its spending, while a surplus indicates that revenues exceed expenditures, allowing for savings or debt reduction. In times of economic growth, surpluses may rise as tax revenues increase, whereas during recessions, deficits typically increase due to lower revenues and higher spending on social programs. Related terms users might use include 'government spending,' 'national debt,' 'federal budget,' and 'deficit spending.'"
+  },
+  {
+    "SERIES": "CDSP",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Consumer Debt Service Payments as a Percent of Disposable Personal Income",
+    "UNITS": "Percent",
+    "PERIOD": "Q",
+    "description": "Consumer Debt Service Payments as a Percent of Disposable Personal Income measures the portion of disposable income that households spend on debt repayments, including mortgages, credit cards, and loans. This indicator is significant as it reflects the financial burden of debt on consumers and can indicate overall economic health; higher percentages suggest that consumers may be financially strained. Typically, this ratio rises during economic downturns when incomes may stagnate or decline while debt obligations remain, and it falls in stronger economic conditions when incomes increase. Related terms users might search for include 'how much do people spend on debt,' 'consumer debt levels,' and 'debt burden on households.'"
+  },
+  {
+    "SERIES": "TDSP",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Household Debt Service Payments as a Percent of Disposable Personal Income",
+    "UNITS": "Percent",
+    "PERIOD": "Q",
+    "description": "Household Debt Service Payments as a Percent of Disposable Personal Income measures the proportion of disposable income that households allocate to servicing their debt, including mortgages, credit cards, and loans. This indicator is significant as it reflects the financial burden on households and their ability to manage debt, which can influence consumer spending and overall economic health. Typically, this percentage rises during economic downturns when incomes may stagnate or decline, and falls in robust economic conditions when incomes grow and debt levels stabilize. Related terms users might search for include 'household debt levels', 'debt to income ratio', and 'affordability of debt'."
+  },
+  {
+    "SERIES": "PERMIT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "New Home Permits",
+    "UNITS": "Thousands of Units",
+    "PERIOD": "M",
+    "description": "New Home Permits measures the number of permits issued for new residential construction projects, expressed in thousands of units. This indicator is significant as it reflects the health of the housing market and can signal future construction activity, impacting employment and economic growth. Typically, new home permits rise during economic expansions when consumer confidence is high and fall during recessions when uncertainty prevails. Related terms users might search for include 'housing market trends', 'new construction permits', and 'real estate development activity'."
+  },
+  {
+    "SERIES": "HSN1F",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "New Home Sales",
+    "UNITS": "Thousands",
+    "PERIOD": "M",
+    "description": "New Home Sales measures the number of newly constructed residential properties sold during a specific period, expressed in thousands. This indicator is significant as it reflects the health of the housing market and overall economic activity, influencing construction jobs, consumer spending, and related industries. Typically, New Home Sales rise during economic expansions when consumer confidence is high and fall during recessions when uncertainty prevails. Users might ask about this topic using terms like 'how many new homes are being sold?', 'what's the current housing market like?', or 'is it a good time to buy a new home?'."
+  },
+  {
+    "SERIES": "CMDEBT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Outstanding Mortgage Debt",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "Q",
+    "description": "Outstanding Mortgage Debt measures the total amount of mortgage loans that households owe to lenders, expressed in millions of dollars. This indicator is significant as it reflects the level of household indebtedness and can signal the health of the housing market and consumer spending. Typically, outstanding mortgage debt rises during economic expansions when more people buy homes and falls during recessions when borrowing decreases due to tighter credit conditions. Related terms users might search for include 'how much mortgage debt do Americans have', 'mortgage debt trends', and 'impact of mortgage debt on the economy'."
+  },
+  {
+    "SERIES": "DGORDER",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Ind. Production",
+    "INDICATOR": "Manufacturers' New Orders",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Manufacturers' New Orders measures the total dollar value of new orders placed with manufacturers for durable and non-durable goods. This indicator is significant as it reflects the demand for manufactured products, serving as a leading indicator of economic activity and business investment. Typically, new orders rise when the economy is expanding, signaling increased production and employment, and fall during economic downturns as demand weakens. Related terms users might search for include 'new manufacturing orders', 'factory orders', and 'manufacturing demand'."
+  },
+  {
+    "SERIES": "TCU",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Ind. Production",
+    "INDICATOR": "Capacity Utilization: Total Industry",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "Capacity Utilization measures the percentage of potential output levels that is actually being achieved by total industry. It is significant because it indicates how efficiently resources are being used in the economy, with higher rates suggesting strong demand and potential inflationary pressures. Typically, capacity utilization rises during economic expansions as production ramps up, and falls during recessions when demand decreases. Related terms users might use include 'how much of industry capacity is being used', 'is the economy running at full capacity', and 'what does capacity utilization mean for economic growth'."
+  },
+  {
+    "SERIES": "TTLCONS",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Construction",
+    "INDICATOR": "Total Construction Spending",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Construction Spending measures the total dollar value of construction work done in a given period, including residential, non-residential, and public construction. It is significant as it reflects the health of the construction industry and overall economic activity, indicating investment levels in infrastructure and housing. Typically, construction spending rises during economic expansions when businesses and governments invest more in building projects, while it tends to fall during recessions when such investments are curtailed. Related terms users might search for include 'construction industry spending', 'building investment trends', and 'economic impact of construction'."
+  },
+  {
+    "SERIES": "BUSINV",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Total Business Inventories",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Total Business Inventories measures the total value of goods that businesses have in stock, including raw materials, work-in-progress, and finished goods. This indicator is significant as it reflects the supply side of the economy and can signal future production levels; rising inventories may indicate slowing sales, while falling inventories can suggest increasing demand. Typically, inventories rise during economic expansions when businesses anticipate higher sales, and fall during recessions when demand decreases. Related terms users might search for include 'business stock levels', 'inventory trends', and 'how much inventory do companies have?'."
+  },
+  {
+    "SERIES": "ALTSALES",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Light Weight Vehicle Sales",
+    "UNITS": "Millions of Units",
+    "PERIOD": "M",
+    "description": "Light Weight Vehicle Sales measures the number of light vehicles sold in a given period, expressed in millions of units. This indicator is significant as it reflects consumer demand and spending behavior, often serving as a barometer for the overall health of the economy. Typically, vehicle sales rise during economic expansions when consumers have more disposable income and confidence, while they tend to fall during recessions when economic uncertainty prevails. Related terms users might search for include 'car sales trends', 'vehicle sales statistics', and 'auto industry performance'."
+  },
+  {
+    "SERIES": "UMCSENT",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Univ of Michigan: Consumer Sentiment",
+    "UNITS": "Index 1966:Q1=100",
+    "PERIOD": "M",
+    "description": "The University of Michigan Consumer Sentiment Index measures how optimistic or pessimistic consumers feel about the economy and their personal financial situation. It is significant because consumer sentiment influences spending and saving behaviors, which are crucial for economic growth. Typically, the index rises during periods of economic expansion when consumers feel confident and falls during recessions when uncertainty prevails. Related terms users might search for include 'consumer confidence,' 'how do people feel about the economy,' and 'consumer spending outlook.'"
+  },
+  {
+    "SERIES": "STLFSI4",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "St. Louis Financial Stress Index",
+    "UNITS": "Index",
+    "PERIOD": "W",
+    "description": "The St. Louis Financial Stress Index measures the level of financial stress in the U.S. economy by analyzing various financial market indicators, such as interest rates and stock market volatility. It is significant because it provides insights into the stability of financial markets and can indicate potential economic downturns or recoveries. The index typically rises during periods of financial distress, such as recessions, and falls when financial conditions are stable or improving. Related terms users might use include 'financial stress levels', 'economic stability', and 'market volatility'."
+  },
+  {
+    "SERIES": "WTISPLC",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Other",
+    "INDICATOR": "Spot Crude Oil Price - West Texas Intermediate",
+    "UNITS": "Dollars per Barrel",
+    "PERIOD": "M",
+    "description": "The Spot Crude Oil Price - West Texas Intermediate (WTISPLC) measures the current market price for a barrel of crude oil sourced from the U.S. Midwest. This indicator is significant as it reflects the supply and demand dynamics in the oil market, influencing fuel prices, inflation, and overall economic activity. Typically, the price rises during periods of high demand or supply disruptions and falls when supply exceeds demand or during economic downturns. Users might ask about this topic using terms like 'current oil prices,' 'WTI crude price,' or 'oil market trends.'"
+  },
+  {
+    "SERIES": "CPIAUCSL",
+    "CATEGORY": "Consumer Prices",
+    "SUB-CATEGORY": "CPI",
+    "INDICATOR": "Consumer Price Index: Seasonally Adj.",
+    "UNITS": "Index 1982-1984=100",
+    "PERIOD": "M",
+    "description": "The Consumer Price Index (CPI) measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. It is a key indicator of inflation, reflecting the purchasing power of money and cost of living adjustments. The CPI typically rises during periods of economic growth and inflation, while it may fall or stabilize during economic downturns or periods of deflation. Users might ask about this topic using terms like 'how is inflation measured?', 'what does the CPI tell us?', or 'why are prices going up?'"
+  },
+  {
+    "SERIES": "UNRATE",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Civilian Total Unemployment Rate",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "The Civilian Total Unemployment Rate measures the percentage of the labor force that is unemployed and actively seeking employment. It is a key indicator of labor market health, reflecting the availability of jobs and the economy's overall performance. Typically, the unemployment rate rises during economic downturns when businesses cut back on hiring, and falls during periods of economic growth as job opportunities increase. Related terms users might search for include 'unemployment situation', 'jobless situation', 'jobless rate', 'employment statistics', and 'how many people are unemployed'."
+  },
+  {
+    "SERIES": "UEMP27OV",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Long Term Unemployment: >27 WKS",
+    "UNITS": "Thousands of Persons",
+    "PERIOD": "M",
+    "description": "The Long Term Unemployment: >27 WKS indicator measures the number of individuals who have been unemployed for more than 27 weeks. This metric is significant as it highlights the persistence of unemployment in the economy, often indicating structural issues or a lack of job opportunities. Typically, this number rises during economic downturns and falls during periods of economic recovery as more people find jobs. Related terms users might use include 'long-term jobless', 'extended unemployment', or 'people out of work for a long time'."
+  },
+  {
+    "SERIES": "UEMPMED",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Length of Unemployment",
+    "UNITS": "Weeks",
+    "PERIOD": "M",
+    "description": "The Length of Unemployment measures the average duration, in weeks, that individuals remain unemployed before finding a job. This indicator is significant as it reflects the health of the labor market; longer unemployment durations can signal economic distress and inefficiencies in job matching. Typically, the length of unemployment rises during economic downturns and falls during periods of economic growth. Users might search for terms like 'how long do people stay unemployed,' 'average unemployment duration,' or 'unemployment length trends.'"
+  },
+  {
+    "SERIES": "CE16OV",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "Total US Workforce",
+    "UNITS": "Thousands of Persons",
+    "PERIOD": "M",
+    "description": "The Total US Workforce measures the total number of people employed or actively seeking employment in the United States, expressed in thousands. This indicator is significant as it reflects the overall health of the labor market and can signal economic growth or contraction. Typically, the workforce size rises during economic expansions when job opportunities increase and falls during recessions when layoffs are common. Related terms users might search for include 'how many people are working in the US', 'US job market size', and 'current employment statistics'."
+  },
+  {
+    "SERIES": "EMRATIO",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Household Survey",
+    "INDICATOR": "US Employment/Population Ratio",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "The US Employment/Population Ratio measures the proportion of the working-age population that is currently employed. This indicator is significant as it reflects the overall health of the labor market and can indicate economic growth or contraction. Typically, the ratio rises during economic expansions when job opportunities increase and falls during recessions when unemployment rises. Related terms users might search for include 'employment rate,' 'job market health,' and 'how many people are working.'"
+  },
+  {
+    "SERIES": "POP",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Population",
+    "INDICATOR": "US Population",
+    "UNITS": "Thousands",
+    "PERIOD": "M",
+    "description": "The US Population indicator measures the total number of people living in the United States, expressed in thousands. It is significant as it provides insights into demographic trends, workforce potential, and consumer markets, influencing economic policies and planning. The population typically rises during periods of economic growth due to higher birth rates and immigration, while it may stabilize or decline during economic downturns. Related terms users might search for include 'US population growth', 'how many people live in the US', and 'US demographic trends'."
+  },
+  {
+    "SERIES": "AHEMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Hourly Earnings: Manufacturing",
+    "UNITS": "Dollars per Hour",
+    "PERIOD": "M",
+    "description": "Average Hourly Earnings in Manufacturing measures the average amount of money earned by workers in the manufacturing sector for each hour worked. This indicator is significant as it reflects wage trends, labor market conditions, and overall economic health within the manufacturing industry. Typically, average hourly earnings rise during periods of economic growth and low unemployment, while they may fall during recessions or economic downturns when companies cut costs. Related terms users might search for include 'manufacturing wages', 'hourly pay in manufacturing', and 'average earnings for factory workers'."
+  },
+  {
+    "SERIES": "AWHMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Weekly Hours: Manufacturing",
+    "UNITS": "Hours",
+    "PERIOD": "M",
+    "description": "The Avg Weekly Hours: Manufacturing measures the average number of hours worked per week by employees in the manufacturing sector. This indicator is significant as it reflects labor demand and productivity within the manufacturing industry; increasing hours may suggest higher production needs, while decreasing hours may indicate a slowdown. Typically, average weekly hours rise during economic expansions when demand for goods increases and fall during recessions when production slows down. Related terms users might search for include 'manufacturing work hours', 'average hours in manufacturing', and 'weekly hours for factory workers'."
+  },
+  {
+    "SERIES": "AWOTMAN",
+    "CATEGORY": "Empl & Population",
+    "SUB-CATEGORY": "Est. Survey",
+    "INDICATOR": "Avg Weekly OT Hours: Manufacturing",
+    "UNITS": "Hours",
+    "PERIOD": "M",
+    "description": "The Average Weekly Overtime Hours in Manufacturing measures the average number of hours worked beyond the standard workweek by manufacturing employees. This indicator is significant as it reflects labor demand in the manufacturing sector; higher overtime hours often suggest increased production needs and economic expansion, while lower hours may indicate reduced demand or economic contraction. Typically, overtime hours rise during periods of strong economic growth and fall during recessions or slowdowns. Related terms users might use include 'manufacturing overtime', 'work hours in factories', and 'overtime trends in manufacturing'."
+  },
+  {
+    "SERIES": "DEXUSUK",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "USD/GBP Currency Exchange Rate",
+    "UNITS": "U.S. Dollars to One U.K. Pound Sterling",
+    "PERIOD": "D",
+    "description": "The USD/GBP Currency Exchange Rate measures how many U.S. dollars are needed to purchase one British pound sterling. This indicator is significant as it reflects the relative strength of the U.S. dollar against the British pound, influencing trade, investment decisions, and economic policies between the two countries. Typically, the exchange rate rises when the U.S. dollar weakens or the British pound strengthens, and it falls when the dollar strengthens or the pound weakens. Users might ask about this topic using terms like 'how much is the dollar worth in pounds', 'current USD to GBP rate', or 'exchange rate between USD and GBP'."
+  },
+  {
+    "SERIES": "DEXUSEU",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "USD/EUR Currency Exchange Rate",
+    "UNITS": "U.S. Dollars to One Euro",
+    "PERIOD": "D",
+    "description": "The USD/EUR Currency Exchange Rate measures how many U.S. dollars are needed to purchase one euro. This indicator is significant as it reflects the relative strength of the U.S. dollar against the euro, influencing international trade, investment decisions, and economic policies. Typically, the exchange rate rises when the U.S. economy is strong or when the eurozone faces economic challenges, and it falls when the euro strengthens or the U.S. economy weakens. Users might search for terms like 'how much is the euro worth in dollars' or 'current USD to EUR exchange rate'."
+  },
+  {
+    "SERIES": "DEXJPUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "JPN/USD Currency Exchange Rate",
+    "UNITS": "Japanese Yen to One U.S. Dollar",
+    "PERIOD": "D",
+    "description": "The JPN/USD Currency Exchange Rate measures how many Japanese Yen are needed to purchase one U.S. Dollar. This indicator is significant as it reflects the relative strength of the Japanese economy compared to the U.S. economy, influencing trade, investment decisions, and inflation rates. Typically, the exchange rate rises when the Japanese economy is strong or when the U.S. economy is weak, and it falls in the opposite scenario. Related terms users might search for include 'how much is the yen worth against the dollar' or 'current yen to dollar exchange rate.'"
+  },
+  {
+    "SERIES": "DEXMXUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "MXP/USD Currency Exchange Rate",
+    "UNITS": "Mexican Pesos to One U.S. Dollar",
+    "PERIOD": "D",
+    "description": "The MXP/USD Currency Exchange Rate measures how many Mexican Pesos are needed to purchase one U.S. Dollar. This indicator is significant as it reflects the relative strength of the Mexican Peso against the U.S. Dollar, influencing trade, investment, and inflation in Mexico. Typically, the exchange rate rises when the Peso weakens (meaning it takes more Pesos to buy a Dollar) and falls when the Peso strengthens. Users might search for terms like 'how much is the Peso worth against the Dollar' or 'current exchange rate for Pesos to Dollars'."
+  },
+  {
+    "SERIES": "DEXCAUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "CAD/USD Currency Exchange Rate",
+    "UNITS": "Canadian Dollars to One U.S. Dollar",
+    "PERIOD": "D",
+    "description": "The CAD/USD Currency Exchange Rate measures how many Canadian dollars are needed to purchase one U.S. dollar. This indicator is significant as it reflects the relative strength of the Canadian economy compared to the U.S. economy, influencing trade, investment, and consumer behavior. Typically, the exchange rate rises when the Canadian economy is strong or when the U.S. economy is weak, and it falls in the opposite scenario. Related terms users might search for include 'how much is the Canadian dollar worth today', 'CAD to USD exchange rate', and 'currency conversion CAD to USD'."
+  },
+  {
+    "SERIES": "DEXCHUS",
+    "CATEGORY": "Exchange Rates",
+    "SUB-CATEGORY": "Daily Rates",
+    "INDICATOR": "CNY/USD Currency Exchange Rate",
+    "UNITS": "Chinese Yuan Renminbi to One U.S. Dollar",
+    "PERIOD": "D",
+    "description": "The CNY/USD Currency Exchange Rate measures how many Chinese Yuan Renminbi (CNY) are needed to purchase one U.S. Dollar (USD). This indicator is significant as it reflects the relative value of the Chinese currency against the U.S. dollar, influencing trade, investment, and economic relations between the two countries. Typically, the exchange rate rises when the Chinese economy strengthens or when the U.S. economy weakens, and it falls in the opposite scenario. Users might ask about this topic using terms like 'how much is the yuan worth against the dollar' or 'what is the current exchange rate for CNY to USD.'"
+  },
+  {
+    "SERIES": "COMPOUT",
+    "CATEGORY": "Financial Data",
+    "SUB-CATEGORY": "Monetary",
+    "INDICATOR": "Commercial Paper Outstanding",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "W",
+    "description": "Commercial Paper Outstanding measures the total amount of short-term unsecured promissory notes issued by corporations, typically to finance their immediate operational needs. This indicator is significant as it reflects the health of the corporate credit market and the liquidity available to businesses; higher levels suggest confidence in the economy and corporate borrowing. In economic expansions, commercial paper outstanding tends to rise as companies seek to finance growth, while in downturns, it may fall as firms reduce borrowing due to uncertainty. Related terms users might search for include 'corporate borrowing', 'short-term loans', and 'business financing'."
+  },
+  {
+    "SERIES": "VIXCLS",
+    "CATEGORY": "Financial Data",
+    "SUB-CATEGORY": "Volatility Inexes",
+    "INDICATOR": "CBOE Volatility Index",
+    "UNITS": "Index",
+    "PERIOD": "D",
+    "description": "The CBOE Volatility Index (VIX) measures the market's expectation of future volatility based on options prices of the S&P 500 index. It is often referred to as the 'fear gauge' because high values indicate increased uncertainty or fear in the market, while low values suggest stability and confidence. The VIX typically rises during periods of economic downturns or market turmoil and falls during stable or bullish market conditions. Related terms users might search for include 'market volatility', 'fear index', and 'stock market uncertainty'."
+  },
+  {
+    "SERIES": "GDP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross Domestic Product",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "US Gross Domestic Product (GDP) measures the total monetary value of all goods and services produced within the United States over a specific time period, typically a quarter. It is a key indicator of economic health, reflecting the size and performance of the economy; a rising GDP suggests economic growth and increased consumer spending, while a falling GDP may indicate recession or economic contraction. In general, GDP rises during periods of economic expansion and falls during recessions. Related terms users might search for include 'what is GDP?', 'how does GDP affect the economy?', and 'GDP growth rate'."
+  },
+  {
+    "SERIES": "GNP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross National Product",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "US Gross National Product (GNP) measures the total economic output produced by the residents of the United States, including the value of goods and services produced abroad by American companies. It is significant as it reflects the overall economic health and productivity of the nation, indicating the income generated by its residents regardless of where the production occurs. GNP typically rises during periods of economic expansion and falls during recessions, as consumer spending and investment increase or decrease accordingly. Related terms users might use include 'what is GNP?', 'how does GNP affect the economy?', and 'difference between GDP and GNP'."
+  },
+  {
+    "SERIES": "GDI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "GDP/GNP",
+    "INDICATOR": "US Gross Domestic Income",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "US Gross Domestic Income (GDI) measures the total income earned by individuals and businesses in the United States, including wages, profits, rents, and taxes, minus subsidies. It is significant as it provides an alternative perspective on economic activity, complementing Gross Domestic Product (GDP) by reflecting how income is generated within the economy. GDI typically rises during periods of economic expansion when incomes increase and falls during recessions when income levels decline. Related terms users might use include 'US income levels', 'how much money is made in the US', and 'economic income measurement'."
+  },
+  {
+    "SERIES": "NETFI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Current Account Balance",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "The US Current Account Balance measures the difference between the value of goods and services a country exports and the value of goods and services it imports, along with net income and current transfers. It is significant as it reflects a country's economic health and its ability to pay for its imports; a surplus indicates that a country is a net lender to the rest of the world, while a deficit suggests it is a net borrower. The balance tends to rise during economic expansions when exports increase and fall during recessions when imports may decrease due to lower consumer demand. Related terms users might search for include 'trade balance', 'imports and exports', and 'US trade deficit'."
+  },
+  {
+    "SERIES": "EXPGS",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Exports Goods & Services",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "US Exports Goods & Services measures the total value of goods and services sold by the United States to foreign countries, expressed in billions of dollars. This indicator is significant as it reflects the health of the U.S. economy and its competitiveness in the global market; higher exports can lead to economic growth and job creation. Typically, exports rise during periods of economic expansion and fall during recessions, as demand for U.S. products abroad fluctuates. Related terms users might search for include 'US export levels', 'how much does the US export', and 'impact of exports on the economy'."
+  },
+  {
+    "SERIES": "IMPGS",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Imports & Exports",
+    "INDICATOR": "US Imports Goods & Services",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "US Imports of Goods & Services measures the total value of goods and services purchased by residents of the United States from foreign producers. This indicator is significant as it reflects the country's demand for foreign products and can influence trade balances, currency strength, and overall economic health. Typically, imports rise during periods of economic growth when consumers and businesses have more purchasing power, and they may fall during recessions when demand decreases. Related terms users might search for include 'US import statistics', 'how much does the US import', and 'impact of imports on the economy'."
+  },
+  {
+    "SERIES": "DGI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Defense Budget",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "The Fed Govt: Defense Budget measures the total amount of money allocated by the federal government for defense-related expenditures, expressed in billions of dollars. This indicator is significant as it reflects government priorities in national security and military spending, impacting overall economic activity and job creation in defense sectors. Typically, the defense budget may rise during periods of geopolitical tension or military engagement, while it may fall during times of budget cuts or peace. Related terms users might search for include 'government spending on defense', 'military budget', and 'defense expenditures'."
+  },
+  {
+    "SERIES": "FGRECPT",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Tax Receipts",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "Fed Govt: Tax Receipts measures the total amount of money collected by the federal government through taxes, expressed in billions of dollars. This indicator is significant as it reflects the government's revenue generation capacity, which is crucial for funding public services and programs. Tax receipts typically rise during periods of economic growth when incomes and profits increase, and they tend to fall during recessions when economic activity slows. Users might search for terms like 'how much tax does the government collect?', 'federal tax revenue trends', or 'impact of taxes on the economy'."
+  },
+  {
+    "SERIES": "TGDEF",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Govt Accounting",
+    "INDICATOR": "Fed Govt: Budget Deficit",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "The Federal Government Budget Deficit measures the difference between the government's total expenditures and its total revenues over a specific period, usually a fiscal year. It indicates the extent to which the government is spending beyond its means, which can affect national debt levels and economic policy. In times of economic downturn, the deficit may rise as government spending increases to stimulate the economy, while in periods of growth, it may decrease as revenues increase. Related terms users might search for include 'government spending vs revenue', 'national debt', and 'federal budget shortfall'."
+  },
+  {
+    "SERIES": "CP",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Industry",
+    "INDICATOR": "Corporate Profits After Tax",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "Corporate Profits After Tax measures the total profits of corporations in the economy after accounting for taxes. This indicator is significant as it reflects the financial health of businesses, influencing investment decisions, employment, and overall economic growth. Typically, corporate profits rise during economic expansions when consumer demand is strong and fall during recessions when demand weakens. Users might ask about this topic using terms like 'how much profit do companies make?', 'what are corporate earnings after taxes?', or 'how do corporate profits affect the economy?'."
+  },
+  {
+    "SERIES": "DIVIDEND",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Industry",
+    "INDICATOR": "Corporate Dividends",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "Corporate Dividends measures the total cash payments made by corporations to their shareholders in billions of dollars. This indicator is significant as it reflects the profitability of companies and their willingness to share profits with investors, which can signal overall economic health. Typically, corporate dividends rise during periods of economic expansion when companies are more profitable and fall during recessions when profits decline. Related terms users might search for include 'what are corporate dividends', 'how do dividends affect the economy', and 'dividend payments trends'."
+  },
+  {
+    "SERIES": "PI",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Personal",
+    "INDICATOR": "Personal Income",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "Personal Income measures the total income received by individuals and households in a specific period, including wages, salaries, dividends, and other earnings. It is significant as it reflects the financial health of consumers and their ability to spend, which drives economic growth. Personal Income typically rises during economic expansions when employment and wages increase, and falls during recessions when job losses and reduced earnings occur. Users might ask about this topic using terms like 'how much money do people make,' 'what is personal income,' or 'how does personal income affect the economy.'"
+  },
+  {
+    "SERIES": "PSAVE",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Savings & Inv.",
+    "INDICATOR": "Personal Savings",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "Q",
+    "description": "Personal savings measures the total amount of money that households save after accounting for their income and expenses, expressed in billions of dollars. It is significant as it reflects the financial health of consumers and their ability to save, which can influence overall economic growth and stability. Personal savings typically rise during economic downturns when consumers are more cautious about spending, and fall during economic booms when confidence is high and spending increases. Related terms users might search for include 'how much do people save', 'personal savings rate', and 'impact of savings on the economy'."
+  },
+  {
+    "SERIES": "PCE",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Personal",
+    "INDICATOR": "Personal Consumption Expenditures",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "Personal Consumption Expenditures (PCE) measures the total value of all goods and services consumed by households in an economy. It is a key indicator of consumer spending, which drives economic growth and reflects the overall health of the economy. PCE typically rises during periods of economic expansion when consumers feel confident and have disposable income, and falls during recessions when spending tightens. Related terms users might search for include 'consumer spending', 'household expenditures', and 'economic growth indicators'."
+  },
+  {
+    "SERIES": "PSAVERT",
+    "CATEGORY": "GDP & Components",
+    "SUB-CATEGORY": "Savings & Inv.",
+    "INDICATOR": "Personal Savings Rate",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "The Personal Savings Rate measures the percentage of disposable income that households save rather than spend on consumption. It is significant as it indicates the financial health of consumers and their willingness to save for future needs, which can influence overall economic growth. Typically, the savings rate rises during economic downturns as consumers become more cautious and falls during periods of economic expansion when confidence is higher and spending increases. Related terms users might use include 'how much do people save?', 'personal savings trends', and 'impact of savings on the economy'."
+  },
+  {
+    "SERIES": "MORTGAGE30US",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "30yr Mortgage",
+    "INDICATOR": "30-yr Conventional Mortgage Rate",
+    "UNITS": "Percent",
+    "PERIOD": "W",
+    "description": "The 30-yr Conventional Mortgage Rate measures the average interest rate on 30-year fixed-rate mortgages in the United States. This indicator is significant as it reflects the cost of borrowing for homebuyers, influencing housing affordability and demand in the real estate market. Typically, the rate rises during periods of economic growth and inflation, making mortgages more expensive, while it falls during economic downturns or when the Federal Reserve lowers interest rates to stimulate the economy. Related terms users might use include 'current mortgage rates', 'home loan interest rates', and '30-year mortgage costs'."
+  },
+  {
+    "SERIES": "DPCREDIT",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "FRB Rates",
+    "INDICATOR": "Discount Rate",
+    "UNITS": "Percent",
+    "PERIOD": "D",
+    "description": "The Discount Rate measures the interest rate charged by central banks on loans to commercial banks. It is a key tool for monetary policy, indicating the cost of borrowing for banks and influencing overall economic activity. Typically, the Discount Rate rises during periods of economic growth to curb inflation and falls during recessions to stimulate borrowing and spending. Users might ask about terms like 'central bank interest rates,' 'borrowing costs,' or 'how does the discount rate affect loans?'"
+  },
+  {
+    "SERIES": "FEDFUNDS",
+    "CATEGORY": "Interest Rates",
+    "SUB-CATEGORY": "FRB Rates",
+    "INDICATOR": "Effective Federal Funds Rate",
+    "UNITS": "Percent",
+    "PERIOD": "M",
+    "description": "The Effective Federal Funds Rate measures the average interest rate at which banks lend reserve balances to other depository institutions overnight. It is a critical tool for the Federal Reserve to influence monetary policy, impacting borrowing costs and economic activity. Typically, the rate rises when the economy is strong and inflation is a concern, while it falls during economic downturns to stimulate growth. Users might ask about this topic using terms likeRelated: 'borrowing/lending costs', 'consumer borrowing rates', 'credit costs', 'how does the Fed influence rates', or 'what is the federal funds rate today?'."
+  },
+  {
+    "SERIES": "WM1NS",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M1",
+    "INDICATOR": "M1 Money Supply",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "The M1 Money Supply measures the total amount of liquid money available in an economy, including physical currency, demand deposits, and other liquid assets. It is significant because it reflects the immediate spending power of consumers and businesses, indicating the level of economic activity and liquidity in the market. Typically, the M1 Money Supply rises during economic expansions as more money circulates, while it may fall during recessions as spending decreases and savings increase. Related terms users might search for include 'how much money is in circulation', 'money supply and inflation', and 'M1 money supply trends'."
+  },
+  {
+    "SERIES": "WM2NS",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M2",
+    "INDICATOR": "M2 Money Supply",
+    "UNITS": "Billions of Dollars",
+    "PERIOD": "M",
+    "description": "The M2 Money Supply measures the total amount of money in an economy, including cash, checking deposits, and easily convertible near money. It is significant because it reflects the liquidity available for spending and investment, influencing inflation and economic growth. Typically, M2 rises during economic expansion as more money circulates, while it may fall during recessions when spending decreases. Users might ask about this topic using terms like 'how much money is in circulation' or 'what is the money supply in the economy'."
+  },
+  {
+    "SERIES": "M1V",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M1",
+    "INDICATOR": "Velocity of M1 Money Stock",
+    "UNITS": "Ratio",
+    "PERIOD": "Q",
+    "description": "The Velocity of M1 Money Stock measures how quickly money in the M1 category (which includes cash and checking deposits) circulates in the economy over a specific period. It is significant because it indicates the efficiency of money use in generating economic activity; a higher velocity suggests that money is being spent and re-spent frequently, which can lead to economic growth. Typically, the velocity rises during economic expansions as consumers and businesses are more confident in spending, while it falls during recessions when spending slows down. Related terms users might use include 'money circulation rate', 'how fast is money moving', or 'M1 money speed'."
+  },
+  {
+    "SERIES": "M2V",
+    "CATEGORY": "Monetary Aggregates",
+    "SUB-CATEGORY": "M2",
+    "INDICATOR": "Velocity of M2 Money Stock",
+    "UNITS": "Ratio",
+    "PERIOD": "Q",
+    "description": "The Velocity of M2 Money Stock measures the rate at which money in the M2 category is circulated in the economy over a specific period. It indicates how efficiently money is being used for transactions and can signal economic activity levels; a higher velocity suggests a more active economy, while a lower velocity may indicate sluggishness. Typically, the velocity rises during economic expansions as consumers and businesses spend more, and falls during recessions when spending slows down. Related terms users might search for include 'money circulation rate', 'how fast is money moving', and 'M2 money velocity'."
+  },
+  {
+    "SERIES": "PPIACO",
+    "CATEGORY": "Producer Prices",
+    "SUB-CATEGORY": "PPI",
+    "INDICATOR": "Producer Price Index: All Commodities",
+    "UNITS": "Index 1982=100",
+    "PERIOD": "M",
+    "description": "The Producer Price Index (PPI) for All Commodities measures the average change over time in the selling prices received by domestic producers for their output. It is significant as it reflects inflationary trends at the wholesale level, indicating how costs for producers may eventually affect consumer prices. The index typically rises during periods of economic expansion when demand increases, and falls during recessions when demand decreases. Users might ask about this topic using terms like 'how do producer prices affect inflation?' or 'what does the PPI indicate about the economy?'"
+  },
+  {
+    "SERIES": "IMPCH",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from China",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from China measures the total value of goods and services imported into a country from China, expressed in millions of dollars. This indicator is significant as it reflects trade relationships, consumer demand, and the overall health of the economy, indicating how reliant a country is on Chinese products. Typically, imports from China rise when consumer demand is strong and fall during economic downturns or trade disputes. Related terms users might use include 'how much do we import from China?', 'China trade balance', and 'impact of Chinese imports on the economy'."
+  },
+  {
+    "SERIES": "IMPJP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Japan",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from Japan measures the total value of goods and services purchased by the United States from Japan, expressed in millions of dollars. This indicator is significant as it reflects the trade relationship between the two countries and can impact the U.S. trade balance. Typically, imports from Japan may rise during periods of strong consumer demand in the U.S. and fall during economic downturns when spending decreases. Related terms users might search for include 'U.S. imports from Japan', 'trade with Japan', and 'Japan trade balance'."
+  },
+  {
+    "SERIES": "IMPMX",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Mexico",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from Mexico measures the total value of goods and services purchased by the United States from Mexico, expressed in millions of dollars. This indicator is significant as it reflects trade relationships and economic interdependence between the two countries, influencing domestic production and employment. Typically, imports from Mexico rise when U.S. consumer demand increases or when production costs in Mexico are lower, while they may fall during economic downturns or trade disputes. Related terms users might use include 'U.S. imports from Mexico', 'trade with Mexico', and 'Mexican goods imports'."
+  },
+  {
+    "SERIES": "IMPCA",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Canada",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from Canada measures the total value of goods and services imported into the United States from Canada, expressed in millions of dollars. This indicator is significant as it reflects trade relationships and economic interdependence between the two countries, influencing domestic production and employment. Typically, imports from Canada may rise during periods of economic growth when demand for foreign goods increases, and fall during recessions when consumer spending declines. Related terms users might search for include 'US imports from Canada', 'trade with Canada', and 'Canada trade balance'."
+  },
+  {
+    "SERIES": "IMPGE",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from Germany",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from Germany measures the total value of goods and services purchased by the United States from Germany, expressed in millions of dollars. This indicator is significant as it reflects the trade relationship between the two countries and can influence the U.S. trade balance. Typically, imports from Germany rise during economic expansions when consumer demand increases, and fall during recessions when spending tightens. Related terms users might search for include 'U.S. imports from Germany', 'trade with Germany', and 'Germany import statistics'."
+  },
+  {
+    "SERIES": "IMPUK",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports from UK",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports from the UK measures the total value of goods and services purchased by the United States from the United Kingdom, expressed in millions of dollars. This indicator is significant as it reflects trade relationships, economic health, and consumer demand for foreign products. Typically, imports from the UK rise when the U.S. economy is strong and consumer spending is high, while they may fall during economic downturns or when tariffs are imposed. Related terms might include 'what are U.S. imports from the UK?', 'how much does the U.S. buy from the UK?', or 'impact of UK trade on U.S. economy?'."
+  },
+  {
+    "SERIES": "EXPCH",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to China",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to China measures the total value of goods and services that a country sells to China, expressed in millions of dollars. This indicator is significant as it reflects the strength of trade relationships and economic ties between countries, influencing economic growth and job creation. Typically, exports to China rise during periods of economic expansion when demand for goods increases, and fall during recessions when demand decreases. Related terms users might use include 'how much do we sell to China?', 'US exports to China', and 'trade with China'."
+  },
+  {
+    "SERIES": "EXPJP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Japan",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to Japan measures the total value of goods and services exported from a specific country to Japan, expressed in millions of dollars. This indicator is significant as it reflects the trade relationship between the exporting country and Japan, influencing economic growth, employment, and currency strength. Typically, exports to Japan rise during periods of economic expansion when demand for goods increases, and fall during recessions when demand decreases. Related terms users might use include 'trade with Japan', 'exports to Japan', and 'how much do we sell to Japan?'."
+  },
+  {
+    "SERIES": "EXPMX",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Mexico",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to Mexico measures the total value of goods and services that a country sells to Mexico, expressed in millions of dollars. This indicator is significant as it reflects the economic relationship between the two countries, showing how much trade is occurring and the health of the exporting country's economy. Typically, exports to Mexico rise during periods of economic growth and demand, while they may fall during recessions or economic downturns when demand decreases. Related terms users might search for include 'trade with Mexico', 'US exports to Mexico', and 'Mexico trade balance'."
+  },
+  {
+    "SERIES": "EXPCA",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Canada",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to Canada measures the total value of goods and services sold from the United States to Canada, expressed in millions of dollars. This indicator is significant as it reflects the economic relationship between the two countries, showing how much U.S. businesses rely on the Canadian market. Typically, exports to Canada rise during periods of economic growth and fall during recessions, as consumer demand and business investment fluctuate. Users might ask questions like 'How much does the U.S. export to Canada?' or 'What are the trends in U.S.-Canada trade?'"
+  },
+  {
+    "SERIES": "EXPGE",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to Germany",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to Germany measures the total value of goods and services sold from the United States to Germany, expressed in millions of dollars. This indicator is significant as it reflects the strength of trade relations between the two countries and can indicate the overall health of the U.S. economy, particularly in relation to manufacturing and international demand. Typically, exports rise during periods of economic growth when demand for U.S. products increases, and fall during economic downturns when demand decreases. Related terms users might search for include 'U.S. exports to Germany', 'trade with Germany', and 'American goods sold to Germany'."
+  },
+  {
+    "SERIES": "EXPUK",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports to UK",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports to UK measures the total value of goods and services sold from one country to the United Kingdom, expressed in millions of dollars. This indicator is significant as it reflects the economic relationship between the exporting country and the UK, influencing trade balances and economic growth. Typically, exports to the UK rise during periods of economic expansion and fall during recessions or economic downturns. Users might ask questions like 'How much do we export to the UK?' or 'What are our trade relations with the UK?'"
+  },
+  {
+    "SERIES": "BOPGEXP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Exports",
+    "INDICATOR": "Exports: Goods",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Exports: Goods measures the total value of goods sold by a country to foreign markets, expressed in millions of dollars. This indicator is significant as it reflects a country's economic health, competitiveness, and demand for its products abroad, impacting GDP and trade balance. Typically, exports rise during periods of economic growth and global demand, while they may fall during recessions or trade disputes. Users might ask about this topic using terms like 'how much does a country export?', 'what are the goods we sell to other countries?', or 'how do exports affect the economy?'."
+  },
+  {
+    "SERIES": "BOPGIMP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports: Goods",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports: Goods measures the total value of goods imported into a country, expressed in millions of dollars. This indicator is significant as it reflects a country's demand for foreign products and can influence trade balances, currency values, and economic growth. Typically, imports rise during economic expansions when consumer demand is high and fall during recessions when spending decreases. Related terms users might search for include 'how much does a country import', 'imports and exports', and 'impact of imports on economy'."
+  },
+  {
+    "SERIES": "BOPGTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Goods",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "The Balance: Goods indicator measures the difference between the value of goods exported and the value of goods imported by a country, expressed in millions of dollars. This indicator is significant as it reflects a country's trade performance and can influence currency value, economic growth, and employment levels. Generally, a trade surplus (exports greater than imports) is seen as positive for the economy, while a trade deficit (imports greater than exports) may indicate economic challenges. Users might ask about this topic using terms like 'trade balance', 'exports vs imports', or 'how does trade affect the economy?'."
+  },
+  {
+    "SERIES": "BOPSIMP",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Imports",
+    "INDICATOR": "Imports: Services",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "Imports: Services measures the total value of services purchased by residents of a country from foreign providers, expressed in millions of dollars. This indicator is significant as it reflects the demand for foreign services, which can impact the balance of trade and overall economic health. Typically, imports of services rise during economic expansions when consumers and businesses are more willing to spend, and fall during recessions when spending tightens. Related terms users might search for include 'service imports', 'foreign services spending', and 'impact of imports on economy'."
+  },
+  {
+    "SERIES": "BOPSTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Services",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "The Balance of Services measures the difference between the value of services a country exports and the value of services it imports, expressed in millions of dollars. It is significant as it reflects a country's competitiveness in the global services market and can indicate overall economic health. In times of economic growth, this balance may rise as exports increase, while during recessions, it may fall due to decreased demand for services. Related terms users might search for include 'trade in services', 'service exports and imports', and 'balance of trade in services'."
+  },
+  {
+    "SERIES": "BOPGSTB",
+    "CATEGORY": "Trade",
+    "SUB-CATEGORY": "Balance",
+    "INDICATOR": "Balance: Goods & Services",
+    "UNITS": "Millions of Dollars",
+    "PERIOD": "M",
+    "description": "The Balance of Goods and Services measures the difference between a country's exports and imports of goods and services over a specific period, expressed in millions of dollars. It is significant as it indicates the overall trade performance of an economy, reflecting its competitiveness and economic health. Typically, a positive balance (trade surplus) occurs when exports exceed imports, while a negative balance (trade deficit) arises when imports surpass exports; this can fluctuate based on economic conditions, such as consumer demand and currency strength. Related terms users might search for include 'trade balance', 'exports vs imports', and 'trade surplus or deficit'."
+  },
+  {
+    "SERIES": "FIXHAI",
+    "CATEGORY": "Production & Business Activity",
+    "SUB-CATEGORY": "Housing",
+    "INDICATOR": "US Housing Affordability Index (Fixed)",
+    "UNITS": "Index",
+    "PERIOD": "M",
+    "description": "The US Housing Affordability Index (Fixed) measures the ability of a typical family to afford a median-priced home, taking into account factors like income, home prices, and mortgage rates. It is significant as it provides insights into the housing market's accessibility for the average consumer, indicating whether homes are becoming more or less affordable over time. The index typically rises when income growth outpaces home price increases or when mortgage rates decline, and it falls when home prices rise faster than incomes or when mortgage rates increase. Related terms users might use include 'how affordable is housing?', 'housing market affordability', and 'can I afford a house?'."
+  }
+]

@@ -155,7 +155,15 @@
     "SERIES": "CDSP",
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Household Sector",
-    "INDICATOR": "Consumer Debt/Income Ratio",
+    "INDICATOR": "Consumer Debt Service Payments as a Percent of Disposable Personal Income",
+    "UNITS": "Percent",
+    "PERIOD": "Q"
+  },
+  {
+    "SERIES": "TDSP",
+    "CATEGORY": "Business/Fiscal",
+    "SUB-CATEGORY": "Household Sector",
+    "INDICATOR": "Household Debt Service Payments as a Percent of Disposable Personal Income",
     "UNITS": "Percent",
     "PERIOD": "Q"
   },
@@ -232,7 +240,7 @@
     "PERIOD": "M"
   },
   {
-    "SERIES": "STLFSI",
+    "SERIES": "STLFSI4",
     "CATEGORY": "Business/Fiscal",
     "SUB-CATEGORY": "Other",
     "INDICATOR": "St. Louis Financial Stress Index",
@@ -536,7 +544,7 @@
     "PERIOD": "M"
   },
   {
-    "SERIES": "M1",
+    "SERIES": "WM1NS",
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M1",
     "INDICATOR": "M1 Money Supply",
@@ -544,7 +552,7 @@
     "PERIOD": "M"
   },
   {
-    "SERIES": "M2",
+    "SERIES": "WM2NS",
     "CATEGORY": "Monetary Aggregates",
     "SUB-CATEGORY": "M2",
     "INDICATOR": "M2 Money Supply",
