@@ -62,7 +62,6 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
             if "observations" in data and len(data["observations"]) < 2:
                 # compact analysis result for single data point
                 summary = analyzer.generate_summary(
-                            indicator_name=indicator_name,
                             include_full_timeseries=True,
                             recent_n_points=5,
                             include_inflections=False,
@@ -72,7 +71,7 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                 return {
                     "success": True,
                     "series_id": series_id,
-                    # "indicator_name": indicator_name,
+                    "indicator_name": indicator_name,
                     "units": units,
                     "analysis": summary
                 }
@@ -82,7 +81,6 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                 if compact_mode or len(data["observations"]) > 60:
                     # less than 5 data points -> compact mode
                     summary = analyzer.generate_summary(
-                        indicator_name=indicator_name,
                         include_full_timeseries=False,
                         recent_n_points=5,
                         include_inflections=False,
@@ -90,7 +88,6 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                     )
                 else:
                     summary = analyzer.generate_summary(
-                        indicator_name=indicator_name,
                         include_full_timeseries=False,
                         recent_n_points=min(12, len(data["observations"])),
                         include_inflections=len(data["observations"]) >= 5,
@@ -100,7 +97,7 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                 return {
                     "success": True,
                     "series_id": series_id,
-                    # "indicator_name": indicator_name,
+                    "indicator_name": indicator_name,
                     "units": units,
                     "analysis": summary
                 }
@@ -111,7 +108,7 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
             return {
                 "success": True,
                 "series_id": series_id,
-                # "indicator_name": indicator_name,
+                "indicator_name": indicator_name,
                 "units": units,
                 "data": data["observations"]
             }

@@ -19,7 +19,7 @@
 
 ## Fine-tune
 
-1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-mini-4o for model fine-tuning on summary generation.
+1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
 2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
 3. Deploy your fine-tuned model.
 4. Modify parameters to run the files using your fine-tuned model.

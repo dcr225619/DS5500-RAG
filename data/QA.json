@@ -4227,15 +4227,6 @@
     "description": "Which interest rate? FEDFUNDS, DGS10, TB3MS, MORTGAGE30US - needs clarification"
   },
   {
-    "question": "What are rates looking like?",
-    "question_id": 122.1,
-    "expected_series_ids": [],
-    "tool_call_required": false,
-    "response_type": "clarification_needed",
-    "expected_date_range": null,
-    "description": "Vague rates query - which rate and time period unclear"
-  },
-  {
     "question": "What's the unemployment rate for next year?",
     "question_id": 123,
     "expected_series_ids": [],

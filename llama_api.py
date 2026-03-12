@@ -130,6 +130,7 @@ class FredLLMAgent:
         self.model = model
         self.api_url = api_url
         self.verbose = verbose  # print process or not
+        self.conversation_history = []
         
     def call_llm(self, messages):
         payload = {
@@ -142,6 +143,21 @@ class FredLLMAgent:
         response = requests.post(self.api_url, json=payload)
         return response.json()
     
+    def estimate_tokens(self, messages):
+        # 1 token ≈ 4 tokens
+        total = sum(len(json.dumps(m)) // 4 for m in messages)
+        return total
+
+    def trim_history(self, messages):
+        # save system prompt, delete history from the earliest records
+        system = [m for m in messages if m["role"] == "system"]
+        history = [m for m in messages if m["role"] != "system"]
+        
+        while self.estimate_tokens(system + history) > self.max_tokens and len(history) > 2:
+            history = history[2:]  # a pair of q&a
+        
+        return system + history
+
     def extract_tool_calls(self, question):
         """
         extract tool calls without execution
@@ -168,7 +184,7 @@ class FredLLMAgent:
         try:
             result = self.call_llm(messages)
             
-            print(result)
+            # print(result)
 
             if "message" not in result:
                 return {
@@ -217,7 +233,7 @@ class FredLLMAgent:
                 "raw_response": None
             }
     
-    def execute_tool_calls(self, tool_calls, use_fallback=True):
+    def execute_tool_calls(self, tool_calls, use_fallback=False):
         """
         execute tool calls and return results
         
@@ -344,7 +360,7 @@ class FredLLMAgent:
         if self.verbose:
             print("\nstep 2: Executing tool calls with auto-fallback...")
         
-        api_results = self.execute_tool_calls(tool_calls, use_fallback=True)
+        api_results = self.execute_tool_calls(tool_calls, use_fallback=False)
         
         # step 3: generate final answer
         if self.verbose:
@@ -353,15 +369,18 @@ class FredLLMAgent:
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
+                "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
             },
+            # *self.conversation_history,  # add conversation_history here
             {
                 "role": "user",
                 "content": question
             },
             extraction["raw_response"]["message"]
         ]
-        
+        # trim history
+        # messages = self.trim_history(messages)
+
         # add tool responses
         for idx, result in enumerate(api_results):
             if result["success"]:
@@ -411,6 +430,9 @@ class FredLLMAgent:
             print(f"\nExecution time: {execution_time:.2f}s")
             print(f"{"="*60}\n")
         
+        # self.conversation_history.append({"role": "user", "content": question})
+        # self.conversation_history.append({"role": "assistant", "content": final_answer})
+
         return {
             "question": question,
             "success": True,
@@ -420,30 +442,22 @@ class FredLLMAgent:
             "execution_time": execution_time
         }
 
-
-def process_question(question, verbose=True):
-
-    # original version
-    # agent = FredLLMAgent(model="llama3.2", verbose=True)
-
-    # fine-tuned-1 version
-    agent = FredLLMAgent(model="llama-finetuned-v1", verbose=True)
-
-    return agent.process_question(question)
+    def reset(self):
+        self.conversation_history = []
 
 
 if __name__ == "__main__":
     import pandas as pd
 
-    # with open("data/QA.json", encoding="utf-8") as f:
-    #     file = json.load(f)
+    with open("data/QA_test.json", encoding="utf-8") as f:
+        file = json.load(f)
     
-    file = [
-        # "How did unemployment and inflation change in 2024?",
-        # "What's the trade balance trend between goods and services over the past 2 years?"
-        # "What's the date today?",
-          "Show me GDP data for Q1 2024"
-    ]
+    # file = [
+    #     # "How did unemployment and inflation change in 2024?",
+    #     # "What's the trade balance trend between goods and services over the past 2 years?"
+    #     # "What's the date today?",
+    #       "Show me GDP data for Q1 2024"
+    # ]
 
     agent = FredLLMAgent(model="llama3.2", verbose=True)
     # agent = FredLLMAgent(model="llama-finetuned-v2", verbose=True)
@@ -451,13 +465,15 @@ if __name__ == "__main__":
     
     results = []
     for idx, question in enumerate(file):
-        # question_id = question["question_id"]
-        # print(f"Question {idx + 1}: {question_id}")
-        # result = agent.process_question(question["question"])
+        if idx > 4:
+            break
+        question_id = question["question_id"]
+        print(f"Question {idx + 1}: {question_id}")
+        result = agent.process_question(question["question"])
+        
+        # result = agent.process_question(question)
         #
-        result = agent.process_question(question)
-        #
-        results.append(result)
+        # results.append(result)
 
     print(results)
 

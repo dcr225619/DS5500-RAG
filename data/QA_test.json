@@ -1,0 +1,407 @@
+[
+  {
+    "question": "What's the current unemployment rate?",
+    "question_id": "T01",
+    "expected_series_ids": ["UNRATE"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 1y"
+  },
+  {
+    "question": "Show me the effective federal funds rate for all of 2023",
+    "question_id": "T02",
+    "expected_series_ids": ["FEDFUNDS"],
+    "expected_date_range": { "start": "2023-01-01", "end": "2023-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed full year"
+  },
+  {
+    "question": "How has M2 money supply changed over the past 3 years?",
+    "question_id": "T03",
+    "expected_series_ids": ["WM2NS"],
+    "expected_date_range": { "relative_start": "3y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 3y"
+  },
+  {
+    "question": "What were new home sales like in Q2 2021?",
+    "question_id": "T04",
+    "expected_series_ids": ["HSN1F"],
+    "expected_date_range": { "start": "2021-04-01", "end": "2021-06-30" },
+    "tool_call_required": true,
+    "description": "Single series, single quarter"
+  },
+  {
+    "question": "Give me the 10-year treasury yield since the start of 2022",
+    "question_id": "T05",
+    "expected_series_ids": ["DGS10"],
+    "expected_date_range": { "start": "2022-01-01", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, fixed start to present"
+  },
+  {
+    "question": "How has the US dollar performed against the euro recently?",
+    "question_id": "T06",
+    "expected_series_ids": ["DEXUSEU"],
+    "expected_date_range": { "relative_start": "6m", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 6m (short term)"
+  },
+  {
+    "question": "What was CPI during 2019?",
+    "question_id": "T07",
+    "expected_series_ids": ["CPIAUCSL"],
+    "expected_date_range": { "start": "2019-01-01", "end": "2019-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed pre-pandemic year"
+  },
+  {
+    "question": "Pull up the VIX index for the first half of 2020",
+    "question_id": "T08",
+    "expected_series_ids": ["VIXCLS"],
+    "expected_date_range": { "start": "2020-01-01", "end": "2020-06-30" },
+    "tool_call_required": true,
+    "description": "Single series, fixed half-year during pandemic onset"
+  },
+  {
+    "question": "How have US imports from Mexico trended over the past 2 years?",
+    "question_id": "T09",
+    "expected_series_ids": ["IMPMX"],
+    "expected_date_range": { "relative_start": "2y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 2y"
+  },
+  {
+    "question": "What was the 30-year mortgage rate in Q3 2023?",
+    "question_id": "T10",
+    "expected_series_ids": ["MORTGAGE30US"],
+    "expected_date_range": { "start": "2023-07-01", "end": "2023-09-30" },
+    "tool_call_required": true,
+    "description": "Single series, single quarter"
+  },
+  {
+    "question": "Show me personal consumption expenditures for 2022",
+    "question_id": "T11",
+    "expected_series_ids": ["PCE"],
+    "expected_date_range": { "start": "2022-01-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed full year"
+  },
+  {
+    "question": "What's the yield curve spread looking like lately?",
+    "question_id": "T12",
+    "expected_series_ids": ["T10Y2Y"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, casual phrasing, relative 1y"
+  },
+  {
+    "question": "How did total commercial bank credit change from Q1 to Q2 2023?",
+    "question_id": "T13",
+    "expected_series_ids": ["TOTBKCR"],
+    "expected_date_range": { "start": "2023-01-01", "end": "2023-06-30" },
+    "tool_call_required": true,
+    "description": "Single series, two-quarter span"
+  },
+  {
+    "question": "I'm curious about US exports to Canada over the past 18 months",
+    "question_id": "T14",
+    "expected_series_ids": ["EXPCA"],
+    "expected_date_range": { "relative_start": "18m", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 18m"
+  },
+  {
+    "question": "What did the Fed's total assets look like in 2021?",
+    "question_id": "T15",
+    "expected_series_ids": ["WALCL"],
+    "expected_date_range": { "start": "2021-01-01", "end": "2021-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed year"
+  },
+  {
+    "question": "Show me the producer price index since 2020",
+    "question_id": "T16",
+    "expected_series_ids": ["PPIACO"],
+    "expected_date_range": { "start": "2020-01-01", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, fixed start to present"
+  },
+  {
+    "question": "What's the personal savings rate been over the last 6 months?",
+    "question_id": "T17",
+    "expected_series_ids": ["PSAVERT"],
+    "expected_date_range": { "relative_start": "6m", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 6m"
+  },
+  {
+    "question": "How many new building permits were issued in Q4 2022?",
+    "question_id": "T18",
+    "expected_series_ids": ["PERMIT"],
+    "expected_date_range": { "start": "2022-10-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, single quarter"
+  },
+  {
+    "question": "Give me the Japanese yen to dollar exchange rate for all of 2024",
+    "question_id": "T19",
+    "expected_series_ids": ["DEXJPUS"],
+    "expected_date_range": { "start": "2024-01-01", "end": "2024-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed full year"
+  },
+  {
+    "question": "What's been happening with loan delinquencies over the past 2 years?",
+    "question_id": "T20",
+    "expected_series_ids": ["DALLCACBEP"],
+    "expected_date_range": { "relative_start": "2y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, casual phrasing, relative 2y"
+  },
+  {
+    "question": "Show me US GDP for Q3 2022",
+    "question_id": "T21",
+    "expected_series_ids": ["GDP"],
+    "expected_date_range": { "start": "2022-07-01", "end": "2022-09-30" },
+    "tool_call_required": true,
+    "description": "Single series, single quarter"
+  },
+  {
+    "question": "How has the St. Louis financial stress index moved over the past year?",
+    "question_id": "T22",
+    "expected_series_ids": ["STLFSI"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 1y"
+  },
+  {
+    "question": "What was total construction spending in 2023?",
+    "question_id": "T23",
+    "expected_series_ids": ["TTLCONS"],
+    "expected_date_range": { "start": "2023-01-01", "end": "2023-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed full year"
+  },
+  {
+    "question": "I'd like to see the employment-to-population ratio since 2021",
+    "question_id": "T24",
+    "expected_series_ids": ["EMRATIO"],
+    "expected_date_range": { "start": "2021-01-01", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, fixed start to present"
+  },
+  {
+    "question": "What was the goods trade balance in Q1 2024?",
+    "question_id": "T25",
+    "expected_series_ids": ["BOPGTB"],
+    "expected_date_range": { "start": "2024-01-01", "end": "2024-03-31" },
+    "tool_call_required": true,
+    "description": "Single series, single quarter"
+  },
+  {
+    "question": "How has business inventory trended over the past 5 years?",
+    "question_id": "T26",
+    "expected_series_ids": ["BUSINV"],
+    "expected_date_range": { "relative_start": "5y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 5y"
+  },
+  {
+    "question": "Pull up the discount rate for the second half of 2022",
+    "question_id": "T27",
+    "expected_series_ids": ["DPCREDIT"],
+    "expected_date_range": { "start": "2022-07-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Single series, fixed half-year"
+  },
+  {
+    "question": "What does total consumer credit look like right now?",
+    "question_id": "T28",
+    "expected_series_ids": ["TOTALSL"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, casual current value query"
+  },
+  {
+    "question": "Show me light vehicle sales from Q2 to Q3 2021",
+    "question_id": "T29",
+    "expected_series_ids": ["ALTSALES"],
+    "expected_date_range": { "start": "2021-04-01", "end": "2021-09-30" },
+    "tool_call_required": true,
+    "description": "Single series, two-quarter span"
+  },
+  {
+    "question": "How has the federal government debt changed over the past decade?",
+    "question_id": "T30",
+    "expected_series_ids": ["GFDEBTN"],
+    "expected_date_range": { "relative_start": "10y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Single series, relative 10y"
+  },
+  {
+    "question": "How did unemployment and inflation move together in 2023?",
+    "question_id": "T31",
+    "expected_series_ids": ["UNRATE", "CPIAUCSL"],
+    "expected_date_range": { "start": "2023-01-01", "end": "2023-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed year, classic macro pair"
+  },
+  {
+    "question": "Compare the federal funds rate and 10-year treasury yield over the past 2 years",
+    "question_id": "T32",
+    "expected_series_ids": ["FEDFUNDS", "DGS10"],
+    "expected_date_range": { "relative_start": "2y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, relative 2y, interest rate comparison"
+  },
+  {
+    "question": "What's the trade balance between the US and China in 2022?",
+    "question_id": "T33",
+    "expected_series_ids": ["EXPCH", "IMPCH"],
+    "expected_date_range": { "start": "2022-01-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, bilateral trade, fixed year"
+  },
+  {
+    "question": "How did personal income and spending change since the start of 2023?",
+    "question_id": "T34",
+    "expected_series_ids": ["PI", "PCE"],
+    "expected_date_range": { "start": "2023-01-01", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed start to present"
+  },
+  {
+    "question": "Show me GDP and GNP side by side for Q1 and Q2 2023",
+    "question_id": "T35",
+    "expected_series_ids": ["GDP", "GNP"],
+    "expected_date_range": { "start": "2023-01-01", "end": "2023-06-30" },
+    "tool_call_required": true,
+    "description": "Multi series, two-quarter span"
+  },
+  {
+    "question": "How have oil prices and CPI moved together over the past 3 years?",
+    "question_id": "T36",
+    "expected_series_ids": ["WTISPLC", "CPIAUCSL"],
+    "expected_date_range": { "relative_start": "3y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, relative 3y, commodity vs inflation"
+  },
+  {
+    "question": "What happened to bank credit and commercial loans during 2020?",
+    "question_id": "T37",
+    "expected_series_ids": ["TOTBKCR", "BUSLOANS"],
+    "expected_date_range": { "start": "2020-01-01", "end": "2020-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed pandemic year"
+  },
+  {
+    "question": "Compare US exports to Canada and Mexico over the past 18 months",
+    "question_id": "T38",
+    "expected_series_ids": ["EXPCA", "EXPMX"],
+    "expected_date_range": { "relative_start": "18m", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, relative 18m, multi-country trade"
+  },
+  {
+    "question": "How did consumer sentiment and personal savings rate change in 2022?",
+    "question_id": "T39",
+    "expected_series_ids": ["UMCSENT", "PSAVERT"],
+    "expected_date_range": { "start": "2022-01-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed year, consumer behavior"
+  },
+  {
+    "question": "Show me the M1 and M2 money supply since 2020",
+    "question_id": "T40",
+    "expected_series_ids": ["WM1NS", "WM2NS"],
+    "expected_date_range": { "start": "2020-01-01", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed start to present"
+  },
+  {
+    "question": "How did manufacturing hours and earnings look in Q3 and Q4 2022?",
+    "question_id": "T41",
+    "expected_series_ids": ["AWHMAN", "AHEMAN"],
+    "expected_date_range": { "start": "2022-07-01", "end": "2022-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, two-quarter span, manufacturing labor"
+  },
+  {
+    "question": "Compare federal spending and revenue for all of 2024",
+    "question_id": "T42",
+    "expected_series_ids": ["FYONET", "FYFR"],
+    "expected_date_range": { "start": "2024-01-01", "end": "2024-12-31" },
+    "tool_call_required": true,
+    "description": "Multi series, fixed year, fiscal balance"
+  },
+  {
+    "question": "How have the peso and Canadian dollar moved against the USD over the past year?",
+    "question_id": "T43",
+    "expected_series_ids": ["DEXMXUS", "DEXCAUS"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series, relative 1y, multi-currency"
+  },
+  {
+    "question": "What does the housing market look like right now - permits, sales, and mortgage rates?",
+    "question_id": "T44",
+    "expected_series_ids": ["PERMIT", "HSN1F", "MORTGAGE30US"],
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series (3), relative 1y, housing overview"
+  },
+  {
+    "question": "Give me a snapshot of the labor market: unemployment, workforce size, and employment ratio over the past 2 years",
+    "question_id": "T45",
+    "expected_series_ids": ["UNRATE", "CE16OV", "EMRATIO"],
+    "expected_date_range": { "relative_start": "2y", "relative_end": "today" },
+    "tool_call_required": true,
+    "description": "Multi series (3), relative 2y, labor market overview"
+  },
+  {
+    "question": "What does GDP stand for and how is it different from GNP?",
+    "question_id": "T46",
+    "expected_series_ids": [],
+    "expected_date_range": null,
+    "tool_call_required": false,
+    "response_type": "direct_answer",
+    "description": "Conceptual question about macroeconomic definitions"
+  },
+  {
+    "question": "Which indicators should I look at to get a sense of how tight monetary policy is?",
+    "question_id": "T47",
+    "expected_series_ids": [],
+    "expected_date_range": null,
+    "tool_call_required": false,
+    "response_type": "indicator_recommendation",
+    "description": "Indicator recommendation for monetary policy analysis"
+  },
+  {
+    "question": "Show me Nvidia stock price data for 2024",
+    "question_id": "T48",
+    "expected_series_ids": [],
+    "expected_date_range": null,
+    "tool_call_required": false,
+    "response_type": "out_of_scope",
+    "description": "Individual stock price not available in FRED series"
+  },
+  {
+    "question": "What does an inverted yield curve signal about the economy?",
+    "question_id": "T49",
+    "expected_series_ids": [],
+    "expected_date_range": null,
+    "tool_call_required": false,
+    "response_type": "direct_answer",
+    "description": "Conceptual question about yield curve interpretation"
+  },
+  {
+    "question": "Give me some economic data",
+    "question_id": "T50",
+    "expected_series_ids": [],
+    "expected_date_range": null,
+    "tool_call_required": false,
+    "response_type": "clarification_needed",
+    "description": "Too vague - needs clarification on indicator and time period"
+  }
+]

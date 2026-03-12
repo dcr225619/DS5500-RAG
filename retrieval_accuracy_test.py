@@ -2,6 +2,7 @@ import json
 from datetime import datetime, timedelta
 from llama_api import FredLLMAgent
 from llama_api_semantic_retriever import FredLLMAgent as FredLLMAgent_semantic
+from gpt_api import OpenAIFredAgent
 import pandas as pd
 import time
 
@@ -19,10 +20,15 @@ class AccuracyEvaluator:
         Args:
             test_cases_file: json file path2
         """
-        if retriever == 'semantic':
-            self.agent = FredLLMAgent_semantic(model=model, verbose=False)
+        if model == 'llama3.2':
+            if retriever == 'semantic':
+                self.agent = FredLLMAgent_semantic(model=model, verbose=False)
+            else:
+                self.agent = FredLLMAgent(model=model, verbose=False)
+        elif model == 'gpt-4o-mini':
+            self.agent = OpenAIFredAgent()
         else:
-            self.agent = FredLLMAgent(model=model, verbose=False)
+            raise ValueError('Invalid model')
 
         self.test_cases = []
         
@@ -339,14 +345,16 @@ if __name__ == "__main__":
     
     start = time.time()
 
-    evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
+    # evaluator = AccuracyEvaluator(model="llama3.2")
+    # evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
+    evaluator = AccuracyEvaluator(model="gpt-4o-mini")
     
     # add test cases
-    path = "data/QA.json"
+    path = "data/QA_test.json"
     evaluator.load_test_cases(path)
     
     results = evaluator.run_all_tests()
     
-    evaluator.export_results(results,"files/evaluation_results_semantic.json" )
+    evaluator.export_results(results,"files/gpt-4o-mini/evaluation_results_gpt_compact_test.json" )
 
     print(f"Execution time: {time.time() - start: .2f}")

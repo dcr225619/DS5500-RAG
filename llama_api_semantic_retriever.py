@@ -229,7 +229,7 @@ class FredLLMAgent:
                 "raw_response": None
             }
     
-    def execute_tool_calls(self, tool_calls, use_fallback=True):
+    def execute_tool_calls(self, tool_calls, use_fallback=False):
         """
         execute tool calls and return results
         
@@ -356,7 +356,7 @@ class FredLLMAgent:
         if self.verbose:
             print("\nstep 2: Executing tool calls with auto-fallback...")
         
-        api_results = self.execute_tool_calls(tool_calls, use_fallback=True)
+        api_results = self.execute_tool_calls(tool_calls, use_fallback=False)
         
         # step 3: generate final answer
         if self.verbose:
@@ -365,7 +365,7 @@ class FredLLMAgent:
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
+                "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
             },
             {
                 "role": "user",

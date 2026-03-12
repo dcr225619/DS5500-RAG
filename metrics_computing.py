@@ -239,7 +239,7 @@ class TimeSeriesAnalyzer:
         
         return integrated_data
     
-    def generate_summary(self, indicator_name,
+    def generate_summary(self,
                             include_full_timeseries=False,
                             recent_n_points=12,
                             include_inflections=True,
@@ -291,7 +291,6 @@ class TimeSeriesAnalyzer:
         summary = {
             # 1. overview
             "overview": {
-                "metric_name": f"{indicator_name}",
                 "data_points": len(self.df),
                 "time_range": {
                     "start": self.df.index[0].strftime("%Y-%m-%d"),
