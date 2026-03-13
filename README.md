@@ -24,3 +24,8 @@
 2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
 3. Deploy your fine-tuned model.
 4. Modify parameters to run the files using your fine-tuned model.
+
+## Unfinished
+1. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
+2. `llama_api_final.py`: llama agentic rag with self-check and fall back
+3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)

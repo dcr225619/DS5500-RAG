@@ -23,7 +23,7 @@ class IndicatorFormatter:
         
         return "\n".join(lines)
 
-def generate_all_formats(input_file='D:/NU/DS5500/RAG project/output.json'):
+def generate_all_formats(input_file='output.json'):
     """generate all formats and save"""
     formatter = IndicatorFormatter(input_file)
     
