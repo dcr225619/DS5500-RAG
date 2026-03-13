@@ -174,7 +174,7 @@ class AccuracyEvaluator:
             
             diff_days = (date2 - date1).days
             
-            if diff_days > 0:
+            if diff_days >= 0:
                 return max(1.0 - max((diff_days - tolerance_days), 0) / 100, 0)  # score deducted if exceed tolerance
             else:
                 return 0.0  # score 0 if cannot cover expected date
