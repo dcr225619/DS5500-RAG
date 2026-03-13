@@ -1,0 +1,1381 @@
+{
+  "results": [
+    {
+      "question_id": "T01",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_06z4e8cv",
+          "series_id": "",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "UNRATE"
+        ],
+        "extra": [
+          ""
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T02",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_6yeuf2bo",
+          "series_id": "FEDFUNDS",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "FEDFUNDS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=FEDFUNDS: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2023-12-31 vs expected: 2023-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T03",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_z18kxj98",
+          "series_id": "WM2NS",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-10"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "WM2NS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.48,
+        "details": "series_id=WM2NS: start: (api call: 2024-03-11 vs expected: 2023-03-12), end: (api call: 2026-03-10 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.74
+    },
+    {
+      "question_id": "T04",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_qdg98d98",
+          "series_id": "HSN1F",
+          "start_date": "2021-06-01",
+          "end_date": "2021-09-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "HSN1F"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": "series_id=HSN1F: start: (api call: 2021-06-01 vs expected: 2021-04-01), end: (api call: 2021-09-30 vs expected: 2021-06-30)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T05",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_y006hvy1",
+          "series_id": "T10Y2Y",
+          "start_date": "2022-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "DGS10"
+        ],
+        "extra": [
+          "T10Y2Y"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=T10Y2Y: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T06",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_45a1aoz7",
+          "series_id": "",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "DEXUSEU"
+        ],
+        "extra": [
+          ""
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=: start: (api call: 2025-03-11 vs expected: 2025-09-12), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.25
+    },
+    {
+      "question_id": "T07",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_r43rxhak",
+          "series_id": "CPIAUCSL",
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "CPIAUCSL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=CPIAUCSL: start: (api call: 2019-01-01 vs expected: 2019-01-01), end: (api call: 2019-12-31 vs expected: 2019-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T08",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_k78lxxra",
+          "series_id": "VIXCLS",
+          "start_date": "2020-01-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "VIXCLS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=VIXCLS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2020-06-30 vs expected: 2020-06-30)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T09",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_1lc4vx59",
+          "series_id": "IMPMX",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "IMPMX"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=IMPMX: start: (api call: 2025-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T10",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_q7h0cfik",
+          "series_id": "MORTGAGE30US",
+          "start_date": "2022-12-31",
+          "end_date": "2023-09-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "MORTGAGE30US"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=MORTGAGE30US: start: (api call: 2022-12-31 vs expected: 2023-07-01), end: (api call: 2023-09-30 vs expected: 2023-09-30)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T11",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_431rsbl5",
+          "series_id": "PCE",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "PCE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=PCE: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T12",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_lrnqwgw8",
+          "series_id": "T10Y2Y",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "T10Y2Y"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=T10Y2Y: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T13",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_7rfsnhdn",
+          "series_id": "TOTBKCR",
+          "start_date": "2023-01-01",
+          "end_date": "2023-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "TOTBKCR"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=TOTBKCR: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2023-03-31 vs expected: 2023-06-30)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T14",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_jltc6g1k",
+          "series_id": "BOPSTB",
+          "start_date": "2024-07-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "EXPCA"
+        ],
+        "extra": [
+          "BOPSTB"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=BOPSTB: start: (api call: 2024-07-11 vs expected: 2024-09-17), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.25
+    },
+    {
+      "question_id": "T15",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_lj7ymzuu",
+          "series_id": "WALCL",
+          "start_date": "2021-01-01",
+          "end_date": "2021-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "WALCL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=WALCL: start: (api call: 2021-01-01 vs expected: 2021-01-01), end: (api call: 2021-12-31 vs expected: 2021-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T16",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_632dc9nh",
+          "series_id": "PPIACO",
+          "start_date": "2020-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "PPIACO"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=PPIACO: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T17",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_lu8i46px",
+          "series_id": "PSAVERT",
+          "start_date": "2025-09-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "PSAVERT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.98,
+        "details": "series_id=PSAVERT: start: (api call: 2025-09-11 vs expected: 2025-09-12), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.99
+    },
+    {
+      "question_id": "T18",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_g7pt8qlu",
+          "series_id": "PERMIT",
+          "start_date": "2022-10-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "PERMIT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=PERMIT: start: (api call: 2022-10-01 vs expected: 2022-10-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T19",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_311oumuf",
+          "series_id": "",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "DEXJPUS"
+        ],
+        "extra": [
+          ""
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=: start: (api call: 2024-01-01 vs expected: 2024-01-01), end: (api call: 2024-12-31 vs expected: 2024-12-31)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T20",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_mr8p5koz",
+          "series_id": "DALLCACBEP",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "DALLCACBEP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=DALLCACBEP: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T21",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_dopqsi9n",
+          "series_id": "GDP",
+          "start_date": "2022-09-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "GDP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": "series_id=GDP: start: (api call: 2022-09-01 vs expected: 2022-07-01), end: (api call: 2022-12-31 vs expected: 2022-09-30)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T22",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_mj0xaayp",
+          "series_id": "STLFSI4",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "STLFSI"
+        ],
+        "extra": [
+          "STLFSI4"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=STLFSI4: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T23",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_o7lzvkc7",
+          "series_id": "TTLCONS",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "TTLCONS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=TTLCONS: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2023-12-31 vs expected: 2023-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T24",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_u57mjxuk",
+          "series_id": "EMRATIO",
+          "start_date": "2021-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "EMRATIO"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=EMRATIO: start: (api call: 2021-01-01 vs expected: 2021-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T25",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_kmrbgamg",
+          "series_id": "BOPGSTB",
+          "start_date": "2024-01-01",
+          "end_date": "2024-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "BOPGTB"
+        ],
+        "extra": [
+          "BOPGSTB"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=BOPGSTB: start: (api call: 2024-01-01 vs expected: 2024-01-01), end: (api call: 2024-03-31 vs expected: 2024-03-31)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T26",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_xettzzkz",
+          "series_id": "",
+          "start_date": "2021-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "BUSINV"
+        ],
+        "extra": [
+          ""
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.98,
+        "details": "series_id=: start: (api call: 2021-03-11 vs expected: 2021-03-12), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.49
+    },
+    {
+      "question_id": "T27",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_xnhsqnf5",
+          "series_id": "DPCREDIT",
+          "start_date": "2022-07-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "DPCREDIT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=DPCREDIT: start: (api call: 2022-07-01 vs expected: 2022-07-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T28",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_djsytsrb",
+          "series_id": "TOTALSL",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "TOTALSL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=TOTALSL: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T29",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_es1bmnjf",
+          "series_id": "ALTSALES",
+          "start_date": "2021-07-01",
+          "end_date": "2021-09-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
+          "ALTSALES"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=ALTSALES: start: (api call: 2021-07-01 vs expected: 2021-04-01), end: (api call: 2021-09-30 vs expected: 2021-09-30)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T30",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_o35wgh18",
+          "series_id": "GYDLSUSUSA135316600",
+          "start_date": "2017-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "GFDEBTN"
+        ],
+        "extra": [
+          "GYDLSUSUSA135316600"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=GYDLSUSUSA135316600: start: (api call: 2017-01-01 vs expected: 2016-03-13), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.25
+    },
+    {
+      "question_id": "T31",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_oskstxx7",
+          "series_id": "UNRATE",
+          "start_date": "2023-01-01",
+          "end_date": "2024-01-01"
+        },
+        {
+          "tool_call_id": "call_rhkh5pnn",
+          "series_id": "CPIAUCSL",
+          "start_date": "2023-01-01",
+          "end_date": "2024-01-01"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "CPIAUCSL",
+          "UNRATE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.98,
+        "details": "series_id=UNRATE: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2024-01-01 vs expected: 2023-12-31); series_id=CPIAUCSL: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2024-01-01 vs expected: 2023-12-31)"
+      },
+      "overall_score": 0.99
+    },
+    {
+      "question_id": "T32",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ymnia2ng",
+          "series_id": "FEDFUNDS",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_xr3w8axt",
+          "series_id": "TREAST",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_pqu63ve3",
+          "series_id": "T10Y2Y",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.4,
+        "correct_count": 1,
+        "correct": [
+          "FEDFUNDS"
+        ],
+        "missing": [
+          "DGS10"
+        ],
+        "extra": [
+          "T10Y2Y",
+          "TREAST"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=FEDFUNDS: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=TREAST: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=T10Y2Y: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.7
+    },
+    {
+      "question_id": "T33",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_6qmsm7zc",
+          "series_id": "BOPGIMP",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        },
+        {
+          "tool_call_id": "call_ocryu0qj",
+          "series_id": "EXPCH",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct_count": 1,
+        "correct": [
+          "EXPCH"
+        ],
+        "missing": [
+          "IMPCH"
+        ],
+        "extra": [
+          "BOPGIMP"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=BOPGIMP: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31); series_id=EXPCH: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T34",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_uen49lb3",
+          "series_id": "PI",
+          "start_date": "2023-01-01",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_1w9isqrj",
+          "series_id": "FYONET",
+          "start_date": "2023-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct_count": 1,
+        "correct": [
+          "PI"
+        ],
+        "missing": [
+          "PCE"
+        ],
+        "extra": [
+          "FYONET"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=PI: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=FYONET: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T35",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_67klsfuu",
+          "series_id": "GDP",
+          "start_date": "2023-01-01",
+          "end_date": "2023-03-31"
+        },
+        {
+          "tool_call_id": "call_r4289ptc",
+          "series_id": "GNP",
+          "start_date": "2023-01-01",
+          "end_date": "2023-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "GNP",
+          "GDP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=GDP: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2023-03-31 vs expected: 2023-06-30); series_id=GNP: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2023-03-31 vs expected: 2023-06-30)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T36",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_wb57u389",
+          "series_id": "WTISPLC",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_l7sidnkn",
+          "series_id": "CPIAUCSL",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "CPIAUCSL",
+          "WTISPLC"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=WTISPLC: start: (api call: 2024-03-11 vs expected: 2023-03-12), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=CPIAUCSL: start: (api call: 2024-03-11 vs expected: 2023-03-12), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T37",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_4u7uwpmv",
+          "series_id": "TOTBKCR",
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "tool_call_id": "call_ddlr3ybe",
+          "series_id": "BUSLOANS",
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "BUSLOANS",
+          "TOTBKCR"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=TOTBKCR: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2020-12-31 vs expected: 2020-12-31); series_id=BUSLOANS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2020-12-31 vs expected: 2020-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T38",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ms15xrlj",
+          "series_id": "BOPPCA",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0,
+        "correct_count": 0,
+        "correct": [],
+        "missing": [
+          "EXPMX",
+          "EXPCA"
+        ],
+        "extra": [
+          "BOPPCA"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=BOPPCA: start: (api call: 2025-03-11 vs expected: 2024-09-17), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.25
+    },
+    {
+      "question_id": "T39",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_bdio8ny9",
+          "series_id": "UMCSENT",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        },
+        {
+          "tool_call_id": "call_7rdowadb",
+          "series_id": "PSAVERT",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "UMCSENT",
+          "PSAVERT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=UMCSENT: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31); series_id=PSAVERT: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T40",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_w5wrph7i",
+          "series_id": "WM1NS",
+          "start_date": "2020-01-01",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_h5lb7v1w",
+          "series_id": "WM2NS",
+          "start_date": "2020-01-01",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "WM2NS",
+          "WM1NS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=WM1NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=WM2NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T41",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ri9hdqkg",
+          "series_id": "DGORDER",
+          "start_date": "2022-07-01",
+          "end_date": "2022-09-30"
+        },
+        {
+          "tool_call_id": "call_5jtqbnc3",
+          "series_id": "AHEMAN",
+          "start_date": "2022-10-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct_count": 1,
+        "correct": [
+          "AHEMAN"
+        ],
+        "missing": [
+          "AWHMAN"
+        ],
+        "extra": [
+          "DGORDER"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": "series_id=DGORDER: start: (api call: 2022-07-01 vs expected: 2022-07-01), end: (api call: 2022-09-30 vs expected: 2022-12-31); series_id=AHEMAN: start: (api call: 2022-10-01 vs expected: 2022-07-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+      },
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T42",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_91h5j4uu",
+          "series_id": "FYONET",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        },
+        {
+          "tool_call_id": "call_utyg1ejn",
+          "series_id": "FYFR",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 2,
+        "correct": [
+          "FYONET",
+          "FYFR"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=FYONET: start: (api call: 2024-01-01 vs expected: 2024-01-01), end: (api call: 2024-12-31 vs expected: 2024-12-31); series_id=FYFR: start: (api call: 2024-01-01 vs expected: 2024-01-01), end: (api call: 2024-12-31 vs expected: 2024-12-31)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T43",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_1k32156d",
+          "series_id": "DEXMXUS",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_qdlmrdih",
+          "series_id": "DECAUS",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct_count": 1,
+        "correct": [
+          "DEXMXUS"
+        ],
+        "missing": [
+          "DEXCAUS"
+        ],
+        "extra": [
+          "DECAUS"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=DEXMXUS: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=DECAUS: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T44",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_w0k4yc95",
+          "series_id": "PERMIT",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_pal2iz66",
+          "series_id": "HSN1F",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_14oz8lek",
+          "series_id": "MORTGAGE30US",
+          "start_date": "2025-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 3,
+        "correct": [
+          "MORTGAGE30US",
+          "PERMIT",
+          "HSN1F"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=PERMIT: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=HSN1F: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=MORTGAGE30US: start: (api call: 2025-03-11 vs expected: 2025-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T45",
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_t4a34c0n",
+          "series_id": "UNRATE",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_75aazcok",
+          "series_id": "CE16OV",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        },
+        {
+          "tool_call_id": "call_yjbwd7px",
+          "series_id": "EMRATIO",
+          "start_date": "2024-03-11",
+          "end_date": "2026-03-11"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct_count": 3,
+        "correct": [
+          "EMRATIO",
+          "CE16OV",
+          "UNRATE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": "series_id=UNRATE: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=CE16OV: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11); series_id=EMRATIO: start: (api call: 2024-03-11 vs expected: 2024-03-11), end: (api call: 2026-03-11 vs expected: 2026-03-11)"
+      },
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T46",
+      "success": false,
+      "error": "Model incorrectly made a tool call for a non-tool-call question",
+      "series_id_score": 0,
+      "date_range_score": 0,
+      "overall_score": 0
+    },
+    {
+      "question_id": "T47",
+      "success": false,
+      "error": "Model incorrectly made a tool call for a non-tool-call question",
+      "series_id_score": 0,
+      "date_range_score": 0,
+      "overall_score": 0
+    },
+    {
+      "question_id": "T48",
+      "success": false,
+      "error": "Model incorrectly made a tool call for a non-tool-call question",
+      "series_id_score": 0,
+      "date_range_score": 0,
+      "overall_score": 0
+    },
+    {
+      "question_id": "T49",
+      "success": false,
+      "error": "Model incorrectly made a tool call for a non-tool-call question",
+      "series_id_score": 0,
+      "date_range_score": 0,
+      "overall_score": 0
+    },
+    {
+      "question_id": "T50",
+      "success": false,
+      "error": "Model incorrectly made a tool call for a non-tool-call question",
+      "series_id_score": 0,
+      "date_range_score": 0,
+      "overall_score": 0
+    }
+  ],
+  "summary": {
+    "total_tests": 50,
+    "successful_tests": 45,
+    "failed_tests": 5,
+    "tool_call_tests": 45,
+    "tool_call_passed": 45,
+    "non_tool_call_tests": 5,
+    "non_tool_call_passed": 0,
+    "avg_series_id_score": 0.72,
+    "avg_date_range_score": 0.82,
+    "avg_overall_score": 0.77
+  }
+}
