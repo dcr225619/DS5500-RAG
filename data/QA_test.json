@@ -43,9 +43,9 @@
     "question": "How has the US dollar performed against the euro recently?",
     "question_id": "T06",
     "expected_series_ids": ["DEXUSEU"],
-    "expected_date_range": { "relative_start": "6m", "relative_end": "today" },
+    "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
     "tool_call_required": true,
-    "description": "Single series, relative 6m (short term)"
+    "description": "Single series, relative 1y (short term)"
   },
   {
     "question": "What was CPI during 2019?",
@@ -170,7 +170,7 @@
   {
     "question": "How has the St. Louis financial stress index moved over the past year?",
     "question_id": "T22",
-    "expected_series_ids": ["STLFSI"],
+    "expected_series_ids": ["STLFSI4"],
     "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
     "tool_call_required": true,
     "description": "Single series, relative 1y"

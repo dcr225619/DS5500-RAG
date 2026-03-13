@@ -1,3 +1,5 @@
+# applying semantic retriever for llama_api.py
+
 import requests
 from fred_key import fred_key
 from fred_api import load_indicator_metadata, call_fred_api
@@ -14,7 +16,9 @@ retriever = SeriesRetriever()
 GUIDE_SUFFIX = f"""
 Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
-When asked about economic data, use the get_fred_data function with the appropriate series_id.
+When asked about economic data, use the get_fred_data function with the appropriate series_id. Otherwise, directly answer the question.
+
+For vague or unspecified request, ask for further clarification and explanation.
 
 You will receive data from ALL tool calls.
 

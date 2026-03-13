@@ -1,3 +1,5 @@
+# self-check version for llama_api.py
+
 import requests
 from fred_key import fred_key
 from fred_api import load_indicator_metadata, call_fred_api
@@ -10,11 +12,14 @@ BASE_URL = "https://api.stlouisfed.org/fred/"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
 retriever = SeriesRetriever()
+VALID_SERIES = set(retriever.get_all_series_ids())
 
 GUIDE_SUFFIX = f"""
 Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
-When asked about economic data, use the get_fred_data function with the appropriate series_id.
+When asked about economic data, use the get_fred_data function with the appropriate series_id. Otherwise, directly answer the question.
+
+For vague or unspecified request, ask for further clarification and explanation.
 
 You will receive data from ALL tool calls.
 
@@ -87,7 +92,6 @@ def fix_date_parameters(start_date, end_date):
 
     return start_dt.strftime("%Y-%m-%d"), end_dt.strftime("%Y-%m-%d")
 
-
 def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, compact_mode=False):
     """
     call FRED API, fall back if fail
@@ -126,7 +130,6 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
     
     return result
 
-
 class FredLLMAgent:
     def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, top_k=5):
         self.model = model
@@ -145,7 +148,22 @@ class FredLLMAgent:
         response = requests.post(self.api_url, json=payload)
         return response.json()
     
-    def extract_tool_calls(self, question):
+    def validate_tool_calls(self, tool_calls, question, max_retries=1):
+        invalid = [c for c in tool_calls if c["series_id"] not in VALID_SERIES]
+        
+        if not invalid:
+            return tool_calls
+        
+        if self.verbose:
+            print(f"  [Check B] Invalid series: {[c['series_id'] for c in invalid]}, re-prompting...")
+        
+        # re-prompting LLM, pointing out which series ids are not available
+        correction_hint = f"The following series IDs do not exist: {[c['series_id'] for c in invalid]}. Please use only series from the provided list."
+        # re-call extract_tool_calls()
+        extraction = self.extract_tool_calls(question + f"\n\n[Correction hint: {correction_hint}]")
+        return extraction.get("tool_calls", tool_calls)
+    
+    def extract_tool_calls(self, question, min_similarity=0.3):
         """
         extract tool calls without execution
         
@@ -157,6 +175,23 @@ class FredLLMAgent:
                 "error": str (if failed)
             }
         """
+
+        # Check A:
+        # if the maximum correlation is too low, indicating that the issue may lie outside the scope of the data
+        relevant = retriever.retrieve(question, top_k=self.top_k)
+        top_score = relevant[0]["similarity"] if relevant else 0
+
+        # return warning for no data series with relevance larger than 0.3
+        if top_score < min_similarity:
+            if self.verbose:
+                print("  [Check A] No relevant FRED series found.")
+
+            return {
+                "success": False,
+                "error": f"No relevant FRED series found (best score: {top_score:.3f}). "
+                        f"This question may be outside FRED's coverage."
+            }
+
         # dynamically search for top k series
         guide = build_indicator_guide(question, top_k=self.top_k)
 
@@ -215,6 +250,10 @@ class FredLLMAgent:
                     "start_date": start_date,
                     "end_date": end_date
                 })
+
+            # Check B:
+            # make sure the series ids are available
+            extracted_calls = self.validate_tool_calls(extracted_calls, question)
             
             return {
                 "success": True,
@@ -295,10 +334,47 @@ class FredLLMAgent:
         
         return results
     
-    def process_question(self, question):
+    def validate_final_answer_completeness(self, question, final_answer, api_result):
+        """
+        validate whether the final answer includes all the series called and fall back if needed
+
+        Args:
+            question
+            final_answer
+            api_result:
+        Returns:
+            JSON
+            {{"complete": true/false, "missing": ["series_id", ...]}}
+        """
+        series_used = [r["series_id"] for r in api_results if r["success"]]
+    
+        verification_prompt = f"""
+    You answered this question: "{question}"
+    You had access to these datasets: {series_used}
+    Your answer was: "{final_answer[:500]}..."
+
+    Does your answer address ALL the datasets listed? 
+    Reply with JSON only: {{"complete": true/false, "missing": ["series_id", ...]}}
+    """
+        check_result = self.call_llm([
+            {"role": "user", "content": verification_prompt}
+        ])
+        
+        try:
+            content = check_result.get("message", {}).get("content", "{}")
+            parsed = json.loads(content)
+            return parsed
+        except:
+            return {"complete": True, "missing": []}
+
+
+    def process_question(self, question, max_self_check_loop=1):
         """
         run complete process: tool calls -> execution -> final answer generation
-        
+
+        Args:
+            question
+            max_self_check_loop: the maximum self-check for final answer when len(tool_calls) > 2
         Returns:
             dict: {
                 "question": str,
@@ -399,20 +475,26 @@ class FredLLMAgent:
                 "tool_call_id": result.get("tool_call_id", ""),
                 "content": json.dumps(tool_result, ensure_ascii=False)
             })
-        
-        # # DYNAMIC UPDATE system prompt to make sure that the llm uses all the data and answer the question
-        # series_list = ", ".join(r["series_id"] for r in api_results if r["success"])
-        # 
-        # messages[0]["content"] = (
-        #     f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}\n\n"
-        #     f"REQUIRED: You have received {len(api_results)} datasets ({series_list}). "
-        #     f"You MUST explicitly analyze ALL of them in your response. Do not skip any."
-        # )
 
         final_result = self.call_llm(messages)
 
         final_answer = final_result.get("message", {}).get("content", "No response generated")
         
+        # Check C
+        # self-check the completeness of the final answer when question involves more than 2 series data
+        if len(tool_calls) > 2:
+            for _ in range(max_self_check_loop):
+                check = self.validate_final_answer_completeness()
+                if check.get("complete"):
+                    break
+                missing_calls = f"Tool calls not included in the final results:" + ','.join(check["missing"]) + '\nGenerate the final answer again.'
+                messages.append({
+                    "role": "user",
+                    "content": missing_calls,
+                })
+                temp = self.call_llm(messages)
+                final_answer = temp.get("message", {}).get("content", "No response generated")
+
         execution_time = time.time() - start_time
         
         if self.verbose:

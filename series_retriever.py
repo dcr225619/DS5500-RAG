@@ -17,6 +17,12 @@ class SeriesRetriever:
         self.series_list = meta["series"]
         print(f"SeriesRetriever loaded: {len(self.series_list)} series available")
 
+    def get_all_series_ids(self):
+        """
+        Get all series ids.
+        """
+        return self.series_list
+
     def retrieve(self, query: str, top_k: int = 8) -> list[dict]:
         """
         Retrieve the most relevant series for a given query.
