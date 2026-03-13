@@ -1,17 +1,21 @@
 from openai import OpenAI
 from gpt_key import gpt_key
 from fred_api import load_indicator_metadata, call_fred_api
+from series_retriever import SeriesRetriever
 from llama_api import (
-    INDICATOR_GUIDE_COMP, TOOLS,
+    TOOLS,
     fix_date_parameters,
     call_fred_api_with_fallback
 )
+from llama_api_semantic_retriever import GUIDE_SUFFIX, build_indicator_guide
 import json
 from datetime import datetime, timedelta
 import time
 
 client = OpenAI(api_key=gpt_key)
 MODEL = "gpt-4o-mini"
+
+retriever = SeriesRetriever()
 
 def convert_tools_to_openai_format(tools):
     """convert Ollama tool format to OpenAI tool format"""
@@ -30,9 +34,10 @@ def convert_tools_to_openai_format(tools):
 OPENAI_TOOLS = convert_tools_to_openai_format(TOOLS)
 
 class OpenAIFredAgent:
-    def __init__(self, model=MODEL, verbose=True):
+    def __init__(self, model=MODEL, verbose=True, top_k=5):
         self.model = model
         self.verbose = verbose
+        self.top_k = top_k
 
     def call_llm(self, messages, use_tools=True):
         """call OpenAI API"""
@@ -59,10 +64,12 @@ class OpenAIFredAgent:
                 "error": str (if failed)
             }
         """
+        guide = build_indicator_guide(question, top_k=self.top_k)
+
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE_COMP}"
+                "content": f"You are an economic data assistant with access to FRED API. {guide}"
             },
             {
                 "role": "user",

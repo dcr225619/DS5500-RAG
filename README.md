@@ -1,4 +1,4 @@
-# A RAG system based on Macroeconomic Data
+# An Agentic RAG system based on Macroeconomic Data
 
 ## Get Started
 

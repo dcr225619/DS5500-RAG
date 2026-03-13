@@ -47,7 +47,7 @@ TOOLS = [
                 },
                 "start_date": {
                     "type": "string",
-                    "description": "Start date in YYYY-MM-DD format. For 'current/recent' queries, use 2 years ago. For specific periods, use the exact start date."
+                    "description": "Start date in YYYY-MM-DD format. For 'current/recent' queries, use 1 years ago. For specific periods, use the exact start date."
                 },
                 "end_date": {
                     "type": "string",
@@ -180,7 +180,7 @@ class FredLLMAgent:
         try:
             result = self.call_llm(messages)
             
-            print(result)
+            # print(result)
 
             if "message" not in result:
                 return {

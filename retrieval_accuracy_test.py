@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from llama_api import FredLLMAgent
 from llama_api_semantic_retriever import FredLLMAgent as FredLLMAgent_semantic
 from gpt_api import OpenAIFredAgent
+from gpt_api_semantic_retriever import OpenAIFredAgent as OpenAIFredAgent_semantic
 import pandas as pd
 import time
 
@@ -26,7 +27,10 @@ class AccuracyEvaluator:
             else:
                 self.agent = FredLLMAgent(model=model, verbose=False)
         elif model == 'gpt-4o-mini':
-            self.agent = OpenAIFredAgent()
+            if retriever == 'semantic':
+                self.agent = OpenAIFredAgent_semantic(verbose=False)
+            else:
+                self.agent = OpenAIFredAgent(verbose=False)
         else:
             raise ValueError('Invalid model')
 
@@ -138,7 +142,7 @@ class AccuracyEvaluator:
             
             # data date
             start_match = self._compare_dates(actual_start, expected_start, tolerance_days=30)
-            end_match = self._compare_dates(actual_end, expected_end, tolerance_days=30)
+            end_match = self._compare_dates(expected_end, actual_end, tolerance_days=30)
             
             call_score = (start_match + end_match) / 2
             scores.append(call_score)
@@ -154,28 +158,26 @@ class AccuracyEvaluator:
             "details": "; ".join(details)
         }
     
-    def _compare_dates(self, actual, expected, tolerance_days=30):
+    def _compare_dates(self, date1, date2, tolerance_days=30):
         """
-        compare two dates and return the relavant score
+        compare two dates and return the relavant score (date1 is expected to be earlier than or equal to date2)
         
         Returns:
             float: 0-1, 1 represents complete match
         """
-        if not actual or not expected:
+        if not date1 or not date2:
             return 0.0
         
         try:
-            actual_date = datetime.strptime(actual, "%Y-%m-%d")
-            expected_date = datetime.strptime(expected, "%Y-%m-%d")
+            date1 = datetime.strptime(date1, "%Y-%m-%d")
+            date2 = datetime.strptime(date2, "%Y-%m-%d")
             
-            diff_days = abs((actual_date - expected_date).days)
+            diff_days = (date2 - date1).days
             
-            if diff_days == 0:
-                return 1.0
-            elif diff_days <= tolerance_days:
-                return 1.0 - (diff_days / tolerance_days)  # score deducted if within tolerance
+            if diff_days > 0:
+                return max(1.0 - max((diff_days - tolerance_days), 0) / 100, 0)  # score deducted if exceed tolerance
             else:
-                return 0.0
+                return 0.0  # score 0 if cannot cover expected date
         except:
             return 0.0
     
@@ -346,8 +348,9 @@ if __name__ == "__main__":
     start = time.time()
 
     # evaluator = AccuracyEvaluator(model="llama3.2")
-    # evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
-    evaluator = AccuracyEvaluator(model="gpt-4o-mini")
+    evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
+    # evaluator = AccuracyEvaluator(model="gpt-4o-mini")
+    # evaluator = AccuracyEvaluator(retriever='semantic', model="gpt-4o-mini")
     
     # add test cases
     path = "data/QA_test.json"
@@ -355,6 +358,6 @@ if __name__ == "__main__":
     
     results = evaluator.run_all_tests()
     
-    evaluator.export_results(results,"files/gpt-4o-mini/evaluation_results_gpt_compact_test.json" )
+    evaluator.export_results(results,"files/origin/evaluation_results_semantic_test2.json" )
 
     print(f"Execution time: {time.time() - start: .2f}")

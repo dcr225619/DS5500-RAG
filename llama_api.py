@@ -1,6 +1,7 @@
 import requests
 from fred_key import fred_key
 from fred_api import load_indicator_metadata, call_fred_api
+from series_retriever import SeriesRetriever
 import json
 from datetime import datetime, timedelta
 import time
@@ -12,25 +13,25 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 with open("files/indicator_guide_compact.txt", encoding="utf-8") as f:
     indicator_mapping = f.read()
 
-INDICATOR_GUIDE = indicator_mapping + f"""
-Note: frequency: (A)=Yearly, (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily
+GUIDE_SUFFIX = f"""
+Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
 
-When asked about economic data available above, use the get_fred_data function with the appropriate series_id to gain data to support your response.
-
-Otherwise, directly answer the question.
+When asked about economic data, use the get_fred_data function with the appropriate series_id. Otherwise, directly answer the question.
 
 For vague or unspecified request, ask for further clarification and explanation.
 
 You will receive data from ALL tool calls.
 
-IMPORTANT: 
+IMPORTANT:
 1. Always specify start_date and end_date based on the user's question. Always use YYYY-MM-DD format, NOT relative dates like "-2y"
 2. If no time period specified, use recent 1 year by default
 3. Each series_id should only be called ONCE with a single continuous date range.
    - WRONG: calling GDP twice with 2018-2020 and 2021-2023
    - RIGHT: calling GDP once with 2018-2023
-4. Today is {datetime.today().strftime("%Y-%m-%d")}
+4. Today is {datetime.today().strftime('%Y-%m-%d')}
 """
+
+INDICATOR_GUIDE_COMP = indicator_mapping + GUIDE_SUFFIX
 
 TOOLS = [
     {
@@ -45,7 +46,7 @@ TOOLS = [
                 },
                 "start_date": {
                     "type": "string",
-                    "description": "Start date in YYYY-MM-DD format. For 'current/recent' queries, use 2 years ago. For specific periods, use the exact start date."
+                    "description": "Start date in YYYY-MM-DD format. For 'current/recent' queries, use 1 years ago. For specific periods, use the exact start date."
                 },
                 "end_date": {
                     "type": "string",
@@ -173,7 +174,7 @@ class FredLLMAgent:
         messages = [
             {
                 "role": "system",
-                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}"
+                "content": f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE_COMP}"
             },
             {
                 "role": "user",
