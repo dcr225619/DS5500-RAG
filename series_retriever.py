@@ -21,7 +21,7 @@ class SeriesRetriever:
         """
         Get all series ids.
         """
-        return self.series_list
+        return set([s['SERIES'] for s in self.series_list])
 
     def retrieve(self, query: str, top_k: int = 8) -> list[dict]:
         """

@@ -119,7 +119,7 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
                 start_dt = datetime.strptime(start_date, "%Y-%m-%d")
                 start_dt = start_dt - timedelta(days=365)
                 start_date = start_dt.strftime("%Y-%m-%d")
-                print(f"  No data found, retrying with end_date: {start_date}")
+                print(f"  No data found, retrying with start_date: {start_date}")
             except:
                 break
     

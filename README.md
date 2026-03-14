@@ -1,7 +1,6 @@
 # An Agentic RAG system based on Macroeconomic Data
 
 ## Get Started
-
 1. Install the required dependencies with: `pip install -r requirements.txt --upgrade`.
 2. Save your fred api key in a file named `fred_key.py`, save your openai api key in a file named `gpt_key.py`.
 3. Run `wikitable_crawler.py` to get series ids file `output.json` for Fred series.
@@ -16,8 +15,9 @@
 ## Use Semantic Retriever insted of compact text indicator guide
 1. Run `generate_series_description.py` to generate detailed descriptions for Fred series file `output.json` using chatgpt-mini-4o.
 2. Run `build_series_index.py` to build series index embedding for retriever.
-3. Run `llama_api_semantic_retriever.py` to use llama3.2 for experiment on `QA.json` with your newly generated semantic retriever.
-4. Run `retrieval_accuracy_test.py` to test retrieval accuracy without generating summary on `QA.json`. Modify parameters to change the model you use.
+3. Run `llama_api_semantic_retriever.py` to use llama3.2 for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
+4. Run `gpt_api_semantic_retriever.py` to use gpt-4o-mini for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
+5. Run `retrieval_accuracy_test.py` to test retrieval accuracy without generating summary on `QA.json` or `QA_test.json`. Modify parameters to change the model you use.
 
 ## Fine-tune for better summary
 1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
@@ -25,7 +25,9 @@
 3. Deploy your fine-tuned model.
 4. Modify parameters to run the files using your fine-tuned model.
 
+## RAG with self-check and fall back for improved retrieval and summarization
+1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check and fall back
+
 ## Unfinished
 1. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
-2. `llama_api_final.py`: llama agentic rag with self-check and fall back
-3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)
+2. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)

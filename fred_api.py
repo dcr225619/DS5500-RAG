@@ -15,7 +15,7 @@ api_key = fred_key
 base_url = "https://api.stlouisfed.org/fred/"
 
 def load_indicator_metadata():
-    with open("output_with_description.json", "r", encoding="utf-8") as f:
+    with open("output_with_descriptions.json", "r", encoding="utf-8") as f:
         indicators = json.load(f)
     return {item["SERIES"]: item for item in indicators}
 
@@ -30,7 +30,7 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
         frequency = indicators_map[series_id]["PERIOD"].lower()
         indicator_name = indicators_map[series_id]["INDICATOR"]
         units = indicators_map[series_id]["UNITS"]
-        description = indicator_name[series_id]['description']
+        description = indicators_map[series_id]['description']
     
     # make sure time range is greater than freq unit
     if frequency:

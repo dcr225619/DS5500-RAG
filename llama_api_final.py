@@ -12,7 +12,7 @@ BASE_URL = "https://api.stlouisfed.org/fred/"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
 retriever = SeriesRetriever()
-VALID_SERIES = set(retriever.get_all_series_ids())
+VALID_SERIES = retriever.get_all_series_ids()
 
 GUIDE_SUFFIX = f"""
 Note: (M)=Monthly, (Q)=Quarterly, (W)=Weekly, (D)=Daily, (Y)=Yearly
@@ -124,7 +124,7 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
                 start_dt = datetime.strptime(start_date, "%Y-%m-%d")
                 start_dt = start_dt - timedelta(days=365)
                 start_date = start_dt.strftime("%Y-%m-%d")
-                print(f"  No data found, retrying with end_date: {start_date}")
+                print(f"  No data found, retrying with start_date: {start_date}")
             except:
                 break
     
@@ -148,10 +148,21 @@ class FredLLMAgent:
         response = requests.post(self.api_url, json=payload)
         return response.json()
     
-    def validate_tool_calls(self, tool_calls, question, max_retries=1):
+    def validate_tool_calls(self, tool_calls, question, max_retries=1, _depth=0):
+        """
+        validate tool calls
+
+        Args:
+            tool_calls
+            question
+            max_retries: maximum times of retry
+            _depth: internal count
+
+        Returns:
+            tool_calls: list of dict with {series_id, start_date, end_date}
+        """
         invalid = [c for c in tool_calls if c["series_id"] not in VALID_SERIES]
-        
-        if not invalid:
+        if not invalid or _depth >= max_retries:
             return tool_calls
         
         if self.verbose:
@@ -159,9 +170,11 @@ class FredLLMAgent:
         
         # re-prompting LLM, pointing out which series ids are not available
         correction_hint = f"The following series IDs do not exist: {[c['series_id'] for c in invalid]}. Please use only series from the provided list."
+
         # re-call extract_tool_calls()
         extraction = self.extract_tool_calls(question + f"\n\n[Correction hint: {correction_hint}]")
-        return extraction.get("tool_calls", tool_calls)
+
+        return self.validate_tool_calls(extraction.get("tool_calls", tool_calls), question, max_retries, _depth + 1)
     
     def extract_tool_calls(self, question, min_similarity=0.3):
         """
@@ -334,28 +347,43 @@ class FredLLMAgent:
         
         return results
     
-    def validate_final_answer_completeness(self, question, final_answer, api_result):
+    def validate_final_answer_completeness(self, question, final_answer, api_results):
         """
         validate whether the final answer includes all the series called and fall back if needed
 
         Args:
             question
             final_answer
-            api_result:
+            api_results
         Returns:
-            JSON
-            {{"complete": true/false, "missing": ["series_id", ...]}}
+            JSON: {{
+            "complete": true/false,
+            "missing_series": ["series_id that were not discussed"],
+            "question_addressed": true/false,
+            "gap": "one sentence describing what's missing from the answer, or empty string if complete"
+            }}
         """
         series_used = [r["series_id"] for r in api_results if r["success"]]
     
         verification_prompt = f"""
-    You answered this question: "{question}"
-    You had access to these datasets: {series_used}
-    Your answer was: "{final_answer[:500]}..."
+        You are reviewing an economic data analysis response.
 
-    Does your answer address ALL the datasets listed? 
-    Reply with JSON only: {{"complete": true/false, "missing": ["series_id", ...]}}
-    """
+        Original question: "{question}"
+        Datasets retrieved: {series_used}
+        Answer provided: "{final_answer[:600]}..."
+
+        Evaluate the answer on TWO criteria:
+        1. DATA COVERAGE: Does the answer explicitly discuss all datasets listed?
+        2. QUESTION RELEVANCE: Does the answer actually address what was asked in the original question?
+
+        Reply with JSON only, no explanation:
+        {{
+        "complete": true/false,
+        "missing_series": ["series_id that were not discussed"],
+        "question_addressed": true/false,
+        "gap": "one sentence describing what's missing from the answer, or empty string if complete"
+        }}
+        """
         check_result = self.call_llm([
             {"role": "user", "content": verification_prompt}
         ])
@@ -365,7 +393,7 @@ class FredLLMAgent:
             parsed = json.loads(content)
             return parsed
         except:
-            return {"complete": True, "missing": []}
+            return {"complete": True, "missing": [], "question_addressed": True, "gap": ""}
 
 
     def process_question(self, question, max_self_check_loop=1):
@@ -480,17 +508,26 @@ class FredLLMAgent:
 
         final_answer = final_result.get("message", {}).get("content", "No response generated")
         
-        # Check C
+        # Check C:
         # self-check the completeness of the final answer when question involves more than 2 series data
-        if len(tool_calls) > 2:
+        if len(tool_calls) > 0:
             for _ in range(max_self_check_loop):
-                check = self.validate_final_answer_completeness()
-                if check.get("complete"):
+                check = self.validate_final_answer_completeness(question, final_answer, api_results)
+                if check.get("complete") and check.get("question_addressed"):
                     break
-                missing_calls = f"Tool calls not included in the final results:" + ','.join(check["missing"]) + '\nGenerate the final answer again.'
+
+                if self.verbose:
+                    print(f"    [Check C] Incomplete final answer. Regenerating...")
+
+                missing_calls, gap_hint = '', ''
+                if not check.get("complete"):
+                    missing_calls = f"Missing series: {', '.join(check.get('missing_series', []))}\n"
+                if not check.get("question_addressed"):
+                    gap_hint = f"Your answer is incomplete. {check.get("gap", "")}\n"
+                
                 messages.append({
                     "role": "user",
-                    "content": missing_calls,
+                    "content": missing_calls + gap_hint + f"Please revise your answer to fully address the original question: {question}",
                 })
                 temp = self.call_llm(messages)
                 final_answer = temp.get("message", {}).get("content", "No response generated")
@@ -533,10 +570,10 @@ if __name__ == "__main__":
     #     file = json.load(f)
     
     file = [
-        # "How did unemployment and inflation change in 2024?",
-        # "What's the trade balance trend between goods and services over the past 2 years?"
-        # "What's the date today?",
-          "Show me GDP data for Q1 2024"
+        "How did unemployment and inflation change in 2024?",
+        "What's the trade balance trend between goods and services over the past 2 years?"
+        "What's the date today?",
+        "Show me GDP data for Q1 2024"
     ]
 
     agent = FredLLMAgent(model="llama3.2", verbose=True)
@@ -553,7 +590,7 @@ if __name__ == "__main__":
         #
         results.append(result)
 
-    print(results)
+    # print(results)
 
     # filepath = "files/finetune-2/all_results_compact.json"
     # with open(filepath, "w", encoding="utf-8") as f:
