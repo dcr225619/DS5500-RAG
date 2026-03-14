@@ -26,6 +26,7 @@
 4. Modify parameters to run the files using your fine-tuned model.
 
 ## RAG with self-check and fall back for improved retrieval and summarization
+![self_check_workflow](self-check flow chart.png)
 1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check and fall back
 
 ## Unfinished
