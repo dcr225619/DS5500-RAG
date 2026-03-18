@@ -32,5 +32,6 @@
 1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check and fall back
 
 ## Unfinished
-1. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
-2. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)
+1. summary evaluation
+2. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
+3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)

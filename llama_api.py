@@ -6,7 +6,6 @@ import json
 from datetime import datetime, timedelta
 import time
 
-BASE_URL = "https://api.stlouisfed.org/fred/"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
 # indicator_guide_compact.txt, indicator_guide_by_category.txt, indicator_guide_optimized.txt, indicator_guide_with_examples.txt

@@ -8,7 +8,6 @@ import json
 from datetime import datetime, timedelta
 import time
 
-BASE_URL = "https://api.stlouisfed.org/fred/"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
 retriever = SeriesRetriever()
