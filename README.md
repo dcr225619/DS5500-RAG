@@ -26,6 +26,7 @@
 <p align="center">
   <img src="self_check_flow_chart.png" alt="self_check_workflow" width="400">
 </p>
+
 1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check, fall back and date parser.
 2. Run `gpt_api_final.py` to use gpt-4o-mini agentic RAG with self-check, fall back.
 
