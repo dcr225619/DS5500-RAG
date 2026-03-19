@@ -1,11 +1,14 @@
 # self-check version for llama_api.py
 
 import requests
+import re
 from fred_key import fred_key
 from fred_api import load_indicator_metadata, call_fred_api
 from series_retriever import SeriesRetriever
 import json
 from datetime import datetime, timedelta
+from date_parser import parse_date_range
+from dateutil.relativedelta import relativedelta
 import time
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
@@ -204,6 +207,15 @@ class FredLLMAgent:
                         f"This question may be outside FRED's coverage."
             }
 
+        # pre-parse date range from question before calling LLM
+        pre_start, pre_end = parse_date_range(question)
+
+        if self.verbose:
+            if pre_start:
+                print(f"  [DateParser] Detected range: {pre_start} to {pre_end}")
+            else:
+                print(f"  [DateParser] No unambiguous date found, LLM will decide")
+
         # dynamically search for top k series
         guide = build_indicator_guide(question, top_k=self.top_k)
 
@@ -226,8 +238,6 @@ class FredLLMAgent:
         
         try:
             result = self.call_llm(messages)
-            
-            # print(result)
 
             if "message" not in result:
                 return {
@@ -250,21 +260,23 @@ class FredLLMAgent:
             for tool_call in assistant_message["tool_calls"]:
                 args = tool_call["function"]["arguments"]
 
-                start_date = args.get("start_date") or args.get("start", "")
-                end_date = args.get("end_date") or args.get("end", "")
-                
-                # fix problematic dates
-                start_date, end_date = fix_date_parameters(start_date, end_date)
+                if pre_start and pre_end:
+                    # dateparser result takes priority — skip fix_date_parameters
+                    start_date, end_date = pre_start, pre_end
+                else:
+                    # fall back to LLM dates, then sanitise
+                    start_date = args.get("start_date") or args.get("start", "")
+                    end_date = args.get("end_date") or args.get("end", "")
+                    start_date, end_date = fix_date_parameters(start_date, end_date)
 
                 extracted_calls.append({
-                    "tool_call_id": tool_call.get("id", f"call_{len(extracted_calls)}"),  # for matching tool call responds with tool calls
+                    "tool_call_id": tool_call.get("id", f"call_{len(extracted_calls)}"),
                     "series_id": args.get("series_id", "").strip(),
                     "start_date": start_date,
                     "end_date": end_date
                 })
 
-            # Check B:
-            # make sure the series ids are available
+            # Check B: make sure the series ids are available
             extracted_calls = self.validate_tool_calls(extracted_calls, question)
             
             return {
@@ -314,32 +326,13 @@ class FredLLMAgent:
             if use_fallback:
                 api_result = call_fred_api_with_fallback(
                     series_id, start_date, end_date, 
-                    compact_mode=use_compact  #
+                    compact_mode=use_compact
                 )
             else:
                 api_result = call_fred_api(
                     series_id, start_date, end_date,
-                    compact_mode=use_compact  #
+                    compact_mode=use_compact
                 )
-
-                # # plot data
-                # def plot_line(observations, title=None):
-                #     # sort by date to ensure chronological order from past to present
-                #     dates = [datetime.strptime(obs["date"], "%Y-%m-%d") for obs in observations]
-                #     values = [float(obs["value"]) for obs in observations]
-                #     plt.figure(figsize=(12, 6))
-                #     plt.plot(dates, values, color="r")
-                #     if title is not None:
-                #         plt.title(title)
-                #     plt.xlabel("Date", fontsize=10)
-                #     plt.ylabel("Value", fontsize=10)
-                #     plt.xticks(rotation=45, ha="right")  # rotate x-axis labels for better readability
-                #     plt.legend()
-                #     plt.grid(True, alpha=0.3) # alpha adjusts transparency
-                #     plt.tight_layout()
-                #     plt.show()
-
-                # plot_line(api_result["data"], title=f"{api_result["indicator_name"]}")
             
             api_result["tool_call_id"] = call.get("tool_call_id", f"call_{idx}")
             results.append(api_result)
@@ -452,8 +445,8 @@ class FredLLMAgent:
         if self.verbose:
             print(f"\nExtracted {len(tool_calls)} tool call(s):")
             for i, call in enumerate(tool_calls):
-                print(f"  {i+1}. series_id={call["series_id"]}, "
-                      f"dates={call["start_date"]} to {call["end_date"]}")
+                print(f"  {i+1}. series_id={call['series_id']}, "
+                      f"dates={call['start_date']} to {call['end_date']}")
         
         # step 2: run tool calls
         if self.verbose:
@@ -522,7 +515,7 @@ class FredLLMAgent:
                 if not check.get("complete"):
                     missing_calls = f"Missing series: {', '.join(check.get('missing_series', []))}\n"
                 if not check.get("question_addressed"):
-                    gap_hint = f"Your answer is incomplete. {check.get("gap", "")}\n"
+                    gap_hint = f"Your answer is incomplete. {check.get('gap', '')}\n"
                 
                 messages.append({
                     "role": "user",
@@ -570,7 +563,7 @@ if __name__ == "__main__":
     
     file = [
         "How did unemployment and inflation change in 2024?",
-        "What's the trade balance trend between goods and services over the past 2 years?"
+        "What's the trade balance trend between goods and services over the past 2 years?",
         "What's the date today?",
         "Show me GDP data for Q1 2024"
     ]
@@ -581,15 +574,8 @@ if __name__ == "__main__":
     
     results = []
     for idx, question in enumerate(file):
-        # question_id = question["question_id"]
-        # print(f"Question {idx + 1}: {question_id}")
-        # result = agent.process_question(question["question"])
-        #
         result = agent.process_question(question)
-        #
         results.append(result)
-
-    # print(results)
 
     # filepath = "files/finetune-2/all_results_compact.json"
     # with open(filepath, "w", encoding="utf-8") as f:

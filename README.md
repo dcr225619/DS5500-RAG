@@ -6,20 +6,17 @@
 3. Run `wikitable_crawler.py` to get series ids file `output.json` for Fred series.
 4. Run `indicator_formatter.py` to generate `indicator_guide_compact.txt` for generate a compact Fred data list for llms.
 
-## Use baseline models with compact text indicator guide (llama3.2 / gpt-4o-mini). 
+## Use Baseline Models with Compact Text Indicator Guide for Retrieval Based on LLM-Driven Autonomous Understanding (llama3.2 / gpt-4o-mini). 
 1. Install llama3.2 in Docker if you want to use llama3.2 for experiment. Apply for OpenAI key to use gpt models for experiment.
 2. Run `llama_api.py` to use llama3.2 for experiment on `QA.json` or `QA_test.json`. Run `gpt_api.py` to use chatgpt-mini-4o for experiment on `QA.json` or`QA_test.json`. 
-3. Run `retrieval_accuracy_test.py` to test retrieval accuracy without generating summary on `QA.json` or `QA_test.json`. Modify parameters to change the model you use.
-4. Run `retrieval_result_analysis.ipynb` to analyse the results you get from `retrieval_accuracy_test.py`.
 
-## Use Semantic Retriever insted of compact text indicator guide
+## Use Semantic Retriever insted of Compact Text
 1. Run `generate_series_description.py` to generate detailed descriptions for Fred series file `output.json` using chatgpt-mini-4o.
 2. Run `build_series_index.py` to build series index embedding for retriever.
 3. Run `llama_api_semantic_retriever.py` to use llama3.2 for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
 4. Run `gpt_api_semantic_retriever.py` to use gpt-4o-mini for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
-5. Run `retrieval_accuracy_test.py` to test retrieval accuracy without generating summary on `QA.json` or `QA_test.json`. Modify parameters to change the model you use.
 
-## Fine-tune for better summary
+## Fine-tune for Better Summary
 1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
 2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
 3. Deploy your fine-tuned model.
@@ -29,7 +26,13 @@
 <p align="center">
   <img src="self_check_flow_chart.png" alt="self_check_workflow" width="400">
 </p>
-1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check and fall back
+1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check, fall back and date parser.
+2. Run `gpt_api_final.py` to use gpt-4o-mini agentic RAG with self-check, fall back.
+
+## Retrieval Accuracy Evaluation
+1. Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+
+## Summary Quality Evaluation
 
 ## Unfinished
 1. summary evaluation
