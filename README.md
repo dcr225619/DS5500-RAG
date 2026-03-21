@@ -1,5 +1,11 @@
 # An Agentic RAG system based on Macroeconomic Data
 
+This is an agentic Retrieval-Augmented Generation system that answers natural language questions about US macroeconomic indicators by autonomously querying the FRED API. Given a user question, the system identifies the relevant FRED data series and date range, retrieves the time-series data via tool calls, and generates a grounded natural language summary — without requiring the user to know any series ids or API details.
+
+The project systematically compares two models (LLaMA 3.2 and GPT-4o-mini) across three progressively enhanced agent variants: a baseline using a compact text indicator guide, a semantic retrieval version that dynamically selects the most relevant series via FAISS embeddings, and a final version incorporating a rule-based date parser and a three-layer self-check pipeline (relevance gating, parameter validation, and answer completeness verification). LLaMA 3.2 is further fine-tuned on GPT-generated reference summaries to close the summarization quality gap. Retrieval accuracy is evaluated across all six variants on a curated question benchmark covering single- and multi-series queries, relative time expressions, and out-of-scope questions.
+
+Two directions are planned for future development. First, the knowledge base will be expanded with real-time news retrieval via NewsAPI, allowing the system to contextualize economic data with current events and analyst commentary. Second, a query router will be introduced to dynamically select the most appropriate retrieval strategy — direct generation, single-step tool call, or full agentic RAG — based on question type, reducing unnecessary API calls and latency for simpler queries.
+
 ## Get Started
 1. Install the required dependencies with: `pip install -r requirements.txt --upgrade`.
 2. Save your fred api key in a file named `fred_key.py`, save your openai api key in a file named `gpt_key.py`.
@@ -16,12 +22,6 @@
 3. Run `llama_api_semantic_retriever.py` to use llama3.2 for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
 4. Run `gpt_api_semantic_retriever.py` to use gpt-4o-mini for experiment on `QA.json` or `QA_test.json` with your newly generated semantic retriever.
 
-## Fine-tune for Better Summary
-1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
-2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
-3. Deploy your fine-tuned model.
-4. Modify parameters to run the files using your fine-tuned model.
-
 ## RAG with self-check and fall back for improved retrieval and summarization
 <p align="center">
   <img src="self_check_flow_chart.png" alt="self_check_workflow" width="400">
@@ -32,6 +32,12 @@
 
 ## Retrieval Accuracy Evaluation
 1. Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+
+## Fine-tune for Better Summary
+1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
+2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
+3. Deploy your fine-tuned model.
+4. Modify parameters to run the files using your fine-tuned model.
 
 ## Summary Quality Evaluation
 
