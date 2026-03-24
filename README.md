@@ -33,6 +33,11 @@ Two directions are planned for future development. First, the knowledge base wil
 ## Retrieval Accuracy Evaluation
 1. Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
 
+## Few-shot prompt for Better Summary
+1. Prepare several human-written high-quality summary examples and put them in `few_shot_examples.py`.
+2. Uncomment `*build_few_shot_messages(),` before question, after system prompt, in the summary generation prompt.
+3. Run all main files to using prompt including several high-quality human-written.
+
 ## Fine-tune for Better Summary
 1. Run `QA_gpt_transformer.ipynb` to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
 2. Run `llama_finetune.ipynb` for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
@@ -40,8 +45,8 @@ Two directions are planned for future development. First, the knowledge base wil
 4. Modify parameters to run the files using your fine-tuned model.
 
 ## Summary Quality Evaluation
+1. Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results.
 
-## Unfinished
-1. summary evaluation
+## Unfinished (Future Work)
 2. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
 3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)
