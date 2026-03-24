@@ -5,6 +5,7 @@
     "expected_series_ids": ["UNRATE"],
     "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
     "tool_call_required": true,
+    "key_facts": {"UNRATE": {"2026-02": "4.4"}},
     "description": "Single series, relative 1y"
   },
   {
@@ -13,6 +14,7 @@
     "expected_series_ids": ["FEDFUNDS"],
     "expected_date_range": { "start": "2023-01-01", "end": "2023-12-31" },
     "tool_call_required": true,
+    "key_facts": {"FEDFUNDS": {"2023-01": "4.33", "2023-02": "4.57", "2023-03": "4.65", "2023-04": "4.83", "2023-05": "5.06", "2023-06": "5.08", "2023-07": "5.12", "2023-08": "5.33", "2023-09": "5.33", "2023-10": "5.33", "2023-11": "5.33", "2023-12": "5.33"}},
     "description": "Single series, fixed full year"
   },
   {
@@ -45,6 +47,7 @@
     "expected_series_ids": ["DEXUSEU"],
     "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
     "tool_call_required": true,
+    "key_facts": {"DEXUSEU": {"2026-03": "1.1444"}},
     "description": "Single series, relative 1y (short term)"
   },
   {
@@ -53,10 +56,11 @@
     "expected_series_ids": ["CPIAUCSL"],
     "expected_date_range": { "start": "2019-01-01", "end": "2019-12-31" },
     "tool_call_required": true,
+    "key_facts": {"CPIAUCSL": {"2019-01": "252.561", "2019-02": "253.319", "2019-03": "254.277", "2019-04": "255.233", "2019-05": "255.296", "2019-06": "255.213", "2019-07": "255.802", "2019-08": "256.036", "2019-09": "256.430", "2019-10": "257.155", "2019-11": "257.879", "2019-12": "258.630"}},
     "description": "Single series, fixed pre-pandemic year"
   },
   {
-    "question": "Pull up the VIX index for the first half of 2020",
+    "question": "How did the VIX index change for the first half of 2020",
     "question_id": "T08",
     "expected_series_ids": ["VIXCLS"],
     "expected_date_range": { "start": "2020-01-01", "end": "2020-06-30" },
@@ -85,6 +89,7 @@
     "expected_series_ids": ["PCE"],
     "expected_date_range": { "start": "2022-01-01", "end": "2022-12-31" },
     "tool_call_required": true,
+    "key_facts": {"PCE": {"2022-01": "16993.8", "2022-02": "17106.0", "2022-03": "17347.2", "2022-04": "17490.0", "2022-05": "17574.5", "2022-06": "17755.2", "2022-07": "17770.1", "2022-08": "17916.5", "2022-09": "17992.8", "2022-10": "18109.6", "2022-11": "18108.0", "2022-12": "18116.5"}},
     "description": "Single series, fixed full year"
   },
   {
@@ -120,7 +125,7 @@
     "description": "Single series, fixed year"
   },
   {
-    "question": "Show me the producer price index since 2020",
+    "question": "How has the producer price index changed since 2020",
     "question_id": "T16",
     "expected_series_ids": ["PPIACO"],
     "expected_date_range": { "start": "2020-01-01", "relative_end": "today" },
@@ -141,10 +146,11 @@
     "expected_series_ids": ["PERMIT"],
     "expected_date_range": { "start": "2022-10-01", "end": "2022-12-31" },
     "tool_call_required": true,
+    "key_facts":{"PERMIT": {"2022-10-01": 1594, "2022-11-01": 1401, "2022-12-01": 1410}},
     "description": "Single series, single quarter"
   },
   {
-    "question": "Give me the Japanese yen to dollar exchange rate for all of 2024",
+    "question": "Show me how the Japanese yen to dollar exchange rate changed for all of 2024",
     "question_id": "T19",
     "expected_series_ids": ["DEXJPUS"],
     "expected_date_range": { "start": "2024-01-01", "end": "2024-12-31" },
@@ -165,6 +171,7 @@
     "expected_series_ids": ["GDP"],
     "expected_date_range": { "start": "2022-07-01", "end": "2022-09-30" },
     "tool_call_required": true,
+    "key_facts":{"GDP": {"2022-07-01": 26336.304}},
     "description": "Single series, single quarter"
   },
   {
@@ -181,6 +188,7 @@
     "expected_series_ids": ["TTLCONS"],
     "expected_date_range": { "start": "2023-01-01", "end": "2023-12-31" },
     "tool_call_required": true,
+    "key_facts":{"GDP": {"2023-01-01": 1957962, "2023-02-01": 1976696, "2023-03-01": 1996401, "2023-04-01": 2023621, "2023-05-01": 2054535, "2023-06-01": 2071559, "2023-07-01": 2085773, "2023-08-01": 2108227, "2023-09-01": 2123480, "2023-10-01": 2142735, "2023-11-01": 2167301, "2023-12-01": 2176796}},
     "description": "Single series, fixed full year"
   },
   {
@@ -208,7 +216,7 @@
     "description": "Single series, relative 5y"
   },
   {
-    "question": "Pull up the discount rate for the second half of 2022",
+    "question": "How did the discount rate change for the second half of 2022",
     "question_id": "T27",
     "expected_series_ids": ["DPCREDIT"],
     "expected_date_range": { "start": "2022-07-01", "end": "2022-12-31" },
@@ -221,6 +229,7 @@
     "expected_series_ids": ["TOTALSL"],
     "expected_date_range": { "relative_start": "1y", "relative_end": "today" },
     "tool_call_required": true,
+    "key_facts":{"TOTALSL": {"2026-01-01": 511679.44}},
     "description": "Single series, casual current value query"
   },
   {

@@ -7,6 +7,7 @@ from series_retriever import SeriesRetriever
 import json
 from datetime import datetime, timedelta
 import time
+from few_shot_examples import build_few_shot_messages
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
@@ -145,7 +146,7 @@ class FredLLMAgent:
             "stream": False
         }
         
-        response = requests.post(self.api_url, json=payload)
+        response = requests.post(self.api_url, json=payload, timeout=600)
         return response.json()
     
     def extract_tool_calls(self, question):
@@ -370,6 +371,7 @@ class FredLLMAgent:
                 "role": "system",
                 "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
             },
+            *build_few_shot_messages(),  # few-shot examples
             {
                 "role": "user",
                 "content": question
@@ -450,34 +452,39 @@ def process_question(question, verbose=True):
 if __name__ == "__main__":
     import pandas as pd
 
-    # with open("data/QA.json", encoding="utf-8") as f:
-    #     file = json.load(f)
+    with open("data/QA_test.json", encoding="utf-8") as f:
+        file = json.load(f)
     
-    file = [
-        # "How did unemployment and inflation change in 2024?",
-        # "What's the trade balance trend between goods and services over the past 2 years?"
-        # "What's the date today?",
-          "Show me GDP data for Q1 2024"
-    ]
+    # file = [
+    #     # "How did unemployment and inflation change in 2024?",
+    #     # "What's the trade balance trend between goods and services over the past 2 years?"
+    #     # "What's the date today?",
+    #       "Show me GDP data for Q1 2024"
+    # ]
 
-    agent = FredLLMAgent(model="llama3.2", verbose=True)
-    # agent = FredLLMAgent(model="llama-finetuned-v2", verbose=True)
-    # agent = FredLLMAgent(model="llama-finetuned-v3", verbose=True)
-    
+    agent = FredLLMAgent(model="llama3.2", verbose=False)
+    # agent = FredLLMAgent(model="llama-finetuned-v2", verbose=False)
+    # agent = FredLLMAgent(model="llama-finetuned-v3", verbose=False)
+    # agent = FredLLMAgent(model="llama-finetuned-v4", verbose=False)
+
     results = []
     for idx, question in enumerate(file):
-        # question_id = question["question_id"]
-        # print(f"Question {idx + 1}: {question_id}")
-        # result = agent.process_question(question["question"])
-        #
-        result = agent.process_question(question)
-        #
+        question_id = question["question_id"]
+        print(f"Question {idx + 1}: {question_id}")
+        try:
+            result = agent.process_question(question["question"])
+            # result = agent.process_question(question)
+        except Exception as e:
+            print(f"  ERROR on {question_id}: {e}, skipping...")
+            result = {
+                "question": question["question"],
+                "success": False,
+                "error": str(e)
+            }
         results.append(result)
 
-    print(results)
+    filepath = "files/llama3.2/QA_test_llama_api_semantic_retriever_few_shot.json"
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # filepath = "files/finetune-2/all_results_compact.json"
-    # with open(filepath, "w", encoding="utf-8") as f:
-    #     json.dump(results, f, indent=2, ensure_ascii=False)
-
-    # print(f"\nResults exported to {filepath}")
+    print(f"\nResults exported to {filepath}")

@@ -60,11 +60,10 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
             analyzer = TimeSeriesAnalyzer(data["observations"])
             # analysis = analyzer.generate_summary(compact_mode=compact_mode)
 
-            if "observations" in data and len(data["observations"]) < 2:
+            if "observations" in data and len(data["observations"]) < 5:
                 # compact analysis result for single data point
                 summary = analyzer.generate_summary(
                             include_full_timeseries=True,
-                            recent_n_points=5,
                             include_inflections=False,
                             compact_mode=True
                         )
@@ -78,21 +77,18 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
                     "analysis": summary
                 }
 
-            elif "observations" in data and len(data["observations"]) >= 2:
+            elif "observations" in data and len(data["observations"]) >= 5:
                 # decide compact mode or not according to the size of data
-                if compact_mode or len(data["observations"]) > 60:
-                    # less than 5 data points -> compact mode
+                if compact_mode or len(data["observations"]) < 180:
                     summary = analyzer.generate_summary(
-                        include_full_timeseries=False,
-                        recent_n_points=5,
-                        include_inflections=False,
-                        compact_mode=True
+                        include_full_timeseries=True,
+                        include_inflections=True,
+                        compact_mode=False
                     )
                 else:
                     summary = analyzer.generate_summary(
                         include_full_timeseries=False,
-                        recent_n_points=min(12, len(data["observations"])),
-                        include_inflections=len(data["observations"]) >= 5,
+                        include_inflections=True,
                         compact_mode=False
                     )
                 

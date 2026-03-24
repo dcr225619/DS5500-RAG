@@ -394,7 +394,7 @@ class OpenAIFredAgent:
         final_answer = final_response.choices[0].message.content or "No response generated"
 
         # Check C: self-check completeness and question relevance
-        if len(tool_calls) > 0:
+        if len(tool_calls) > 2:
             for _ in range(max_self_check_loop):
                 check = self.validate_final_answer_completeness(question, final_answer, api_results)
 
@@ -449,7 +449,7 @@ def process_question(question, verbose=True):
 if __name__ == "__main__":
     import pandas as pd
 
-    with open('data/QA.json', encoding='utf-8') as f:
+    with open('data/QA_test.json', encoding='utf-8') as f:
         file = json.load(f)
 
     # file = [
@@ -464,11 +464,11 @@ if __name__ == "__main__":
     results = []
     for idx, question in enumerate(file):
         question_id = question['question_id']
-        print(f"Question {idx + 1}: {question_id}")
+        print(f"Question {question_id}:")
         result = agent.process_question(question['question'])
         results.append(result)
 
-    filepath = 'QA_gpt_final.json'
+    filepath = 'files/gpt-4o-mini/QA_test_gpt_api_final.json'
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

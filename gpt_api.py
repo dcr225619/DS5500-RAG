@@ -280,7 +280,7 @@ def process_question(question, verbose=True):
 if __name__ == "__main__":
     import pandas as pd
 
-    with open('data/QA.json', encoding='utf-8') as f:
+    with open('data/QA_test.json', encoding='utf-8') as f:
         file = json.load(f)
 
     # file = [
@@ -292,17 +292,16 @@ if __name__ == "__main__":
 
     # agent = FredLLMAgent(model="llama-finetuned-v1", verbose=True)
 
-    agent = OpenAIFredAgent(verbose=True)
+    agent = OpenAIFredAgent(verbose=False)
 
     results = []
     for idx, question in enumerate(file):
         question_id = question['question_id']
-        if question_id in [17, 73, 14.3, 17.1, 17.2, 17.3, 61.2, 73.1, 73.2, 73.3, 78.2, 78.3]:  # not sure: 81.1
-            print(f"Question {idx + 1}: {question_id}")
-            result = agent.process_question(question['question'])
-            results.append(result)
+        print(f"Question {idx + 1}: {question_id}")
+        result = agent.process_question(question['question'])
+        results.append(result)
 
-    filepath = 'QA_gpt_fix.json'
+    filepath = 'files/gpt-4o-mini/QA_test_gpt_api.json'
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

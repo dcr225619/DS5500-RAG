@@ -241,7 +241,6 @@ class TimeSeriesAnalyzer:
     
     def generate_summary(self,
                             include_full_timeseries=False,
-                            recent_n_points=12,
                             include_inflections=True,
                             inflection_prominence=None,
                             compact_mode=False):
@@ -283,7 +282,6 @@ class TimeSeriesAnalyzer:
                 },
                 "trend": trend["description"],
                 "total_change_pct": round(changes["total"]["percentage"], 2) if isinstance(changes["total"]["percentage"], float) else 'N/A',
-                "recent_five_data": full_timeseries[-min(5, recent_n_points):]
             }
             return summary
         
@@ -335,12 +333,6 @@ class TimeSeriesAnalyzer:
             
             # 4. notable changes
             "notable_changes": notable,
-            
-            # 5. recent_n_points recent data
-            "recent_data": {
-                "description": f"Most recent {min(recent_n_points, len(full_timeseries))} data points",
-                "data": full_timeseries[-recent_n_points:] if recent_n_points else []
-            }
         }
         
         # add volatility analysis
