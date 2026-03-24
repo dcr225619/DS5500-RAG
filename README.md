@@ -26,14 +26,23 @@ Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/repo
 
 ## RAG with self-check and fall back for improved retrieval and summarization
 <p align="center">
-  <img src="self_check_flow_chart.png" alt="self_check_workflow" width="400">
+  <img src="figs/self_check_flow_chart.png" alt="self_check_workflow" width="400">
 </p>
 
 1. Run `llama_api_final.py` to use llama3.2 agentic RAG with self-check, fall back and date parser.
 2. Run `gpt_api_final.py` to use gpt-4o-mini agentic RAG with self-check, fall back.
 
 ## Retrieval Accuracy Evaluation
-1. Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+
+| # | File | Model | Retriever |
+|---|------|-------|-----------|
+| 1 | `llama_api` | llama3.2 | full guide |
+| 2 | `llama_api_semantic_retriever` | llama3.2 | semantic |
+| 3 | `llama_api_final` | llama3.2 | semantic + date parser + checks |
+| 4 | `gpt_api` | gpt-4o-mini | full guide |
+| 5 | `gpt_api_semantic_retriever` | gpt-4o-mini | semantic |
+| 6 | `gpt_api_final` | gpt-4o-mini | semantic + checks |
 
 ## Few-shot prompt for Better Summary
 1. Prepare several human-written high-quality summary examples and put them in `few_shot_examples.py`.
@@ -47,8 +56,30 @@ Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/repo
 4. Modify parameters to run the files using your fine-tuned model.
 
 ## Summary Quality Evaluation
-1. Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results.
+Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results.
+
+9 agent variants:
+
+| # | Model | Retriever |
+|---|-------|-----------|
+| 1 | gpt-4o-mini | full guide |
+| 2 | gpt-4o-mini | semantic |
+| 3 | gpt-4o-mini (fine-tuned)| semantic + checks |
+| 4 | llama3.2 | full guide |
+| 5 | llama3.2 | semantic |
+| 6 | llama3.2 | semantic + date parser + checks |
+| 7 | llama3.2 (fine-tuned)| full guide |
+| 8 | llama3.2 (fine-tuned)| semantic |
+| 9 | llama3.2 (fine-tuned)| semantic + date parser + checks |
+
+3 agent variants with few-shot prompting:
+
+| # | Model | Retriever |
+|---|-------|-----------|
+| 1 | llama3.2 (few-shot)| full guide |
+| 2 | llama3.2 (few-shot)| semantic |
+| 3 | llama3.2 (few-shot)| semantic + date parser + checks |
 
 ## Unfinished (Future Work)
-2. `news_api.py` for retrieving news article from news api[https://newsapi.org/] (to expand the database in the future)
+2. `news_api.py` for retrieving news article from [news api](https://newsapi.org/) (to expand the database in the future)
 3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)

@@ -23,14 +23,32 @@ def _extract_numbers(text: str) -> list[float]:
     """
     Extract all numeric values from a text string.
     Handles formats: 26,336.3  /  3.7%  /  $1.2 trillion  /  -0.4
+    Ignores: years (1900–2099), month/day numbers preceded by a month name
     Returns a deduplicated list of floats.
     """
     # strip commas inside numbers (e.g. 26,336 → 26336)
     cleaned = re.sub(r'(\d),(\d)', r'\1\2', text)
-    raw = re.findall(r'-?\d+(?:\.\d+)?', cleaned)
+
+    # mark positions of year-like tokens (1900–2099) so we can skip them
+    YEAR_RE = re.compile(r'\b(19|20)\d{2}\b')
+    year_spans = {m.start() for m in YEAR_RE.finditer(cleaned)}
+
+    # month names that signal the following number is a day, not a data point
+    MONTH_RE = re.compile(
+        r'\b(?:January|February|March|April|May|June|July|August|'
+        r'September|October|November|December|'
+        r'Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})\b',
+        re.IGNORECASE,
+    )
+    month_day_spans = {m.start(1) for m in MONTH_RE.finditer(cleaned)}
+
     seen, result = set(), []
-    for n in raw:
-        val = float(n)
+    for m in re.finditer(r'-?\d+(?:\.\d+)?', cleaned):
+        if m.start() in year_spans:
+            continue
+        if m.start() in month_day_spans:
+            continue
+        val = float(m.group())
         if val not in seen:
             seen.add(val)
             result.append(val)

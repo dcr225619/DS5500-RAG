@@ -183,7 +183,7 @@ class OpenAIFredAgent:
                 "raw_response": None
             }
 
-    def execute_tool_calls(self, tool_calls, use_fallback=True):
+    def execute_tool_calls(self, tool_calls, use_fallback=False):
         """
         Execute tool calls and return FRED API results.
 
