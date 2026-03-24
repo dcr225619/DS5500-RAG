@@ -64,7 +64,7 @@ Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metri
 |---|-------|-----------|
 | 1 | gpt-4o-mini | full guide |
 | 2 | gpt-4o-mini | semantic |
-| 3 | gpt-4o-mini (fine-tuned)| semantic + checks |
+| 3 | gpt-4o-mini | semantic + checks |
 | 4 | llama3.2 | full guide |
 | 5 | llama3.2 | semantic |
 | 6 | llama3.2 | semantic + date parser + checks |
