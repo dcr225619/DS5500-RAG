@@ -6,6 +6,8 @@ The project systematically compares two models (LLaMA 3.2 and GPT-4o-mini) acros
 
 Two directions are planned for future development. First, the knowledge base will be expanded with real-time news retrieval via NewsAPI, allowing the system to contextualize economic data with current events and analyst commentary. Second, a query router will be introduced to dynamically select the most appropriate retrieval strategy — direct generation, single-step tool call, or full agentic RAG — based on question type, reducing unnecessary API calls and latency for simpler queries.
 
+Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/report.pdf).
+
 ## Get Started
 1. Install the required dependencies with: `pip install -r requirements.txt --upgrade`.
 2. Save your fred api key in a file named `fred_key.py`, save your openai api key in a file named `gpt_key.py`.
