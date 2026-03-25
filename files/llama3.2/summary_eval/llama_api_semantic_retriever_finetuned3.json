@@ -1,8 +1,9 @@
 {
   "summary": {
-    "avg_key_fact_coverage": 0.8867,
+    "avg_key_fact_coverage": 0.8283,
     "avg_hallucination_rate": 0.4902,
-    "avg_bertscore": 0.8284
+    "avg_length": 639.12,
+    "avg_bertscore": 0.8449
   },
   "results": [
     {
@@ -10,322 +11,322 @@
       "question": "What's the current unemployment rate?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.9223
+      "bertscore": 0.9619
     },
     {
       "question_id": "T02",
       "question": "Show me the effective federal funds rate for all of 2023",
       "key_fact_coverage": 0.6667,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8486
+      "bertscore": 0.863
     },
     {
       "question_id": "T03",
       "question": "How has M2 money supply changed over the past 3 years?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8574
+      "bertscore": 0.8791
     },
     {
       "question_id": "T04",
       "question": "What were new home sales like in Q2 2021?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.6667,
-      "bertscore": 0.8417
+      "bertscore": 0.857
     },
     {
       "question_id": "T05",
       "question": "Give me the 10-year treasury yield since the start of 2022",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7628
+      "bertscore": 0.7815
     },
     {
       "question_id": "T06",
       "question": "How has the US dollar performed against the euro recently?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.6667,
-      "bertscore": 0.8757
+      "bertscore": 0.8801
     },
     {
       "question_id": "T07",
       "question": "What was CPI during 2019?",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.767
+      "bertscore": 0.7793
     },
     {
       "question_id": "T08",
       "question": "How did the VIX index change for the first half of 2020",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.2857,
-      "bertscore": 0.8249
+      "bertscore": 0.8376
     },
     {
       "question_id": "T09",
       "question": "How have US imports from Mexico trended over the past 2 years?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8335
+      "bertscore": 0.8466
     },
     {
       "question_id": "T10",
       "question": "What was the 30-year mortgage rate in Q3 2023?",
-      "key_fact_coverage": 1.0,
+      "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7601
+      "bertscore": 0.7612
     },
     {
       "question_id": "T11",
       "question": "Show me personal consumption expenditures for 2022",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7616
+      "bertscore": 0.7712
     },
     {
       "question_id": "T12",
       "question": "What's the yield curve spread looking like lately?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7655
+      "bertscore": 0.7799
     },
     {
       "question_id": "T13",
       "question": "How did total commercial bank credit change from Q1 to Q2 2023?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.4,
-      "bertscore": 0.8441
+      "bertscore": 0.9106
     },
     {
       "question_id": "T14",
       "question": "I'm curious about US exports to Canada over the past 18 months",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.2,
-      "bertscore": 0.8467
+      "bertscore": 0.8649
     },
     {
       "question_id": "T15",
       "question": "What did the Fed's total assets look like in 2021?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8277
+      "bertscore": 0.8615
     },
     {
       "question_id": "T16",
       "question": "How has the producer price index changed since 2020",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8062
+      "bertscore": 0.8159
     },
     {
       "question_id": "T17",
       "question": "What's the personal savings rate been over the last 6 months?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.2,
-      "bertscore": 0.8904
+      "bertscore": 0.9215
     },
     {
       "question_id": "T18",
       "question": "How many new building permits were issued in Q4 2022?",
       "key_fact_coverage": 0.6667,
       "hallucination_rate": 0.5,
-      "bertscore": 0.8832
+      "bertscore": 0.8889
     },
     {
       "question_id": "T19",
       "question": "Show me how the Japanese yen to dollar exchange rate changed for all of 2024",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.3333,
-      "bertscore": 0.8494
+      "bertscore": 0.8827
     },
     {
       "question_id": "T20",
       "question": "What's been happening with loan delinquencies over the past 2 years?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8563
+      "bertscore": 0.8894
     },
     {
       "question_id": "T21",
       "question": "Show me US GDP for Q3 2022",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 0.5,
-      "bertscore": 0.8755
+      "bertscore": 0.8846
     },
     {
       "question_id": "T22",
       "question": "How has the St. Louis financial stress index moved over the past year?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8534
+      "bertscore": 0.8826
     },
     {
       "question_id": "T23",
       "question": "What was total construction spending in 2023?",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7857
+      "bertscore": 0.7732
     },
     {
       "question_id": "T24",
       "question": "I'd like to see the employment-to-population ratio since 2021",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.6,
-      "bertscore": 0.7561
+      "bertscore": 0.7855
     },
     {
       "question_id": "T25",
       "question": "What was the goods trade balance in Q1 2024?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8527
+      "bertscore": 0.8695
     },
     {
       "question_id": "T26",
       "question": "How has business inventory trended over the past 5 years?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.7692,
-      "bertscore": 0.7772
+      "bertscore": 0.7943
     },
     {
       "question_id": "T27",
       "question": "How did the discount rate change for the second half of 2022",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8218
+      "bertscore": 0.8031
     },
     {
       "question_id": "T28",
       "question": "What does total consumer credit look like right now?",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7615
+      "bertscore": 0.781
     },
     {
       "question_id": "T29",
       "question": "Show me light vehicle sales from Q2 to Q3 2021",
-      "key_fact_coverage": 1.0,
+      "key_fact_coverage": 0.3333,
       "hallucination_rate": 0.3333,
-      "bertscore": 0.8923
+      "bertscore": 0.9014
     },
     {
       "question_id": "T30",
       "question": "How has the federal government debt changed over the past decade?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.4,
-      "bertscore": 0.826
+      "bertscore": 0.8283
     },
     {
       "question_id": "T31",
       "question": "How did unemployment and inflation move together in 2023?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.2,
-      "bertscore": 0.8381
+      "bertscore": 0.8644
     },
     {
       "question_id": "T32",
       "question": "Compare the federal funds rate and 10-year treasury yield over the past 2 years",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.838
+      "bertscore": 0.8369
     },
     {
       "question_id": "T33",
       "question": "What's the trade balance between the US and China in 2022?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8396
+      "bertscore": 0.9044
     },
     {
       "question_id": "T34",
       "question": "How did personal income and spending change since the start of 2023?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.6,
-      "bertscore": 0.8219
+      "bertscore": 0.8699
     },
     {
       "question_id": "T35",
       "question": "Show me GDP and GNP side by side for Q1 and Q2 2023",
-      "key_fact_coverage": 1.0,
+      "key_fact_coverage": 0.75,
       "hallucination_rate": 0.5,
-      "bertscore": 0.8466
+      "bertscore": 0.8444
     },
     {
       "question_id": "T36",
       "question": "How have oil prices and CPI moved together over the past 3 years?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.2,
-      "bertscore": 0.8363
+      "bertscore": 0.8553
     },
     {
       "question_id": "T37",
       "question": "What happened to bank credit and commercial loans during 2020?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8206
+      "bertscore": 0.8127
     },
     {
       "question_id": "T38",
       "question": "Compare US exports to Canada and Mexico over the past 18 months",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.1429,
-      "bertscore": 0.8361
+      "bertscore": 0.8703
     },
     {
       "question_id": "T39",
       "question": "How did consumer sentiment and personal savings rate change in 2022?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.3333,
-      "bertscore": 0.8453
+      "bertscore": 0.86
     },
     {
       "question_id": "T40",
       "question": "Show me the M1 and M2 money supply since 2020",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.4286,
-      "bertscore": 0.7858
+      "bertscore": 0.7468
     },
     {
       "question_id": "T41",
       "question": "How did manufacturing hours and earnings look in Q3 and Q4 2022?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.25,
-      "bertscore": 0.8193
+      "bertscore": 0.8728
     },
     {
       "question_id": "T42",
       "question": "Compare federal spending and revenue for all of 2024",
-      "key_fact_coverage": 1.0,
+      "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7721
+      "bertscore": 0.7731
     },
     {
       "question_id": "T43",
       "question": "How have the peso and Canadian dollar moved against the USD over the past year?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.7846
+      "bertscore": 0.8222
     },
     {
       "question_id": "T44",
       "question": "What does the housing market look like right now - permits, sales, and mortgage rates?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.5,
-      "bertscore": 0.8153
+      "bertscore": 0.8512
     },
     {
       "question_id": "T45",
       "question": "Give me a snapshot of the labor market: unemployment, workforce size, and employment ratio over the past 2 years",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.9071
+      "bertscore": 0.902
     },
     {
       "question_id": "T46",
       "question": "What does GDP stand for and how is it different from GNP?",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 0.0,
-      "bertscore": 0.8249
+      "bertscore": 0.8265
     },
     {
       "question_id": "T47",
@@ -339,7 +340,7 @@
       "question": "Show me Nvidia stock price data for 2024",
       "key_fact_coverage": 1.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.8635
+      "bertscore": 0.8656
     },
     {
       "question_id": "T49",

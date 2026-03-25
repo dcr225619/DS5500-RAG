@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "question": "What's the current unemployment rate?",
+    "answer": "As of February 1, 2026, the current unemployment rate is 4.4%."
+  },
+  {
+    "id": 2,
+    "question": "Show me the effective federal funds rate for all of 2023",
+    "answer": "Here is the effective federal funds rate for each month in 2023:\n January 2023: 4.33%, February 2023: 4.57%, March 2023: 4.65%, April 2023: 4.83%, May 2023: 5.06%, June 2023: 5.08%, July 2023: 5.12%, August 2023: 5.33%, September 2023: 5.33%, October 2023: 5.33%, November 2023: 5.33%, December 2023: 5.33%."
+  },
+  {
+    "id": 3,
+    "question": "How has M2 money supply changed over the past 3 years?",
+    "answer": "Over the past three years, the M2 money supply has shown a clear overall upward trend. It started at around $21.1 trillion in early 2023, dipped slightly later that year to a local low, and then resumed steady growth, reaching a new high of about $22.5 trillion by early 2026. While there were minor fluctuations along the way, the general pattern reflects gradual expansion rather than sharp volatility. Overall, M2 has increased steadily over this period, indicating continued monetary growth in the U.S economy."
+  },
+  {
+    "id": 4,
+    "question": "What were new home sales like in Q2 2021?",
+    "answer": "Here's the new home sales in Q2 2021:\n April 2021: 828,000 new home sales, May 2021: 725,000, June 2021: 695,000.\nThe total percentage change in new home sales from April to June was a decrease of approximately 16.06%."
+  },
+  {
+    "id": 5,
+    "question": "Give me the 10-year treasury yield since the start of 2022",
+    "answer": "Since the beginning of 2022, the 10-year Treasury yield has shown a moderate upward trend with some fluctuations. It started at relatively low levels in early 2022, rose significantly through 2022 and into 2023, and reached a peak in late 2023. After that, yields fluctuated but remained elevated compared to the starting point, ending around the mid-4% range by early 2026. Overall, despite short-term ups and downs, the trend reflects a sustained increase in long-term interest rates over this period."
+  },
+  {
+    "id": 6,
+    "question": "How has the US dollar performed against the euro recently?",
+    "answer": " As of March 13, 2026, the current exchange rate is 1.1444 USD/EUR. Recently, the U.S. dollar has generally strengthened against the Euro. Over the past year, the exchange rate moved upward, from 1.0794 (March 24, 2025) to 1.1444 (March 13, 2026), indicating a stronger dollar, and reached a peak in early 2026 before easing slightly. Although there were periodic fluctuations, the broader trend shows appreciation of the dollar relative to the euro. Overall, the USD has performed relatively well, with moderate gains despite some volatility. "
+  },
+  {
+    "id": 7,
+    "question": "What was CPI during 2019?",
+    "answer": " In 2019, the U.S. Consumer Price Index (CPI) for All Urban Consumers (CPIAUCSL) showed a steady upward trend throughout the year. Here's the CPI during 2019: 2019-01: 252.561, 2019-02: 253.319, 2019-03: 254.277, 2019-04: 255.233, 2019-05: 255.296, 2019-06: 255.213, 2019-07: 255.802, 2019-08: 256.036, 2019-09: 256.430, 2019-10: 257.155, 2019-11: 257.879, 2019-12: 258.630. Overall, CPI growth in 2019 reflects a stable and moderate inflation environment."
+  },
+  {
+    "id": 8,
+    "question": "How did the VIX index change for the first half of 2020",
+    "answer": "During the first half of 2020, the VIX index experienced extreme volatility. It started the year at a relatively low level 12.47 but surged dramatically in March as financial markets reacted to the COVID-19 pandemic, reaching an exceptionally high peak 82.69 on March 16. After this spike, the index declined but remained elevated through June compared to its starting point. Overall, the period was marked by a sharp shock followed by partial stabilization, reflecting intense but gradually easing market uncertainty."
+  },
+  {
+    "id": 9,
+    "question": "How have US imports from Mexico trended over the past 2 years?",
+    "answer": "Over the past two years, U.S. imports from Mexico have shown a slight upward trend with noticeable fluctuations, from approximately 41,531 million USD in March 2024 to about 42,518 million USD by January 2026. Imports moved up and down over the period, with some pronounced peaks and dips, but the overall level increased modestly from the starting point to early 2026. In general, imports have increased but unevenly, indicating gradual strengthening in trade activity."
+  },
+  {
+    "id": 10,
+    "question": "What was the 30-year mortgage rate in Q3 2023?",
+    "answer": "In Q3 2023, the 30-year mortgage rates showed the following trends:\n - July 6, 2023: 6.81%\n- July 13, 2023: 6.96%\n- July 20, 2023: 6.78% \n- July 27, 2023: 6.81%\n- August 3, 2023: 6.90%\n- August 10, 2023: 6.96%\n- August 17, 2023: 7.09%\n- August 24, 2023: 7.23% \n- August 31, 2023: 7.18%\n- September 7, 2023: 7.12%\n- September 14, 2023: 7.18%\n- September 21, 2023: 7.19%\n- September 28, 2023: 7.31%.\nThe average mortgage rate for Q3 2023 was 7.04%."
+  },
+  {
+    "id": 11,
+    "question": "Show me personal consumption expenditures for 2022",
+    "answer": " Here is the effective federal funds rate for each month in 2023:\n January 2022: 16993.8, February 2022: 17106.0, March 2022: 17347.2, April 2022: 17490.0, May 2022: 17574.5, June 2022: 17755.2, July 2022: 17770.1, August 2022: 17916.5, September 2022: 17992.8, October 2022: 18109.6, November 2022: 18108.0, December 2022: 18116.5."
+  },
+  {
+    "id": 12,
+    "question": "What's the yield curve spread looking like lately?",
+    "answer": "Recently, the yield curve spread (10-year minus 2-year Treasury yield) has been positive and moderately elevated, indicating a normal upward-sloping yield curve. The current spread is 0.49 as of March 24. Over the past year, the spread widened from relatively low levels to a peak at 0.74 in early 2026, before narrowing slightly in recent weeks. Despite this recent pullback, it remains higher than where it was a year ago. Overall, the trend suggests some steepening followed by mild flattening, which may reflect shifting expectations around economic growth and monetary policy, but not a clear inversion signal at this point."
+  },
+  {
+    "id": 13,
+    "question": "How did total commercial bank credit change from Q1 to Q2 2023?",
+    "answer": " As of Q1 2023 (March 29, 2023), the total commercial bank credit was $17,326.3045 billion. As of Q2 2023 (June 28, 2023), the total commercial bank credit decreased $17,262.7576 billion. The total commercial bank credit declined by approximately $63.55 billion (or about 0.37%) from Q1 to Q2 2023."
+  },
+  {
+    "id": 14,
+    "question": "I'm curious about US exports to Canada over the past 18 months",
+    "answer": "Over the past 18 months, U.S. exports to Canada have shown an overall downward trend with some fluctuations along the way. The total exports started from approximately $29.2 billion in September 2024, increased to a peak in early 2025, followed by a sharp decline, brief periods of recovery mid-year, and then a more consistent drop to about $24.5 billion as of January 2026, where they reached their lowest level in the period. While there were short-term rebounds, the general direction has been downward. Overall, this suggests weakening export activity to Canada in the latter part of the period. "
+  },
+  {
+    "id": 15,
+    "question": "What did the Fed's total assets look like in 2021?",
+    "answer": " In 2021, the Federal Reserve’s total assets increased steadily throughout the year. Starting from a lower level 7,334,809 million (January 6, 2021) at the beginning of the year, the balance sheet expanded consistently and reached its highest levels 8,757,460 million (December 29, 2021) toward the end of 2021. The growth was smooth and sustained, reflecting continued monetary policy support during that period. Overall, 2021 was characterized by a strong and persistent expansion in the Fed’s balance sheet."
+  },
+  {
+    "id": 16,
+    "question": "How has the producer price index changed since 2020",
+    "answer": "Since 2020, the Producer Price Index (PPI) has followed an overall upward trend with notable fluctuations. The PPI started at 199.3 in early 2020, dropped to its lowest point of 185.5 in April 2020, and experienced significant increases up to 280.251 in June 2022. After the peak, the index decreased and was around 267.848 as of February 1, 2026. This data reflects the considerable fluctuations in producer prices influenced by economic conditions, supply chain issues, and inflationary pressures over this period."
+  },
+  {
+    "id": 17,
+    "question": "What's the personal savings rate been over the last 6 months?",
+    "answer": "The personal savings rate has shown the following values over the last 6 months:\n- September 2025: 4.3%\n- October 2025: 4.0% \n- November 2025: 4.0%\n- December 2025: 4.0%\n- January 2026: 4.5%.\nOverall, the personal savings rate has experienced a trend with slight variations over the last 6 months. The average rate over this period has been approximately 4.16%."
+  },
+  {
+    "id": 18,
+    "question": "How many new building permits were issued in Q4 2022?",
+    "answer": "In Q4 2022, the number of new building permits issued was as follows:\n- October 2022: 1,594 permits\n- November 2022: 1,401 permits\n- December 2022: 1,410 permits."
+  },
+  {
+    "id": 19,
+    "question": "Show me how the Japanese yen to dollar exchange rate changed for all of 2024",
+"answer": "In 2024, the exchange rate of the Japanese yen (JPY) to the US dollar (USD) experienced notable fluctuations. The exchange rate started the year at a lower level 141.89 JPY/USD (January 2) and moved upward through the year, indicating a weakening yen, with a peak reaching 161.73 JPY/USD on (July 10) before some fluctuations later. Despite these movements, the year ended at a higher level 157.37 JPY/USD (December 31) than it began. Overall, the trend reflects a moderate depreciation of the yen against the dollar with some mid-year volatility."
+  },
+  {
+    "id": 20,
+    "question": "What's been happening with loan delinquencies over the past 2 years?",
+"answer": "Over the past two years, loan delinquencies have remained relatively stable with mild fluctuations. They increased to a peak in late 2024, declined into early 2025, and then gradually rose again toward late 2025. Despite these ups and downs, the overall change has been modest from 50,548 million dollars (January 2024) to 53,413 million dollars (October 2025). Overall, delinquencies show a slight upward trend but largely reflect stability rather than significant deterioration."
+  },
+  {
+    "id": 21,
+    "question": "Show me US GDP for Q3 2022",
+    "answer": "The US Gross Domestic Product (GDP) for Q3 2022, with the available data point from July 1, 2022, is approximately $26,336.304 billion (or $26.336 trillion)."
+  },
+  {
+    "id": 22,
+    "question": "How has the St. Louis financial stress index moved over the past year?",
+"answer": "Over the past year, the St. Louis Financial Stress Index (STLFSI4) has remained relatively stable but showed some sharp short-term movements. It started at -0.6213 (January 3), and briefly spiked into positive territory in early 2025, then dropped to lower levels, and gradually moved back closer to -0.3677 by early 2026. Overall, the index indicates that financial stress increased temporarily but has since eased, suggesting a return to more stable financial conditions."
+  },
+  {
+    "id": 23,
+    "question": "What was total construction spending in 2023?",
+"answer": "In 2023, the total construction spending was as follows: January 2023: 1957962, February 2023: 1976696, March 2023: 1996401, April 2023: 2023621, May 2023: 2054535, June 2023: 2071559, July 2023: 2085773, August 2023: 2108227, September 2023: 2123480, October 2023: 2142735, November 2023: 2167301, December 2023: 2176796. The annual data showed a significant increase, indicating a robust growth trend throughout the year. The average construction spending for the year was approximately $2,073,761 million."
+  },
+  {
+    "id": 24,
+    "question": "I'd like to see the employment-to-population ratio since 2021",
+    "answer": "Since 2021, the employment-to-population ratio has shown a gradual upward trend followed by stabilization. It increased steadily from 57.4 as of January 2021 through 2023, reaching a peak at 60.4 around that time, and then moved sideways with a slight decline into 2025 and early 2026. Overall, the ratio improved significantly from pandemic-era lows and has since stabilized at a relatively high level."
+  },
+  {
+    "id": 25,
+    "question": "What was the goods trade balance in Q1 2024?",
+    "answer": "In the first quarter of 2024, the goods trade balance data is as follows:\n- January 2024: -92,390 million USD\n- February 2024: -93,122 million USD\n- March 2024: -93,122 million USD\nThe deficit widened modestly from January through March, with March representing the lowest point. Overall, the trend indicates a stable but slightly deteriorating trade deficit during this period."
+  },
+  {
+    "id": 26,
+    "question": "How has business inventory trended over the past 5 years?",
+    "answer": "Over the past five years, U.S. business inventories have shown a strong upward trend. Inventories increased steadily from 2021 through 2025, reaching their highest levels toward the end of the period. While there were minor fluctuations along the way, the overall growth was consistent. More recently, the pace of increase has slowed, suggesting some stabilization. Overall, inventories have expanded significantly over this period."
+  },
+  {
+    "id": 27,
+    "question": "How did the discount rate change for the second half of 2022",
+"answer": " In the second half of 2022, the discount rate increased sharply. It started at a relatively low level 1.75% (July 1) and rose steadily throughout the remainder of the year, reaching its highest point at 4.5% by December. The increases were particularly pronounced early in the period and continued at a steady pace afterward. Overall, this reflects a strong tightening of monetary policy during that time."
+  },
+  {
+    "id": 28,
+    "question": "What does total consumer credit look like right now?",
+    "answer": "As of January 1, 2026, the total consumer credit outstanding is approximately $5,114,679.44 million."
+  },
+  {
+    "id": 29,
+    "question": "Show me light vehicle sales from Q2 to Q3 2021",
+    "answer": "Here are the light vehicle sales figures from Q2 to Q3 2021:\n- April 2021: 18.091 million units\n- May 2021: 17.035 million units\n- June 2021: 15.583 million units\n- July 2021: 14.745 million units\n- August 2021: 13.454 million units\n- September 2021: 12.308 million units."
+  },  
+{
+    "id": 30,
+    "question": "How has the federal government debt changed over the past decade?",
+    "answer": "Over the past decade, U.S. federal government debt has increased dramatically. It started at a much lower level around 2016 and rose steadily over the years, with especially rapid growth during and after 2020. By 2025, it had nearly doubled compared to its initial level. Overall, the trend is strongly upward, reflecting sustained fiscal expansion and major policy responses to economic events."
+  },
+  {
+    "id": 31,
+    "question": "How did unemployment and inflation move together in 2023?",
+"answer": "In 2023, unemployment and inflation both increased, but at different paces. The unemployment rate started at 3.5% in January and rose slightly over the year, reaching 3.8% by December. While the Consumer Price Index (CPI) started at 300.42 in January and increased more steadily and remained elevated to 308.741 by December, reflecting ongoing inflationary pressures. This simultaneous rise does not align with the traditional inverse relationship between the two. Overall, the data suggests a more complex economic environment where inflation stayed high despite only modest changes in unemployment."
+  },
+  {
+    "id": 32,
+    "question": "Compare the federal funds rate and 10-year treasury yield over the past 2 years",
+"answer": "Over the past two years, the Effective Federal Funds Rate (FEDFUNDS) and the 10-Year Treasury yield (DGS10) have followed different paths. The federal funds rate declined significantly from 5.33% in March 2024 to 3.64% in February 2026, indicating a shift toward more accommodative monetary policy. While the 10-year yield remained relatively stable with only minor fluctuations. The rate slightly decreased from 4.28% in March 2024 to 4.24% in March 2026. Overall, short-term rates moved down noticeably while long-term rates stayed relatively steady."
+  },
+  {
+    "id": 33,
+    "question": "What's the trade balance between the US and China in 2022?",
+    "answer": " In 2022, the United States ran a trade deficit with China, as imports significantly exceeded exports. While both imports and exports were substantial, the gap between them resulted in a negative trade balance. Overall, the data reflects a continued imbalance in trade, with the U.S. importing much more from China than it exports. The trade balance between the US and China in 2022 was approximately$23.65 billion."
+  },
+  {
+    "id": 34,
+    "question": "How did personal income and spending change since the start of 2023?",
+"answer": " Since the start of 2023, both personal income and federal spending have increased strongly. Personal income rose steadily throughout the period, starting from $22,965.0 billion (2023-01-01) and reaching its highest levels $26,698.9 billion (2026-01-01) by early 2026. While federal spending also grew significantly over a slightly shorter timeframe. It started with $18,449.1 million (2023-01-01) and increased to $21,536.6 million (2026-01-01). The upward movement in both indicators suggests expanding economic activity and fiscal support. Overall, both income and spending show clear and sustained growth."
+  },
+  {
+    "id": 35,
+    "question": "Show me GDP and GNP side by side for Q1 and Q2 2023",
+    "answer": "Here are the GDP and GNP data for Q1 and Q2 of 2023:\n- Q1 2023:\n GDP (Gross Domestic Product): $27,216.455 billion, GNP (Gross National Product): $27,326.459 billion.\n- Q2 2023:\n GDP (Gross Domestic Product): $27,530.055 billion, GNP (Gross National Product): $27,633.168 billion."
+  },
+  {
+    "id": 36,
+    "question": "How have oil prices and CPI moved together over the past 3 years?",
+"answer": " Over the past three years (from March 2023 to February 2026), the West Texas Intermediate (WTI) crude oil prices and the Consumer Price Index (CPI) have shown distinct trends. Oil prices increased initially but then declined overall, while CPI rose steadily throughout the entire period. This divergence suggests that falling energy prices did not translate into lower overall inflation. Overall, inflation remained elevated despite a decline in oil prices, indicating other contributing factors beyond energy costs."
+  },
+  {
+    "id": 37,
+    "question": "What happened to bank credit and commercial loans during 2020?",
+"answer": " In 2020, The total bank credit rose from $13,851.41 billion on January 1 to $15,061.44 billion by December 30, reflecting strong lending activity and policy support during the pandemic. In contrast, commercial and industrial loans rose sharply early in the year, from $2,353.87 billion to a peak value of $3,035.80 billion on May 1 and then declined toward the end of the year. Overall, in 2020 bank credit showed a increase. While commercial loans experienced fluctuations but overall growth through the year, particularly influenced by varying business conditions and demand for credit."
+  },
+  {
+    "id": 38,
+    "question": "Compare US exports to Canada and Mexico over the past 18 months",
+"answer": " Over the past 18 months, U.S. exports to Canada and Mexico have followed different trends. Exports to Canada generally declined, from $29,208.22 million in September 2024 to $24,510.29 million in January 2026, with fluctuations and a downward trajectory toward early 2026. In contrast, exports to Mexico showed a gradual upward trend despite some volatility, from $28,316.75 million in September 2024 to $31,587.22 million in January 2026. Exports to both countries exhibited notable fluctuations, with Canada experiencing larger month-on-month changes in percentage terms, while Mexico's exports maintained a more stable growth trajectory overall. Overall, exports to Mexico strengthened while exports to Canada weakened, indicating a shift in trade dynamics."
+  },
+  {
+    "id": 39,
+    "question": "How did consumer sentiment and personal savings rate change in 2022?",
+"answer": " In 2022, consumer sentiment declined overall, falling from higher levels  67.2 at the start of the year to 50.0 in June, with only partial recovery to 59.8 in December afterward. Meanwhile, the personal savings rate was volatile, starting at 4.2% in January, dropping significantly mid-year before rebounding and ending roughly where it started. Overall, the year was marked by weakening consumer confidence, while the savings rate reflects fluctuations possibly related to economic conditions during the year."
+  },
+  {
+    "id": 40,
+    "question": "Show me the M1 and M2 money supply since 2020",
+"answer": "Since 2020, both M1 and M2 money supply have increased significantly, but with different patterns. M1 increased sharply in 2020 due to structural changes and then stabilized at around $19000 billion, while M2 grew more steadily over time with a smoother upward trend, from 15530.5 (2020-01-01) to $22522.9 billion (2026-01-01). Overall, both measures expanded substantially, reflecting strong monetary expansion since 2020. "
+  },
+  {
+    "id": 41,
+    "question": "How did manufacturing hours and earnings look in Q3 and Q4 2022?",
+"answer": "In Q3 and Q4 of 2022, the Average Weekly Hours for Manufacturing (AWHMAN) manufacturing hours and the Average Hourly Earnings (AHEMAN) moved in opposite directions. Average weekly hours gradually declined over the period, from 41.0 hours in July to 40.6 hours in December. While average hourly earnings increased steadily, from $25.05 in July to $25.70 in December. Overall, the manufacturing sector saw a modest decline in average weekly hours while experiencing a strong increase in average hourly earnings between Q3 and Q4 of 2022."
+  },
+  {
+    "id": 42,
+    "question": "Compare federal spending and revenue for all of 2024",
+    "answer": "For the year 2024, federal spending was $6,734,896 million and the revenue data was $4,918,106 million. There is a deficit in federal revenue compared to spending indicating that spending exceeds revenue."
+  },
+  {
+    "id": 43,
+    "question": "How have the peso and Canadian dollar moved against the USD over the past year?",
+    "answer": " Over the past year, both the Mexican peso and Canadian dollar weakened against the U.S. dollar, but to different degrees. The peso showed a stronger downward trend, from 20.096 on March 24, 2025, to 17.9437 on March 13, 2026, indicating more significant depreciation. While the Canadian dollar declined more modestly, from 1.4292 on March 24, 2025, to 1.3736 on March 13, 2026, with relatively smaller fluctuations. Overall, both currencies lost value against the USD, with the peso experiencing a larger movement."
+  },
+  {
+    "id": 44,
+    "question": "What does the housing market look like right now - permits, sales, and mortgage rates?",
+"answer": "The most recent new home permits are 1,376 (as of January 2026), new home sales are 587000 (as of January 2026), and mortgage rates 6.22% are (as of March 19, 2026). Currently, the housing market shows signs of softness in activity but easing borrowing costs. Both building permits and new home sales have declined from earlier highs, indicating weaker demand or slower construction activity. The home permits dropped from 1481000 (March 2025) to the lowest point 1330000 (August 2025), and rose steadily throughout the remainder of the year. The home sales increased from 627000 (March 2025) to 764000 (November 2025), with minor fluctuations during that period, but then dropped sharply to 587000 recently. At the same time, mortgage rates have been trending downward, which could support future demand. It decreased from 6.65% in March 2025 to 5.98% in February 2026. Overall, the market appears cautious, with reduced activity but improving financing conditions."
+  },
+  {
+    "id": 45,
+    "question": "Give me a snapshot of the labor market: unemployment, workforce size, and employment ratio over the past 2 years",
+    "answer": "Here's a snapshot of the labor market over the past two years, highlighting key indicators: unemployment rate, workforce size, and employment-to-population ratio. The current Unemployment Rate (UNRATE) is 4.4% (as of February 2026). It has shown an increasing trend in general over the past two years, from 3.9% in March 2024 to 4.4% in February 2026. The current Total US Workforce Size (CE16OV) is 162.912 million (as of February 2026). The workforce has shown overall growth despite some fluctuations. From March 2024 to November 2024, it fluctuated around 161.300 million. Then it showed a sudden rise to around 163.800 million over the next 2 months and continued to fluctuate around that level. The current Employment/Population Ratio (EMRATIO) is 59.3% (as of February 2026). The employment-to-population ratio has been on a decreasing trend. It declined from 60.3% in March 2024 to 59.3% in February 2026. In summary, the unemployment rate increased, suggesting more individuals are looking for jobs but not finding work. The workforce size is gradually increasing, indicating a growth in the number of working-age individuals available for employment. The employment/population ratio has decreased, indicating a smaller proportion of the working-age population is employed."
+  },
+  {
+    "id": 46,
+    "question": "What does GDP stand for and how is it different from GNP?",
+    "answer": "GDP stands for Gross Domestic Product, which measures the total value of all goods and services produced within a country's borders over a specific time period. It includes the production by all residents and non-residents located in the country.\nGNP stands for Gross National Product, which measures the total value of all goods and services produced by the residents of a country, regardless of where the production takes place. This means it includes the production of domestic businesses operating abroad and excludes the production of foreign businesses operating within the country.\nIn summary, the key difference between GDP and GNP is that GDP focuses on the location of production (inside the country), while GNP focuses on the ownership of production (by residents of the country)."
+  },
+  {
+    "id": 47,
+    "question": "Which indicators should I look at to get a sense of how tight monetary policy is?",
+    "answer": "To assess the tightness of monetary policy, you should consider the following indicators:\n1. Effective Federal Funds Rate (FEDFUNDS): This is the interest rate at which banks lend reserve balances to other banks overnight. A higher rate typically indicates tighter monetary policy. \n2. US 10-YR / 2-YR Spread (T10Y2Y): This spread reflects the difference between long-term and short-term interest rates. A flattening or inverted spread may indicate tighter monetary policy.\n3. St. Louis Financial Stress Index (STLFSI4): This index provides insights into the overall stress in the financial system. Higher values suggest tighter monetary conditions.\n4. M1 Money Supply (WM1NS): This measures the total amount of liquid money available in an economy, including physical currency, demand deposits, and other liquid assets.\n5. M2 Money Supply (WM2NS): This includes everything in M1 but also adds other types of deposits.\nThese indicators will give you a comprehensive view of the current state of monetary policy."
+  }, 
+  {
+    "id": 48,
+    "question": "Show me Nvidia stock price data for 2024",
+    "answer": "I currently do not have access to stock price data, including Nvidia's stock prices. However, I can provide data on various economic indicators. If you have any other queries related to economic data or need information on specific indicators, please let me know!"
+  },
+  {
+    "id": 49,
+    "question": "What does an inverted yield curve signal about the economy?",
+    "answer": "An inverted yield curve occurs when short-term interest rates are higher than long-term interest rates. This phenomenon is often seen as a signal of economic recession. The main implications of an inverted yield curve are:\n1. Investor Confidence: It suggests that investors expect future economic growth to slow down. They tend to seek the safety of long-term bonds, driving their yields down while short-term interest rates remain high or rise.\n2. Recession Indicator: Historically, an inverted yield curve has preceded recessions. It indicates that market participants anticipate a slowdown in economic activity, which could lead to lower inflation and reduced demand.\n3. Bank Lending: Banks typically borrow at short-term rates and lend at long-term rates. An inverted yield curve can reduce profitability for banks, leading to tighter credit conditions and less lending, which can further slow economic growth.\nIn summary, an inverted yield curve is often interpreted as a warning sign that a recession may be on the horizon, as it reflects pessimism about future economic conditions."
+  },
+  {
+    "id": 50,
+    "question": "Give me some economic data",
+    "answer": "Could you please specify which economic indicators you're interested in? For example, do you want data on GDP, exports, personal income, or something else? Additionally, please let me know if there is a specific time period you would like to focus on."
+  }
+]

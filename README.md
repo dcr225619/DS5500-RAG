@@ -56,7 +56,7 @@ Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates s
 4. Modify parameters to run the files using your fine-tuned model.
 
 ## Summary Quality Evaluation
-Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results.
+Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results. The reference examples for BERTScore is in `files\human_generated_summary_test.json`.
 
 9 agent variants:
 
