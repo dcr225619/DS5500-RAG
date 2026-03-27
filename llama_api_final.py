@@ -192,12 +192,14 @@ class FredLLMAgent:
             }
         """
 
-        # Check A:
-        # if the maximum correlation is too low, indicating that the issue may lie outside the scope of the data
+        # before calling the LLM,  a semantic retriever is used to find the top-k most relevant series for the given question, 
+        # and only those are passed into the prompt.
         relevant = retriever.retrieve(question, top_k=self.top_k)
         top_score = relevant[0]["similarity"] if relevant else 0
 
-        # return warning for no data series with relevance larger than 0.3
+        # Check A:
+        # if the maximum similarity score is too low, indicating that the question may lie outside the scope of the data
+        # skip the tool call entirely and directly generate final summary
         if top_score < min_similarity:
             if self.verbose:
                 print("  [Check A] No relevant FRED series found.")
@@ -217,7 +219,7 @@ class FredLLMAgent:
             else:
                 print(f"  [DateParser] No unambiguous date found, LLM will decide")
 
-        # dynamically search for top k series
+        # build dynamic indicator guide for llm
         guide = build_indicator_guide(question, top_k=self.top_k)
 
         if self.verbose:
@@ -278,6 +280,7 @@ class FredLLMAgent:
                 })
 
             # Check B: make sure the series ids are available
+            # otherwise reprompt with a correction hint and ask llm to regenerate the parameters
             extracted_calls = self.validate_tool_calls(extracted_calls, question)
             
             return {
@@ -513,6 +516,7 @@ class FredLLMAgent:
                 if self.verbose:
                     print(f"    [Check C] Incomplete final answer. Regenerating...")
 
+                # check if the answer covers all the retrieved data
                 missing_calls, gap_hint = '', ''
                 if not check.get("complete"):
                     missing_calls = f"Missing series: {', '.join(check.get('missing_series', []))}\n"

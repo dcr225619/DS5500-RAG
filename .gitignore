@@ -5,6 +5,7 @@ finetune1
 finetune2
 finetune3
 finetune4
+finetune5
 fred_key.py
 news_key.py
 gpt_key.py
@@ -17,6 +18,7 @@ files/finetune
 files/finetune-1
 files/finetune-2
 files/finetune-3
+files/finetune-4
 FinQA
 FRED data
 pre1

@@ -35,7 +35,7 @@ Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/repo
 ## Retrieval Accuracy Evaluation
 Run `retrieval_accuracy_benchmark.ipynb` to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
 
-| # | File | Model | Retriever |
+| # | File | Model | Components |
 |---|------|-------|-----------|
 | 1 | `llama_api` | llama3.2 | full guide |
 | 2 | `llama_api_semantic_retriever` | llama3.2 | semantic |
@@ -60,7 +60,7 @@ Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metri
 
 9 agent variants:
 
-| # | Model | Retriever |
+| # | Model | Components |
 |---|-------|-----------|
 | 1 | gpt-4o-mini | full guide |
 | 2 | gpt-4o-mini | semantic |
@@ -74,7 +74,7 @@ Run `summary_evaluation_benchmark.ipynb` to run summary evaluations with 3 metri
 
 3 agent variants with few-shot prompting:
 
-| # | Model | Retriever |
+| # | Model | Components |
 |---|-------|-----------|
 | 1 | llama3.2 (few-shot)| full guide |
 | 2 | llama3.2 (few-shot)| semantic |
