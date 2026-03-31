@@ -449,15 +449,8 @@ def process_question(question, verbose=True):
 if __name__ == "__main__":
     import pandas as pd
 
-    with open('data/QA_test.json', encoding='utf-8') as f:
+    with open('data/QA_new.json', encoding='utf-8') as f:
         file = json.load(f)
-
-    # file = [
-    #     "How did unemployment and inflation change in 2024?",
-    #     "What's the trade balance trend between goods and services over the past 2 years?"
-    #     "What's the date today?",
-    #     "Show me GDP data for Q1 2024"
-    # ]
 
     agent = OpenAIFredAgent(verbose=True)
 
@@ -468,7 +461,7 @@ if __name__ == "__main__":
         result = agent.process_question(question['question'])
         results.append(result)
 
-    filepath = 'files/gpt-4o-mini/QA_test_gpt_api_final.json'
+    filepath = 'data/QA_finetune3.json'
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

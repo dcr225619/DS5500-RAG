@@ -11,6 +11,7 @@ from date_parser import parse_date_range
 from dateutil.relativedelta import relativedelta
 import time
 from few_shot_examples import build_few_shot_messages
+import re
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
@@ -133,6 +134,91 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
     
     return result
 
+# ─────────────────────────────────────────────
+# Relative date resolver
+# ─────────────────────────────────────────────
+
+# Patterns the model might return instead of absolute dates, e.g.
+#   "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m" …
+_REL_PATTERN = re.compile(
+    r"""^
+    (?P<sign>[-+])?          # optional leading sign
+    (?:(?P<years>\d+)\s*y)?  # e.g. 1y  / 2y
+    (?:(?P<months>\d+)\s*m)? # e.g. 6m  / 18m
+    (?:(?P<days>\d+)\s*d)?   # e.g. 30d
+    $""",
+    re.IGNORECASE | re.VERBOSE,
+)
+
+_TODAY_ALIASES = {"today", "now", "current", "present"}
+
+
+def resolve_relative_date(value: str, reference: datetime | None = None) -> str | None:
+    """
+    Try to interpret *value* as a relative date offset and return an absolute
+    YYYY-MM-DD string.  Return None if *value* does not look relative.
+
+    Supported formats (case-insensitive, leading/trailing whitespace stripped):
+        "today" / "now" / "current" / "present"  → today
+        "-1y"   / "-2y"  / "-5y"                 → N years ago
+        "-6m"   / "-18m"                          → N months ago
+        "-30d"                                    → N days ago
+        "-1y6m"                                   → 1 year + 6 months ago
+        "+1y"                                     → 1 year in the future (capped to today)
+
+    Returns None for strings that are already absolute YYYY-MM-DD dates,
+    or for any unrecognised format.
+    """
+    if not isinstance(value, str):
+        return None
+
+    clean = value.strip().lower()
+
+    # ── 1. "today" aliases ────────────────────────────────────────────────
+    if clean in _TODAY_ALIASES:
+        ref = reference or datetime.today()
+        return ref.strftime("%Y-%m-%d")
+
+    # ── 2. Already an absolute YYYY-MM-DD → not relative ──────────────────
+    try:
+        datetime.strptime(clean, "%Y-%m-%d")
+        return None
+    except ValueError:
+        pass
+
+    # ── 3. Regex match for offset patterns ────────────────────────────────
+    # Detect and strip leading sign, default direction is negative (past)
+    if clean.startswith("+"):
+        sign, body = 1, clean[1:]
+    elif clean.startswith("-"):
+        sign, body = -1, clean[1:]
+    else:
+        sign, body = -1, clean   # bare "1y" / "6m" also treated as "past"
+
+    m = _REL_PATTERN.match(body)
+    if not m or not any(m.group(k) for k in ("years", "months", "days")):
+        return None
+
+    ref = reference or datetime.today()
+    delta = relativedelta(
+        years=sign  * int(m.group("years")  or 0),
+        months=sign * int(m.group("months") or 0),
+        days=sign   * int(m.group("days")   or 0),
+    )
+    result_dt = ref + delta
+
+    # Cap future dates to today
+    today = reference or datetime.today()
+    if result_dt > today:
+        result_dt = today
+
+    return result_dt.strftime("%Y-%m-%d")
+
+
+def is_relative_date(value: str) -> bool:
+    """Return True if *value* looks like a relative offset rather than YYYY-MM-DD."""
+    return resolve_relative_date(value) is not None
+
 class FredLLMAgent:
     def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, top_k=5):
         self.model = model
@@ -179,6 +265,60 @@ class FredLLMAgent:
 
         return self.validate_tool_calls(extraction.get("tool_calls", tool_calls), question, max_retries, _depth + 1)
     
+    def _resolve_tool_call_dates(
+        self,
+        args: dict,
+        pre_start: str | None,
+        pre_end: str | None,
+    ) -> tuple[str, str]:
+        """
+        Determine the final (start_date, end_date) pair for a single tool call.
+
+        Priority order
+        ──────────────
+        1. pre-parsed dates from date_parser  (most reliable)
+        2. absolute dates already in YYYY-MM-DD coming from the LLM
+        3. relative dates returned by the LLM  → resolved to absolute
+        4. fallback: fix_date_parameters sanitisation
+
+        Args:
+            args      : the raw arguments dict from the LLM tool call
+            pre_start : start date from date_parser (may be None)
+            pre_end   : end date   from date_parser (may be None)
+
+        Returns:
+            (start_date, end_date) both in YYYY-MM-DD format
+        """
+        today = datetime.today()
+
+        # ── Priority 1: date_parser result ────────────────────────────────
+        if pre_start and pre_end:
+            if self.verbose:
+                print(f"  [DateResolver] Using date_parser result: {pre_start} → {pre_end}")
+            return pre_start, pre_end
+
+        # ── Priority 2 & 3: LLM-provided dates ────────────────────────────
+        raw_start = (args.get("start_date") or args.get("start", "")).strip()
+        raw_end   = (args.get("end_date")   or args.get("end",   "")).strip()
+
+        # Try to resolve each value; resolve_relative_date returns None for
+        # strings that are already absolute YYYY-MM-DD.
+        resolved_start = resolve_relative_date(raw_start)
+        resolved_end   = resolve_relative_date(raw_end)
+
+        start_date = resolved_start if resolved_start else raw_start
+        end_date   = resolved_end   if resolved_end   else raw_end
+
+        if self.verbose:
+            if resolved_start:
+                print(f"  [DateResolver] Relative start '{raw_start}' → '{start_date}'")
+            if resolved_end:
+                print(f"  [DateResolver] Relative end   '{raw_end}'   → '{end_date}'")
+
+        # ── Priority 4: sanitise whatever we ended up with ─────────────────
+        start_date, end_date = fix_date_parameters(start_date, end_date)
+        return start_date, end_date
+
     def extract_tool_calls(self, question, min_similarity=0.3):
         """
         extract tool calls without execution
@@ -263,14 +403,9 @@ class FredLLMAgent:
             for tool_call in assistant_message["tool_calls"]:
                 args = tool_call["function"]["arguments"]
 
-                if pre_start and pre_end:
-                    # dateparser result takes priority — skip fix_date_parameters
-                    start_date, end_date = pre_start, pre_end
-                else:
-                    # fall back to LLM dates, then sanitise
-                    start_date = args.get("start_date") or args.get("start", "")
-                    end_date = args.get("end_date") or args.get("end", "")
-                    start_date, end_date = fix_date_parameters(start_date, end_date)
+                start_date, end_date = self._resolve_tool_call_dates(
+                    args, pre_start, pre_end
+                )
 
                 extracted_calls.append({
                     "tool_call_id": tool_call.get("id", f"call_{len(extracted_calls)}"),
@@ -467,7 +602,7 @@ class FredLLMAgent:
                 "role": "system",
                 "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
             },
-            *build_few_shot_messages(),  # few-shot examples
+            # *build_few_shot_messages(),  # few-shot examples
             {
                 "role": "user",
                 "content": question
@@ -566,18 +701,13 @@ if __name__ == "__main__":
 
     with open("data/QA_test.json", encoding="utf-8") as f:
         file = json.load(f)
-    
-    # file = [
-    #     "How did unemployment and inflation change in 2024?",
-    #     "What's the trade balance trend between goods and services over the past 2 years?",
-    #     "What's the date today?",
-    #     "Show me GDP data for Q1 2024"
-    # ]
 
-    agent = FredLLMAgent(model="llama3.2", verbose=False)
+    # agent = FredLLMAgent(model="llama3.2", verbose=False)
     # agent = FredLLMAgent(model="llama-finetuned-v2", verbose=False)
     # agent = FredLLMAgent(model="llama-finetuned-v3", verbose=False)
     # agent = FredLLMAgent(model="llama-finetuned-v4", verbose=False)
+    # agent = FredLLMAgent(model="llama-finetuned-v5", verbose=False)
+    agent = FredLLMAgent(model="llama-finetuned-v6", verbose=False)
     
     results = []
     for idx, question in enumerate(file):
@@ -595,7 +725,7 @@ if __name__ == "__main__":
             }
         results.append(result)
 
-    filepath = "files/llama3.2/QA_test_llama_api_final_few_shot.json"
+    filepath = "files/llama3.2/QA_test_llama_api_final_finetuned6.json"
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

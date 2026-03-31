@@ -2,8 +2,10 @@ import json
 from datetime import datetime, timedelta
 from llama_api import FredLLMAgent
 from llama_api_semantic_retriever import FredLLMAgent as FredLLMAgent_semantic
+from llama_api_final import FredLLMAgent as FredLLMAgent_final
 from gpt_api import OpenAIFredAgent
 from gpt_api_semantic_retriever import OpenAIFredAgent as OpenAIFredAgent_semantic
+from gpt_api_final import OpenAIFredAgent as OpenAIFredAgent_final
 import pandas as pd
 import time
 
@@ -16,18 +18,25 @@ scope:
 """
 
 class AccuracyEvaluator:
-    def __init__(self, retriever=None, model='llama3.2', test_cases_file=None):
+    def __init__(self, retriever=None, model='llama3.2', model_name=None, test_cases_file=None):
         """
         Args:
+            retriever: None (baseline) / 'semantic' / 'final'
+            model: 'llama3.2' / 'gpt-4o-mini', 'llama3.2' by default
+            model_name: 'llama-finetune-5' etc. for llama3.2 pipeline, None by default (use model as model input for FredLLMAgent)
             test_cases_file: json file path2
         """
         if model == 'llama3.2':
-            if retriever == 'semantic':
-                self.agent = FredLLMAgent_semantic(model=model, verbose=False)
+            if retriever == 'final':
+                self.agent = FredLLMAgent_final(model=model_name if model_name else model, verbose=False)
+            elif retriever == 'semantic':
+                self.agent = FredLLMAgent_semantic(model=model_name if model_name else model, verbose=False)
             else:
-                self.agent = FredLLMAgent(model=model, verbose=False)
+                self.agent = FredLLMAgent(model=model_name if model_name else model, verbose=False)
         elif model == 'gpt-4o-mini':
-            if retriever == 'semantic':
+            if retriever == 'final':
+                self.agent = OpenAIFredAgent_final(verbose=False)
+            elif retriever == 'semantic':
                 self.agent = OpenAIFredAgent_semantic(verbose=False)
             else:
                 self.agent = OpenAIFredAgent(verbose=False)
@@ -348,9 +357,17 @@ if __name__ == "__main__":
     start = time.time()
 
     # evaluator = AccuracyEvaluator(model="llama3.2")
-    evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
+    # evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2")
+    # evaluator = AccuracyEvaluator(retriever='final', model="llama3.2")
     # evaluator = AccuracyEvaluator(model="gpt-4o-mini")
     # evaluator = AccuracyEvaluator(retriever='semantic', model="gpt-4o-mini")
+    # evaluator = AccuracyEvaluator(retriever='final', model="gpt-4o-mini")
+    # evaluator = AccuracyEvaluator(model="llama3.2", model_name="llama-finetuned-v5")
+    # evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2", model_name="llama-finetuned-v5")
+    # evaluator = AccuracyEvaluator(retriever='final', model="llama3.2", model_name="llama-finetuned-v5")
+    # evaluator = AccuracyEvaluator(model="llama3.2", model_name="llama-finetuned-v6")
+    # evaluator = AccuracyEvaluator(retriever='semantic', model="llama3.2", model_name="llama-finetuned-v6")
+    evaluator = AccuracyEvaluator(retriever='final', model="llama3.2", model_name="llama-finetuned-v6")
     
     # add test cases
     path = "data/QA_test.json"
@@ -358,6 +375,6 @@ if __name__ == "__main__":
     
     results = evaluator.run_all_tests()
     
-    evaluator.export_results(results,"files/origin/evaluation_results_semantic_test2.json" )
+    evaluator.export_results(results,"files/llama3.2/retrieval_eval/llama_api_final_finetune6.json" )
 
     print(f"Execution time: {time.time() - start: .2f}")
