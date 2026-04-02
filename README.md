@@ -11,30 +11,30 @@ Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/repo
 ## Get Started
 1. Install the required dependencies with: `pip install -r requirements.txt --upgrade`.
 2. Save your fred api key in a file named `fred_key.py`, save your openai api key in a file named `gpt_key.py`.
-3. Run [`wikitable_crawler.py`](`wikitable_crawler.py`) to get series ids file [`output.json`](`output.json`) for Fred series.
-4. Run [`indicator_formatter.py`](`indicator_formatter.py`) to generate [`indicator_guide_compact.txt`](`indicator_guide_compact.txt`) for generate a compact Fred data list for llms.
+3. Run [`wikitable_crawler.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/wikitable_crawler.py`) to get series ids file [`output.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/output.json`) for Fred series.
+4. Run [`indicator_formatter.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/indicator_formatter.py`) to generate [`indicator_guide_compact.txt`](`https://github.com/dcr225619/DS5500-RAG/blob/master/files/indicator_guide_compact.txt`) for generate a compact Fred data list for llms.
 
 ## Use Baseline Models with Compact Text Indicator Guide for Retrieval Based on LLM-Driven Autonomous Understanding (llama3.2 / gpt-4o-mini). 
 1. Install llama3.2 in Docker if you want to use llama3.2 for experiment. Apply for OpenAI key to use gpt models for experiment.
-2. Run [`llama_api.py`](`llama_api.py`) to use llama3.2 for experiment on [`QA.json`](`QA.json`) or [`QA_test.json`](`QA_test.json`). 
-3. Run [`gpt_api.py`](`gpt_api.py`) to use chatgpt-mini-4o for experiment on [`QA.json`](`QA.json`) or [`QA_test.json`](`QA_test.json`). 
+2. Run [`llama_api.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api.py`) to use llama3.2 for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`). 
+3. Run [`gpt_api.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api.py`) to use chatgpt-mini-4o for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`). 
 
 ## Use Semantic Retriever insted of Compact Text
-1. Run [`generate_series_description.py`](`generate_series_description.py`) to generate detailed descriptions for Fred series file [`output.json`](`output.json`) using chatgpt-mini-4o.
+1. Run [`generate_series_description.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/generate_series_description.py`) to generate detailed descriptions for Fred series file [`output.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/output.json`) using chatgpt-mini-4o.
 2. Run [`build_series_index.py`](`build_series_index.py`) to build series index embedding for retriever.
-3. Run [`llama_api_semantic_retriever.py`](`llama_api_semantic_retriever.py`) to use llama3.2 for experiment on [`QA.json`](`QA.json`) or [`QA_test.json`](`QA_test.json`) with your newly generated semantic retriever.
-4. Run [`gpt_api_semantic_retriever.py`](`gpt_api_semantic_retriever.py`) to use gpt-4o-mini for experiment on [`QA.json`](`QA.json`) or [`QA_test.json`](`QA_test.json`) with your newly generated semantic retriever.
+3. Run [`llama_api_semantic_retriever.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api_semantic_retriever.py`) to use llama3.2 for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`) with your newly generated semantic retriever.
+4. Run [`gpt_api_semantic_retriever.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api_semantic_retriever.py`) to use gpt-4o-mini for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`) with your newly generated semantic retriever.
 
 ## RAG with self-check and fall back for improved retrieval and summarization
 <p align="center">
   <img src="figs/self_check_flow_chart.png" alt="self_check_workflow" width="400">
 </p>
 
-1. Run [`llama_api_final.py`](`llama_api_final.py`) to use llama3.2 agentic RAG with self-check, fall back and date parser.
-2. Run [`gpt_api_final.py`](`gpt_api_final.py`) to use gpt-4o-mini agentic RAG with self-check, fall back.
+1. Run [`llama_api_final.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api_final.py`) to use llama3.2 agentic RAG with self-check, fall back and date parser.
+2. Run [`gpt_api_final.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api_final.py`) to use gpt-4o-mini agentic RAG with self-check, fall back.
 
 ## Retrieval Accuracy Evaluation
-Run [`retrieval_accuracy_benchmark.ipynb`](`retrieval_accuracy_benchmark.ipynb`) to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+Run [`retrieval_accuracy_benchmark.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/retrieval_accuracy_benchmark.ipynb`) to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
 
 | # | File | Model | Components |
 |---|------|-------|-----------|
@@ -46,18 +46,18 @@ Run [`retrieval_accuracy_benchmark.ipynb`](`retrieval_accuracy_benchmark.ipynb`)
 | 6 | `gpt_api_final` | gpt-4o-mini | semantic + checks |
 
 ## Few-shot prompt for Better Summary
-1. Prepare several human-written high-quality summary examples and put them in [`few_shot_examples.py`](`few_shot_examples.py`).
+1. Prepare several human-written high-quality summary examples and put them in [`few_shot_examples.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/few_shot_examples.py`).
 2. Set `few_shot=True` as an input to use few-shot prompt for summary generation.
 3. Run all main files to using prompt including several high-quality human-written.
 
 ## Fine-tune for Better Summary
-1. Run [`QA_gpt_transformer.ipynb`](`QA_gpt_transformer.ipynb`) to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
-2. Run [`llama_finetune.ipynb`](`llama_finetune.ipynb`) for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
+1. Run [`QA_gpt_transformer.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/QA_gpt_transformer.ipynb`) to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
+2. Run [`llama_finetune.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_finetune.ipynb`) for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
 3. Deploy your fine-tuned model.
 4. Modify parameters to run the files using your fine-tuned model.
 
 ## Summary Quality Evaluation
-Run [`summary_evaluation_benchmark.ipynb`](summary_evaluation_benchmark.ipynb) to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results. The reference examples for BERTScore is in [`human_generated_summary_test.json`](files\human_generated_summary_test.json).
+Run [`summary_evaluation_benchmark.ipynb`](https://github.com/dcr225619/DS5500-RAG/blob/master/summary_evaluation_benchmark.ipynb) to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results. The reference examples for BERTScore is in [`human_generated_summary_test.json`](https://github.com/dcr225619/DS5500-RAG/blob/master/files/human_generated_summary_test.json).
 
 9 agent variants:
 
@@ -82,7 +82,7 @@ Run [`summary_evaluation_benchmark.ipynb`](summary_evaluation_benchmark.ipynb) t
 | 3 | llama3.2 (few-shot)| semantic + date parser + checks |
 
 ## User Interface
-Run [`user_interface.py`](user_interface.py) in command prompt using `streamlit run user_interface.py` to open the user interface for this project. Edit file [`user_interface.py`](user_interface.py) to change the model used for the chatbot.
+Run [`user_interface.py`](https://github.com/dcr225619/DS5500-RAG/blob/master/user_interface.py) in command prompt using `streamlit run user_interface.py` to open the user interface for this project. Edit file [`user_interface.py`](https://github.com/dcr225619/DS5500-RAG/blob/master/user_interface.py) to change the model used for the chatbot.
 
 ## Unfinished (Future Work)
 2. `news_api.py` for retrieving news article from [news api](https://newsapi.org/) (to expand the database in the future)
