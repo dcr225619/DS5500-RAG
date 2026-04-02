@@ -1,0 +1,21 @@
+# core dependencies
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scipy>=1.10.0,<2.0.0
+
+# ML & NLP
+sentence-transformers>=2.2.0,<3.0.0
+bert-score>=0.3.13
+faiss-cpu>=1.7.4  # use faiss-gpu if you have CUDA
+
+# API & HTTP
+requests>=2.31.0,<3.0.0
+openai>=1.0.0,<2.0.0
+
+# data processing & storage
+joblib>=1.3.0,<2.0.0
+python-dateutil>=2.8.0,<3.0.0
+
+# web framework & visualization
+streamlit>=1.28.0,<2.0.0
+plotly>=5.17.0,<6.0.0

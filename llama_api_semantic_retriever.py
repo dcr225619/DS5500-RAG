@@ -93,7 +93,6 @@ def fix_date_parameters(start_date, end_date):
 
     return start_dt.strftime("%Y-%m-%d"), end_dt.strftime("%Y-%m-%d")
 
-
 def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, compact_mode=False):
     """
     call FRED API, fall back if fail
@@ -132,12 +131,8 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
     
     return result
 
-# ─────────────────────────────────────────────
-# Relative date resolver
-# ─────────────────────────────────────────────
-
-# Patterns the model might return instead of absolute dates, e.g.
-#   "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m" …
+# relative date resolver e.g.
+# "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m"
 _REL_PATTERN = re.compile(
     r"""^
     (?P<sign>[-+])?          # optional leading sign
@@ -149,7 +144,6 @@ _REL_PATTERN = re.compile(
 )
 
 _TODAY_ALIASES = {"today", "now", "current", "present"}
-
 
 def resolve_relative_date(value: str, reference: datetime | None = None) -> str | None:
     """
@@ -172,20 +166,20 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
 
     clean = value.strip().lower()
 
-    # ── 1. "today" aliases ────────────────────────────────────────────────
+    # 1. today aliases
     if clean in _TODAY_ALIASES:
         ref = reference or datetime.today()
         return ref.strftime("%Y-%m-%d")
 
-    # ── 2. Already an absolute YYYY-MM-DD → not relative ──────────────────
+    # 2. not relative expressions
     try:
         datetime.strptime(clean, "%Y-%m-%d")
         return None
     except ValueError:
         pass
 
-    # ── 3. Regex match for offset patterns ────────────────────────────────
-    # Detect and strip leading sign, default direction is negative (past)
+    # 3. regex match for offset patterns in relative expressions
+    # detect and strip leading sign, default direction is negative (past)
     if clean.startswith("+"):
         sign, body = 1, clean[1:]
     elif clean.startswith("-"):
@@ -205,7 +199,7 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
     )
     result_dt = ref + delta
 
-    # Cap future dates to today
+    # cap future dates to today
     today = reference or datetime.today()
     if result_dt > today:
         result_dt = today
@@ -214,11 +208,12 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
 
 
 class FredLLMAgent:
-    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, top_k=5):
+    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, top_k=5, few_shot=False):
         self.model = model
         self.api_url = api_url
         self.verbose = verbose  # print process or not
         self.top_k = top_k
+        self.few_shot = few_shot  # use few-shot prompting for summary generation or not
         
     def call_llm(self, messages):
         payload = {
@@ -488,14 +483,19 @@ class FredLLMAgent:
             {
                 "role": "system",
                 "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
-            },
-            # *build_few_shot_messages(),  # few-shot examples
+            }
+        ]
+
+        if self.few_shot:
+            messages.extend(build_few_shot_messages())
+        
+        messages.extend([
             {
                 "role": "user",
                 "content": question
             },
             extraction["raw_response"]["message"]
-        ]
+        ])
         
         # add tool responses
         for idx, result in enumerate(api_results):
@@ -522,15 +522,6 @@ class FredLLMAgent:
                 "tool_call_id": result.get("tool_call_id", ""),
                 "content": json.dumps(tool_result, ensure_ascii=False)
             })
-        
-        # # DYNAMIC UPDATE system prompt to make sure that the llm uses all the data and answer the question
-        # series_list = ", ".join(r["series_id"] for r in api_results if r["success"])
-        # 
-        # messages[0]["content"] = (
-        #     f"You are an economic data assistant with access to FRED API. {INDICATOR_GUIDE}\n\n"
-        #     f"REQUIRED: You have received {len(api_results)} datasets ({series_list}). "
-        #     f"You MUST explicitly analyze ALL of them in your response. Do not skip any."
-        # )
 
         final_result = self.call_llm(messages)
 
@@ -556,13 +547,9 @@ class FredLLMAgent:
         }
 
 
-def process_question(question, verbose=True):
+def process_question(question, model="llama3.2", verbose=True, few_shot=False):
 
-    # original version
-    # agent = FredLLMAgent(model="llama3.2", verbose=True)
-
-    # fine-tuned-1 version
-    agent = FredLLMAgent(model="llama-finetuned-v1", verbose=True)
+    agent = FredLLMAgent(model=model, verbose=verbose, few_shot=few_shot)
 
     return agent.process_question(question)
 

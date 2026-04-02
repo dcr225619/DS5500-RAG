@@ -10,7 +10,7 @@ import re
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
-# indicator_guide_compact.txt, indicator_guide_by_category.txt, indicator_guide_optimized.txt, indicator_guide_with_examples.txt
+# indicator_guide_compact.txt
 with open("files/indicator_guide_compact.txt", encoding="utf-8") as f:
     indicator_mapping = f.read()
 
@@ -87,7 +87,6 @@ def fix_date_parameters(start_date, end_date):
 
     return start_dt.strftime("%Y-%m-%d"), end_dt.strftime("%Y-%m-%d")
 
-
 def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, compact_mode=False):
     """
     call FRED API, fall back if fail
@@ -126,12 +125,8 @@ def call_fred_api_with_fallback(series_id, start_date, end_date, max_retries=1, 
     
     return result
 
-# ─────────────────────────────────────────────
-# Relative date resolver
-# ─────────────────────────────────────────────
-
-# Patterns the model might return instead of absolute dates, e.g.
-#   "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m" …
+# relative date resolver e.g.
+# "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m"
 _REL_PATTERN = re.compile(
     r"""^
     (?P<sign>[-+])?          # optional leading sign
@@ -143,7 +138,6 @@ _REL_PATTERN = re.compile(
 )
 
 _TODAY_ALIASES = {"today", "now", "current", "present"}
-
 
 def resolve_relative_date(value: str, reference: datetime | None = None) -> str | None:
     """
@@ -166,20 +160,20 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
 
     clean = value.strip().lower()
 
-    # ── 1. "today" aliases ────────────────────────────────────────────────
+    # 1. today aliases
     if clean in _TODAY_ALIASES:
         ref = reference or datetime.today()
         return ref.strftime("%Y-%m-%d")
 
-    # ── 2. Already an absolute YYYY-MM-DD → not relative ──────────────────
+    # 2. not relative expressions
     try:
         datetime.strptime(clean, "%Y-%m-%d")
         return None
     except ValueError:
         pass
 
-    # ── 3. Regex match for offset patterns ────────────────────────────────
-    # Detect and strip leading sign, default direction is negative (past)
+    # 3. regex match for offset patterns in relative expressions
+    # detect and strip leading sign, default direction is negative (past)
     if clean.startswith("+"):
         sign, body = 1, clean[1:]
     elif clean.startswith("-"):
@@ -199,7 +193,7 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
     )
     result_dt = ref + delta
 
-    # Cap future dates to today
+    # cap future dates to today
     today = reference or datetime.today()
     if result_dt > today:
         result_dt = today
@@ -208,11 +202,12 @@ def resolve_relative_date(value: str, reference: datetime | None = None) -> str 
 
 
 class FredLLMAgent:
-    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True):
+    def __init__(self, model="llama3.2", api_url=OLLAMA_URL, verbose=True, few_shot=False):
         self.model = model
         self.api_url = api_url
         self.verbose = verbose  # print process or not
-        self.conversation_history = []
+        self.few_shot = few_shot  # use few-shot prompting for summary generation or not
+        # self.conversation_history = []
         
     def call_llm(self, messages):
         payload = {
@@ -471,13 +466,19 @@ class FredLLMAgent:
                 "content": f"You are an economic data assistant with access to FRED API. Today is {datetime.today().strftime('%Y-%m-%d')}."
             },
             # *self.conversation_history,  # add conversation_history here
-            # *build_few_shot_messages(),  # few-shot examples
+        ]
+        
+        if self.few_shot:
+            messages.extend(build_few_shot_messages())
+        
+        messages.extend([
             {
                 "role": "user",
                 "content": question
             },
             extraction["raw_response"]["message"]
-        ]
+        ])
+
         # trim history
         # messages = self.trim_history(messages)
 
@@ -542,8 +543,14 @@ class FredLLMAgent:
             "execution_time": execution_time
         }
 
-    def reset(self):
-        self.conversation_history = []
+    # def reset(self):
+    #     self.conversation_history = []
+
+def process_question(question, model="llama3.2", verbose=True, few_shot=False):
+
+    agent = FredLLMAgent(model=model, verbose=verbose, few_shot=few_shot)
+
+    return agent.process_question(question)
 
 
 if __name__ == "__main__":

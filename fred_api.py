@@ -43,78 +43,78 @@ def call_fred_api(series_id, start_date, end_date, compact_mode=False):
             print(f'Frequency check: shift start date to {start_date}, end date to {end_date}')
 
     params = {
-        "series_id": series_id,
-        "api_key": fred_key,
-        "file_type": "json",
+        "series_id":         series_id,
+        "api_key":           fred_key,
+        "file_type":         "json",
         "observation_start": start_date,
-        "observation_end": end_date,
-        "frequency": frequency
-    }  
+        "observation_end":   end_date,
+    }
+    if frequency:
+        params["frequency"] = frequency
     
     response = requests.get(base_url + obs_endpoint, params=params)
     
     if response.status_code == 200:
         data = response.json()
-        #observations = data.get("observations", [])
+        observations = data.get("observations", [])
+
+        # filter out value == "."
+        observations = [o for o in observations if o.get("value", ".") != "."]
+
+        if not observations:
+            return {
+                "success": False,
+                "series_id": series_id,
+                "error": f"No data returned for {series_id} in range {start_date} to {end_date}"
+            }
+
         try:
-            analyzer = TimeSeriesAnalyzer(data["observations"])
-            # analysis = analyzer.generate_summary(compact_mode=compact_mode)
+            analyzer = TimeSeriesAnalyzer(observations)
 
-            if "observations" in data and len(data["observations"]) < 5:
-                # compact analysis result for single data point
+            if len(observations) < 5:
                 summary = analyzer.generate_summary(
-                            include_full_timeseries=True,
-                            include_inflections=False,
-                            compact_mode=True
-                        )
+                    include_full_timeseries=False,
+                    include_inflections=False,
+                    compact_mode=True
+                )
+            elif compact_mode or len(observations) < 180:
+                summary = analyzer.generate_summary(
+                    include_full_timeseries=False,
+                    include_inflections=True,
+                    compact_mode=True,
+                )
+            else:
+                summary = analyzer.generate_summary(
+                    include_full_timeseries=False,
+                    include_inflections=True,
+                    compact_mode=False
+                )
 
-                return {
-                    "success": True,
-                    "series_id": series_id,
-                    "indicator_name": indicator_name,
-                    "description": description,
-                    "units": units,
-                    "analysis": summary
-                }
-
-            elif "observations" in data and len(data["observations"]) >= 5:
-                # decide compact mode or not according to the size of data
-                if compact_mode or len(data["observations"]) < 180:
-                    summary = analyzer.generate_summary(
-                        include_full_timeseries=True,
-                        include_inflections=True,
-                        compact_mode=False
-                    )
-                else:
-                    summary = analyzer.generate_summary(
-                        include_full_timeseries=False,
-                        include_inflections=True,
-                        compact_mode=False
-                    )
-                
-                return {
-                    "success": True,
-                    "series_id": series_id,
-                    "indicator_name": indicator_name,
-                    "description": description,
-                    "units": units,
-                    "analysis": summary
-                }
-
-        except Exception as e:
-            print(f"Warning: Analysis failed: {e}")
-            # return original data if analysis failed
             return {
                 "success": True,
                 "series_id": series_id,
                 "indicator_name": indicator_name,
                 "description": description,
                 "units": units,
-                "data": data["observations"]
+                "analysis": summary,
+                "raw_observations": observations,   # always keep the original data available for use in charts
             }
-    
+
+        except Exception as e:
+            print(f"Warning: Analysis failed: {e}")
+            return {
+                "success": True,
+                "series_id": series_id,
+                "indicator_name": indicator_name,
+                "description": description,
+                "units": units,
+                "data": observations,
+                "raw_observations": observations,   # ← 同上
+            }
+
     return {
         "success": False,
+        "series_id": series_id,
         "error": f"Failed to fetch {series_id}: Status {response.status_code}, Response: {response.text}"
     }
 
