@@ -1,89 +1,317 @@
-# An Agentic RAG system based on Macroeconomic Data
+# An Agentic RAG System Based on Macroeconomic Data
 
-This is an agentic Retrieval-Augmented Generation system that answers natural language questions about US macroeconomic indicators by autonomously querying the FRED API. Given a user question, the system identifies the relevant FRED data series and date range, retrieves the time-series data via tool calls, and generates a grounded natural language summary — without requiring the user to know any series ids or API details.
+This is an agentic Retrieval-Augmented Generation (RAG) system that answers natural language questions about US macroeconomic indicators by autonomously querying the FRED API. Given a user question, the system identifies the relevant FRED data series and date range, retrieves the time-series data via tool calls, and generates a grounded natural language summary—without requiring the user to know any series IDs or API details.
 
-The project systematically compares two models (LLaMA 3.2 and GPT-4o-mini) across three progressively enhanced agent variants: a baseline using a compact text indicator guide, a semantic retrieval version that dynamically selects the most relevant series via FAISS embeddings, and a final version incorporating a rule-based date parser and a three-layer self-check pipeline (relevance gating, parameter validation, and answer completeness verification). LLaMA 3.2 is further fine-tuned on GPT-generated reference summaries to close the summarization quality gap. Retrieval accuracy is evaluated across all six variants on a curated question benchmark covering single- and multi-series queries, relative time expressions, and out-of-scope questions.
+The project systematically compares two models (LLaMA 3.2 and GPT-4o-mini) across three progressively enhanced agent variants: 
+1. **Baseline**: Uses a compact text indicator guide for LLM-driven series selection
+2. **Semantic Retrieval**: Dynamically selects the most relevant series via FAISS embeddings
+3. **Enhanced Version**: Incorporates a rule-based date parser and a three-layer self-check pipeline (relevance gating, parameter validation, and answer completeness verification)
 
-Two directions are planned for future development. First, the knowledge base will be expanded with real-time news retrieval via NewsAPI, allowing the system to contextualize economic data with current events and analyst commentary. Second, a query router will be introduced to dynamically select the most appropriate retrieval strategy — direct generation, single-step tool call, or full agentic RAG — based on question type, reducing unnecessary API calls and latency for simpler queries.
+LLaMA 3.2 is further fine-tuned on GPT-generated reference summaries to close the summarization quality gap. Retrieval accuracy is evaluated across all six variants on a curated question benchmark covering single- and multi-series queries, relative time expressions, and out-of-scope questions.
 
-Check the report [here](https://github.com/dcr225619/DS5500-RAG/blob/master/report.pdf).
+Two directions are planned for future development:
+- **News Integration**: Expand the knowledge base with real-time news retrieval via NewsAPI, allowing the system to contextualize economic data with current events and analyst commentary
+- **Query Router**: Introduce dynamic strategy selection (direct generation, single-step tool call, or full agentic RAG) based on question type to reduce unnecessary API calls and latency
 
-## Get Started
-1. Install the required dependencies with: `pip install -r requirements.txt --upgrade`.
-2. Save your fred api key in a file named `fred_key.py`, save your openai api key in a file named `gpt_key.py`.
-3. Run [`wikitable_crawler.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/wikitable_crawler.py`) to get series ids file [`output.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/output.json`) for Fred series.
-4. Run [`indicator_formatter.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/indicator_formatter.py`) to generate [`indicator_guide_compact.txt`](`https://github.com/dcr225619/DS5500-RAG/blob/master/files/indicator_guide_compact.txt`) for generate a compact Fred data list for llms.
+**Report**: [View PDF](report.pdf)
 
-## Use Baseline Models with Compact Text Indicator Guide for Retrieval Based on LLM-Driven Autonomous Understanding (llama3.2 / gpt-4o-mini). 
-1. Install llama3.2 in Docker if you want to use llama3.2 for experiment. Apply for OpenAI key to use gpt models for experiment.
-2. Run [`llama_api.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api.py`) to use llama3.2 for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`). 
-3. Run [`gpt_api.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api.py`) to use chatgpt-mini-4o for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`). 
+---
 
-## Use Semantic Retriever insted of Compact Text
-1. Run [`generate_series_description.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/generate_series_description.py`) to generate detailed descriptions for Fred series file [`output.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/output.json`) using chatgpt-mini-4o.
-2. Run [`build_series_index.py`](`build_series_index.py`) to build series index embedding for retriever.
-3. Run [`llama_api_semantic_retriever.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api_semantic_retriever.py`) to use llama3.2 for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`) with your newly generated semantic retriever.
-4. Run [`gpt_api_semantic_retriever.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api_semantic_retriever.py`) to use gpt-4o-mini for experiment on [`QA.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA.json`) or [`QA_test.json`](`https://github.com/dcr225619/DS5500-RAG/blob/master/data/QA_test.json`) with your newly generated semantic retriever.
+## Table of Contents
+- [Get Started](#get-started)
+- [Baseline Models with Compact Text Guide](#baseline-models-with-compact-text-indicator-guide)
+- [Semantic Retrieval](#semantic-retrieval-instead-of-compact-text)
+- [RAG with Self-Check](#rag-with-self-check-and-fallback)
+- [Evaluation](#evaluation)
+  - [Retrieval Accuracy](#retrieval-accuracy-evaluation)
+  - [Summary Quality](#summary-quality-evaluation)
+- [Improvements](#improvements)
+  - [Few-Shot Prompting](#few-shot-prompt-for-better-summary)
+  - [Fine-Tuning](#fine-tune-for-better-summary)
+- [User Interface](#user-interface)
+- [Future Work](#future-work)
 
-## RAG with self-check and fall back for improved retrieval and summarization
+---
+
+## 🚀 Get Started
+
+### Prerequisites
+- Python 3.12+
+- FRED API Key ([Get one here](https://fred.stlouisfed.org/docs/api/api_key.html))
+- Optional: OpenAI API Key for GPT models
+
+### Installation
+
+1. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt --upgrade
+   ```
+
+2. **Configure API keys**
+   
+   Create `fred_key.py`:
+   ```python
+   fred_key = "your_fred_api_key_here"
+   ```
+   
+   Create `gpt_key.py`:
+   ```python
+   gpt_key = "your_openai_api_key_here"
+   ```
+
+3. **Generate indicator metadata**
+   ```bash
+   # Crawl FRED series from Wikipedia tables
+   python wikitable_crawler.py
+   
+   # Generate compact indicator guide for LLMs
+   python indicator_formatter.py
+   ```
+
+---
+
+## Baseline Models with Compact Text Indicator Guide
+
+**Approach**: LLM-driven autonomous understanding using a full text list of indicators.
+
+### Setup
+
+For **LLaMA 3.2**:
+```bash
+# Install LLaMA 3.2 via Ollama
+ollama pull llama3.2
+```
+
+For **GPT-4o-mini**:
+- Ensure OpenAI API key is configured in `gpt_key.py`
+
+### Run Experiments
+
+```bash
+# Test with LLaMA 3.2
+python llama_api.py
+
+# Test with GPT-4o-mini
+python gpt_api.py
+```
+
+**Test Data**: 
+- [`data/QA.json`](data/QA.json) - Development set
+- [`data/QA_test.json`](data/QA_test.json) - Test set
+
+---
+
+## Semantic Retrieval Instead of Compact Text
+
+**Approach**: Use FAISS embeddings to dynamically retrieve the most relevant series instead of providing the full list.
+
+### Setup
+
+1. **Generate series descriptions** (using GPT-4o-mini)
+   ```bash
+   python generate_series_description.py
+   ```
+   This creates detailed descriptions for each series in `output.json`.
+
+2. **Build FAISS index**
+   ```bash
+   python build_series_index.py
+   ```
+   This generates embeddings and builds the FAISS index for retrieval.
+
+### Run Experiments
+
+```bash
+# LLaMA 3.2 with semantic retrieval
+python llama_api_semantic_retriever.py
+
+# GPT-4o-mini with semantic retrieval
+python gpt_api_semantic_retriever.py
+```
+
+---
+
+## RAG with Self-Check and Fallback
+
 <p align="center">
-  <img src="figs/self_check_flow_chart.png" alt="self_check_workflow" width="400">
+  <img src="figs/self_check_flow_chart.png" alt="Self-check workflow" width="500">
 </p>
 
-1. Run [`llama_api_final.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_api_final.py`) to use llama3.2 agentic RAG with self-check, fall back and date parser.
-2. Run [`gpt_api_final.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/gpt_api_final.py`) to use gpt-4o-mini agentic RAG with self-check, fall back.
+**Enhancements**:
+- **Date Parser**: Rule-based date normalization (e.g., "past 5 years" → actual dates)
+- **Three-Layer Self-Check Pipeline**:
+  1. Relevance Gating: Verify series selection is appropriate
+  2. Parameter Validation: Check date ranges and series IDs
+  3. Answer Completeness: Ensure all aspects of the question are addressed
 
-## Retrieval Accuracy Evaluation
-Run [`retrieval_accuracy_benchmark.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/retrieval_accuracy_benchmark.ipynb`) to run `AccuracyEvaluator` (evaluates series and date range retrieval accuracy) across all 6 agent variants and saves results.
+### Run Enhanced Versions
+
+```bash
+# LLaMA 3.2 with full enhancements
+python llama_api_final.py
+
+# GPT-4o-mini with self-checks
+python gpt_api_final.py
+```
+
+---
+
+## Evaluation
+
+### Retrieval Accuracy Evaluation
+
+Evaluates series selection and date range accuracy across all agent variants.
+
+**Run Benchmark**:
+```bash
+jupyter notebook retrieval_accuracy_benchmark.ipynb
+```
+
+**Evaluated Variants**:
 
 | # | File | Model | Components |
 |---|------|-------|-----------|
-| 1 | `llama_api` | llama3.2 | full guide |
-| 2 | `llama_api_semantic_retriever` | llama3.2 | semantic |
-| 3 | `llama_api_final` | llama3.2 | semantic + date parser + checks |
-| 4 | `gpt_api` | gpt-4o-mini | full guide |
-| 5 | `gpt_api_semantic_retriever` | gpt-4o-mini | semantic |
-| 6 | `gpt_api_final` | gpt-4o-mini | semantic + checks |
+| 1 | [`llama_api.py`](llama_api.py) | LLaMA 3.2 | Full guide |
+| 2 | [`llama_api_semantic_retriever.py`](llama_api_semantic_retriever.py) | LLaMA 3.2 | Semantic retrieval |
+| 3 | [`llama_api_final.py`](llama_api_final.py) | LLaMA 3.2 | Semantic + date parser + checks |
+| 4 | [`gpt_api.py`](gpt_api.py) | GPT-4o-mini | Full guide |
+| 5 | [`gpt_api_semantic_retriever.py`](gpt_api_semantic_retriever.py) | GPT-4o-mini | Semantic retrieval |
+| 6 | [`gpt_api_final.py`](gpt_api_final.py) | GPT-4o-mini | Semantic + checks |
 
-## Few-shot prompt for Better Summary
-1. Prepare several human-written high-quality summary examples and put them in [`few_shot_examples.py`](`https://github.com/dcr225619/DS5500-RAG/blob/master/few_shot_examples.py`).
-2. Set `few_shot=True` as an input to use few-shot prompt for summary generation.
-3. Run all main files to using prompt including several high-quality human-written.
+**Metrics**:
+- Series ID F1 Score
+- Date Range Accuracy
+- Overall Retrieval Success Rate
 
-## Fine-tune for Better Summary
-1. Run [`QA_gpt_transformer.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/QA_gpt_transformer.ipynb`) to generate QA results using chatgpt-4o-mini for model fine-tuning on summary generation.
-2. Run [`llama_finetune.ipynb`](`https://github.com/dcr225619/DS5500-RAG/blob/master/llama_finetune.ipynb`) for model fine-tuning. Download the correct format of fine-tuned model or LoRA adapters according to your need. 
-3. Deploy your fine-tuned model.
-4. Modify parameters to run the files using your fine-tuned model.
+---
 
-## Summary Quality Evaluation
-Run [`summary_evaluation_benchmark.ipynb`](https://github.com/dcr225619/DS5500-RAG/blob/master/summary_evaluation_benchmark.ipynb) to run summary evaluations with 3 metrics (BERTScore, Key Fact Coverage Rate, Hallucination Rate) across all 12 agent variants and saves results. The reference examples for BERTScore is in [`human_generated_summary_test.json`](https://github.com/dcr225619/DS5500-RAG/blob/master/files/human_generated_summary_test.json).
+### Summary Quality Evaluation
 
-9 agent variants:
+Evaluates the quality of generated natural language summaries.
 
-| # | Model | Components |
-|---|-------|-----------|
-| 1 | gpt-4o-mini | full guide |
-| 2 | gpt-4o-mini | semantic |
-| 3 | gpt-4o-mini | semantic + checks |
-| 4 | llama3.2 | full guide |
-| 5 | llama3.2 | semantic |
-| 6 | llama3.2 | semantic + date parser + checks |
-| 7 | llama3.2 (fine-tuned)| full guide |
-| 8 | llama3.2 (fine-tuned)| semantic |
-| 9 | llama3.2 (fine-tuned)| semantic + date parser + checks |
+**Run Benchmark**:
+```bash
+jupyter notebook summary_evaluation_benchmark.ipynb
+```
 
-3 agent variants with few-shot prompting:
+**Metrics**:
+1. **BERTScore**: Semantic similarity to human-written references ([`files/human_generated_summary_test.json`](files/human_generated_summary_test.json))
+2. **Key Fact Coverage Rate**: Percentage of critical facts included
+3. **Hallucination Rate**: Detection of fabricated information
+
+**Evaluated Variants**:
+
+**Base Models** (9 variants):
 
 | # | Model | Components |
 |---|-------|-----------|
-| 1 | llama3.2 (few-shot)| full guide |
-| 2 | llama3.2 (few-shot)| semantic |
-| 3 | llama3.2 (few-shot)| semantic + date parser + checks |
+| 1 | GPT-4o-mini | Full guide |
+| 2 | GPT-4o-mini | Semantic |
+| 3 | GPT-4o-mini | Semantic + checks |
+| 4 | LLaMA 3.2 | Full guide |
+| 5 | LLaMA 3.2 | Semantic |
+| 6 | LLaMA 3.2 | Semantic + date parser + checks |
+| 7 | LLaMA 3.2 (fine-tuned) | Full guide |
+| 8 | LLaMA 3.2 (fine-tuned) | Semantic |
+| 9 | LLaMA 3.2 (fine-tuned) | Semantic + date parser + checks |
+
+**Few-Shot Variants** (3 variants):
+
+| # | Model | Components |
+|---|-------|-----------|
+| 1 | LLaMA 3.2 (few-shot) | Full guide |
+| 2 | LLaMA 3.2 (few-shot) | Semantic |
+| 3 | LLaMA 3.2 (few-shot) | Semantic + date parser + checks |
+
+---
+
+## Improvements
+
+### Few-Shot Prompt for Better Summary
+
+Add high-quality example summaries to guide the model.
+
+**Setup**:
+1. Add human-written examples to [`few_shot_examples.py`](few_shot_examples.py)
+2. Set `few_shot=True` when running any main file
+
+**Example**:
+```python
+# In llama_api.py
+result = agent.process_question(question, few_shot=True)
+```
+
+---
+
+### Fine-Tune for Better Summary
+
+Fine-tune LLaMA 3.2 on GPT-generated high-quality summaries.
+
+**Steps**:
+
+1. **Generate training data**
+   ```bash
+   jupyter notebook QA_gpt_transformer.ipynb
+   ```
+   This uses GPT-4o-mini to generate reference summaries.
+
+2. **Fine-tune LLaMA 3.2**
+   ```bash
+   jupyter notebook llama_finetune.ipynb
+   ```
+   Choose to download:
+   - Full fine-tuned model, or
+   - LoRA adapters (more efficient)
+
+3. **Deploy fine-tuned model**
+   ```bash
+   # Load with Ollama
+   ollama create llama3.2-finetuned -f Modelfile
+   ```
+
+4. **Use in experiments**
+   ```python
+   # Modify llama_api.py to use fine-tuned model
+   agent = FredLLMAgent(model='llama3.2-finetuned')
+   ```
+
+---
 
 ## User Interface
-Run [`user_interface.py`](https://github.com/dcr225619/DS5500-RAG/blob/master/user_interface.py) in command prompt using `streamlit run user_interface.py` to open the user interface for this project. Edit file [`user_interface.py`](https://github.com/dcr225619/DS5500-RAG/blob/master/user_interface.py) to change the model used for the chatbot.
 
-## Unfinished (Future Work)
-2. `news_api.py` for retrieving news article from [news api](https://newsapi.org/) (to expand the database in the future)
-3. Router may be generated for dynamically selecting the best approach (direct generation, single-step retrieval or multi-step, multi-source retrieval)
+Interactive Streamlit web interface for the RAG system.
+
+**Launch**:
+```bash
+streamlit run user_interface.py
+```
+
+**Configuration**:
+Edit [`user_interface.py`](user_interface.py) to change the underlying model:
+```python
+# Line ~XX
+MODEL = 'llama3.2'  # or 'gpt-4o-mini' or 'llama3.2-finetuned'
+```
+
+---
+
+## Future Work
+
+### Planned Enhancements
+
+1. **News Integration** (`news_api.py`)
+   - Retrieve real-time news articles from [NewsAPI](https://newsapi.org/)
+   - Contextualize economic data with current events
+   - Add analyst commentary and market reactions
+
+2. **Intelligent Query Router**
+   - Dynamically select retrieval strategy based on question complexity:
+     - **Direct Generation**: Simple factual questions
+     - **Single-Step Retrieval**: Single indicator queries
+     - **Multi-Step RAG**: Complex multi-indicator analysis
+   - Reduce API calls and latency for simpler queries
+
+3. **Additional Data Sources**
+   - World Bank API
+   - Bureau of Labor Statistics (BLS)
+   - International Monetary Fund (IMF)
