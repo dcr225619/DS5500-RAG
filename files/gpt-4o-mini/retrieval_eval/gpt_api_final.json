@@ -5,10 +5,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_W3CADJpnahf2bx4r13OH0RTr",
+          "tool_call_id": "call_iDHZmhGnrBBq9Z9TrN78ZYi1",
           "series_id": "UNRATE",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -22,7 +22,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=UNRATE: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=UNRATE: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -31,7 +31,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_K0GevHtS6xAWVsmPuKx01ja1",
+          "tool_call_id": "call_vCBCjC7pgVZmyBdb9bY56tRD",
           "series_id": "FEDFUNDS",
           "start_date": "2023-01-01",
           "end_date": "2023-12-31"
@@ -57,10 +57,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_y3tp8KLDIDMGr43qmdAYz1IZ",
+          "tool_call_id": "call_954L0Y34PJ01r5I1gN2JtZEX",
           "series_id": "WM2NS",
-          "start_date": "2023-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2023-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -74,7 +74,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=WM2NS: start: (api call: 2023-03-18 vs expected: 2023-03-19), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=WM2NS: start: (api call: 2023-04-03 vs expected: 2023-04-04), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -83,7 +83,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_alQfX5YP7OiaOKD99V7f8JXP",
+          "tool_call_id": "call_6nhgQjC9QNjGw1IqOU2reOaW",
           "series_id": "HSN1F",
           "start_date": "2021-04-01",
           "end_date": "2021-06-30"
@@ -109,10 +109,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_zMiHjniV2ekWqhW4lV8CHybO",
+          "tool_call_id": "call_KdxoGkl0TLtfP43RdvTax7LA",
           "series_id": "DGS10",
           "start_date": "2022-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -126,7 +126,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=DGS10: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=DGS10: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -135,10 +135,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_1mjmxT8ZIv1o8GQ1p9ngHSML",
+          "tool_call_id": "call_eErtS7LBJ84RI55OHMANZcKf",
           "series_id": "DEXUSEU",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -152,7 +152,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=DEXUSEU: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=DEXUSEU: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -161,7 +161,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_H73fBgTRSd94ssUnC2VcCZi2",
+          "tool_call_id": "call_e3pEdD2opqRNMIL6Jk2kGLng",
           "series_id": "CPIAUCSL",
           "start_date": "2019-01-01",
           "end_date": "2019-12-31"
@@ -187,7 +187,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_ybDGuMA8cb5d4yGzoTHhu70k",
+          "tool_call_id": "call_oHAPjtjzfjZVGUewwOQyTn5c",
           "series_id": "VIXCLS",
           "start_date": "2020-01-01",
           "end_date": "2020-06-30"
@@ -213,10 +213,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_BrP8EEGnb9YW4QSzz3oaGb5k",
+          "tool_call_id": "call_hPlzTqapCKR3yFnP30RifrZD",
           "series_id": "IMPMX",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -230,7 +230,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=IMPMX: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=IMPMX: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -239,7 +239,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_yRklHQHuYg4OpQ4kMgTxfLKB",
+          "tool_call_id": "call_NZl7AGOSTH5oAVQwuQmk5tSI",
           "series_id": "MORTGAGE30US",
           "start_date": "2023-07-01",
           "end_date": "2023-09-30"
@@ -265,7 +265,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_W7bVIueqqfwG8daP9VoLzYxX",
+          "tool_call_id": "call_mhLFqxepT1WIizGOHMbrFKsg",
           "series_id": "PCE",
           "start_date": "2022-01-01",
           "end_date": "2022-12-31"
@@ -291,10 +291,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_PSLEvE0QJr3x9IURNaaMwtfc",
+          "tool_call_id": "call_fYN7cHUMdXJmP6VAbcJIbM9O",
           "series_id": "T10Y2Y",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -308,7 +308,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=T10Y2Y: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=T10Y2Y: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -317,13 +317,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_8jMQwOMrUn7rSHb73Ox7Rl6V",
+          "tool_call_id": "call_oPENy2nLmKnzp9HqYqOWP9H0",
           "series_id": "TOTBKCR",
           "start_date": "2023-01-01",
           "end_date": "2023-03-31"
         },
         {
-          "tool_call_id": "call_iRbUReHynjRBRyp9HvOLbPni",
+          "tool_call_id": "call_UkJyTJ83vLiBOXrF1kI34nnh",
           "series_id": "TOTBKCR",
           "start_date": "2023-04-01",
           "end_date": "2023-06-30"
@@ -349,10 +349,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_y8Xh5HUs8NPdrAVbsZrseg9n",
+          "tool_call_id": "call_9ED2oeE6GZ7Mv8TQmjtwCOFL",
           "series_id": "EXPCA",
-          "start_date": "2024-09-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-10-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -366,7 +366,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=EXPCA: start: (api call: 2024-09-18 vs expected: 2024-09-24), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=EXPCA: start: (api call: 2024-10-03 vs expected: 2024-10-10), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -375,7 +375,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_DJ1At8ZM01VBIo4tizJhya1N",
+          "tool_call_id": "call_uooOR30Gf4quP3Rca3dx7bRa",
           "series_id": "WALCL",
           "start_date": "2021-01-01",
           "end_date": "2021-12-31"
@@ -401,10 +401,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_U467utdIe5jU0kSfAKlpo5nU",
+          "tool_call_id": "call_V3FkQ5dNNnDMm137LcPu65pF",
           "series_id": "PPIACO",
           "start_date": "2020-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -418,7 +418,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=PPIACO: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=PPIACO: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -427,10 +427,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_ynSfNMECgs1Wlvk7Kls6HZ8t",
+          "tool_call_id": "call_5FwJ2PSjPSChEfiSxZNrnvEG",
           "series_id": "PSAVERT",
-          "start_date": "2025-09-18",
-          "end_date": "2026-03-18"
+          "start_date": "2023-10-03",
+          "end_date": "2024-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -443,17 +443,17 @@
         "extra": []
       },
       "date_range_evaluation": {
-        "score": 1.0,
-        "details": "series_id=PSAVERT: start: (api call: 2025-09-18 vs expected: 2025-09-19), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "score": 0.0,
+        "details": "series_id=PSAVERT: start: (api call: 2023-10-03 vs expected: 2025-10-05), end: (api call: 2024-04-03 vs expected: 2026-04-03)"
       },
-      "overall_score": 1.0
+      "overall_score": 0.5
     },
     {
       "question_id": "T18",
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_NvRcPMxUcTpbJUFtEG7m2LIv",
+          "tool_call_id": "call_pSqI6EGMxXshf45dQiSqW46P",
           "series_id": "PERMIT",
           "start_date": "2022-10-01",
           "end_date": "2022-12-31"
@@ -479,7 +479,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_Ts8I3XvpwvIiWCxrTOdtA5be",
+          "tool_call_id": "call_HzZOKGdBb85Rlxd11FrhiF3V",
           "series_id": "DEXJPUS",
           "start_date": "2024-01-01",
           "end_date": "2024-12-31"
@@ -505,10 +505,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_w8UwATqDi8sVwa3q9KKvVJUk",
+          "tool_call_id": "call_FW7gwPhpIg6OlTDWXYu1AEbF",
           "series_id": "DALLCACBEP",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -522,7 +522,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=DALLCACBEP: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=DALLCACBEP: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -531,7 +531,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_WGcSnzRhNmJDzj9HPSpkmhfO",
+          "tool_call_id": "call_SMZYrTh5ga5AQsZiMOnXeBkf",
           "series_id": "GDP",
           "start_date": "2022-07-01",
           "end_date": "2022-09-30"
@@ -557,10 +557,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_B29GUCX0KjNFvD1qdGaDnjC7",
+          "tool_call_id": "call_S8vPplaQz4JS7K4jbOGugexv",
           "series_id": "STLFSI4",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -574,7 +574,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=STLFSI4: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=STLFSI4: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -583,7 +583,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_tfqKgqb99z1jVkL8y92U1D58",
+          "tool_call_id": "call_tdQPGq93SOeWJDw7ncn8F4Yr",
           "series_id": "TTLCONS",
           "start_date": "2023-01-01",
           "end_date": "2023-12-31"
@@ -609,10 +609,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_GUbsX47C8tiQqKQxHWxiEL51",
+          "tool_call_id": "call_DIZM43i3pynptrGYSFQ5k9q1",
           "series_id": "EMRATIO",
           "start_date": "2021-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -626,38 +626,45 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=EMRATIO: start: (api call: 2021-01-01 vs expected: 2021-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=EMRATIO: start: (api call: 2021-01-01 vs expected: 2021-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
     {
       "question_id": "T25",
       "success": true,
-      "actual_calls": [],
+      "actual_calls": [
+        {
+          "tool_call_id": "call_AqvGeKkvKM1VFWDQjG0wsIEr",
+          "series_id": "BOPGTB",
+          "start_date": "2024-01-01",
+          "end_date": "2024-03-31"
+        }
+      ],
       "series_id_evaluation": {
-        "score": 0,
-        "correct_count": 0,
-        "correct": [],
-        "missing": [
+        "score": 1.0,
+        "correct_count": 1,
+        "correct": [
           "BOPGTB"
         ],
+        "missing": [],
         "extra": []
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "No date range to evaluate"
+        "details": "series_id=BOPGTB: start: (api call: 2024-01-01 vs expected: 2024-01-01), end: (api call: 2024-03-31 vs expected: 2024-03-31)"
       },
-      "overall_score": 0.5
+      "overall_score": 1.0
     },
     {
       "question_id": "T26",
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_WaTA3ttpXya0wglyeKaFz6i8",
+          "tool_call_id": "call_PDUyqExkOathF19VU2U5R80i",
           "series_id": "BUSINV",
-          "start_date": "2021-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2021-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -671,7 +678,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=BUSINV: start: (api call: 2021-03-18 vs expected: 2021-03-19), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=BUSINV: start: (api call: 2021-04-03 vs expected: 2021-04-04), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -680,7 +687,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_53nZkj4CxAJvDtd4FHxiDJJ4",
+          "tool_call_id": "call_ZVDrmxCQVW84yL86mXdrU407",
           "series_id": "DPCREDIT",
           "start_date": "2022-07-01",
           "end_date": "2022-12-31"
@@ -706,10 +713,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_U8zq6uwj6DG6OaBZ5FUsikld",
+          "tool_call_id": "call_LqAgRaGoVrYhkkYNgC2PieMY",
           "series_id": "TOTALSL",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -723,7 +730,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=TOTALSL: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=TOTALSL: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -732,7 +739,7 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_8W4n3Fuij3bBH7pjWKkRGnFY",
+          "tool_call_id": "call_ryMQgi93mAMFHYb2cjAfO1xt",
           "series_id": "ALTSALES",
           "start_date": "2021-04-01",
           "end_date": "2021-09-30"
@@ -758,10 +765,10 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_dV30qi61gTHMcv64ELvRnuqc",
+          "tool_call_id": "call_lH5blNWNwxJBPx5wkkMbnz6Q",
           "series_id": "GFDEBTN",
-          "start_date": "2016-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2016-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -775,7 +782,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=GFDEBTN: start: (api call: 2016-03-18 vs expected: 2016-03-20), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=GFDEBTN: start: (api call: 2016-04-03 vs expected: 2016-04-05), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -784,13 +791,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_BgwlM41VTQVUGLGJiLIdOmEN",
+          "tool_call_id": "call_VwwxAvcyRBhKgbftirEzxQa1",
           "series_id": "UNRATE",
           "start_date": "2023-01-01",
           "end_date": "2023-12-31"
         },
         {
-          "tool_call_id": "call_nTHkLLFGwnMFVy1yMb86x6dE",
+          "tool_call_id": "call_b1dqWWlnCoKDKNBP65kZwR4Y",
           "series_id": "CPIAUCSL",
           "start_date": "2023-01-01",
           "end_date": "2023-12-31"
@@ -800,8 +807,8 @@
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "CPIAUCSL",
-          "UNRATE"
+          "UNRATE",
+          "CPIAUCSL"
         ],
         "missing": [],
         "extra": []
@@ -817,16 +824,16 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_Y1NHqbXlOmX3FqiFEmGdN5AO",
+          "tool_call_id": "call_5rv8qXdSSgiW4O8OKcKiHwOQ",
           "series_id": "FEDFUNDS",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_WiDHkr0w05RYOmtRLKe212rr",
+          "tool_call_id": "call_5BswhGh2NcTwHgkCMOgJRlFW",
           "series_id": "DGS10",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -841,7 +848,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=FEDFUNDS: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=DGS10: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=FEDFUNDS: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=DGS10: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -850,57 +857,49 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_G12IDvX3LttnhHH424MXGRho",
-          "series_id": "BOPGTB",
-          "start_date": "2022-01-01",
-          "end_date": "2022-12-31"
-        },
-        {
-          "tool_call_id": "call_mQ1FsTqYCRrkarYIBIco6Z23",
-          "series_id": "IMPCH",
-          "start_date": "2022-01-01",
-          "end_date": "2022-12-31"
-        },
-        {
-          "tool_call_id": "call_5JxKa9iwYDIsrGhJNjgyFgyI",
+          "tool_call_id": "call_U5fHITWuWxG8HX3efmTfLh1v",
           "series_id": "EXPCH",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        },
+        {
+          "tool_call_id": "call_yy4LQiGLC9KHhSuOIVKhnB3y",
+          "series_id": "IMPCH",
           "start_date": "2022-01-01",
           "end_date": "2022-12-31"
         }
       ],
       "series_id_evaluation": {
-        "score": 0.8,
+        "score": 1.0,
         "correct_count": 2,
         "correct": [
           "IMPCH",
           "EXPCH"
         ],
         "missing": [],
-        "extra": [
-          "BOPGTB"
-        ]
+        "extra": []
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=BOPGTB: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31); series_id=IMPCH: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31); series_id=EXPCH: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
+        "details": "series_id=EXPCH: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31); series_id=IMPCH: start: (api call: 2022-01-01 vs expected: 2022-01-01), end: (api call: 2022-12-31 vs expected: 2022-12-31)"
       },
-      "overall_score": 0.9
+      "overall_score": 1.0
     },
     {
       "question_id": "T34",
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_s6lS4XWMEy8hhGjh8V1lWye0",
+          "tool_call_id": "call_qKtewABIo6fl4jQiOCpfNrUv",
           "series_id": "PI",
           "start_date": "2023-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_Z3chbOhEJW2YSwsHRZ7OggjB",
+          "tool_call_id": "call_UeI6c8tgB73bzQwS1UGZqJpK",
           "series_id": "FYONET",
           "start_date": "2023-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -918,7 +917,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=PI: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=FYONET: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=PI: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=FYONET: start: (api call: 2023-01-01 vs expected: 2023-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 0.75
     },
@@ -927,13 +926,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_giiM63sDaD3FrDzwuos65ePI",
+          "tool_call_id": "call_fkVlAg4XZsZgQYtJLymno51L",
           "series_id": "GDP",
           "start_date": "2023-01-01",
           "end_date": "2023-06-30"
         },
         {
-          "tool_call_id": "call_rRKYOs7U1D5q5mx1eQxLQeaU",
+          "tool_call_id": "call_tLxxa5LjUojqndo6N0nEqc3f",
           "series_id": "GNP",
           "start_date": "2023-01-01",
           "end_date": "2023-06-30"
@@ -960,16 +959,16 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_UMdEHYjhjlSB09crO6CECDcx",
+          "tool_call_id": "call_m72P6TjAvxmfRLijZNSnnFiW",
           "series_id": "WTISPLC",
-          "start_date": "2023-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2023-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_5U2L3whQYAxyiajZUKFL33bK",
+          "tool_call_id": "call_GP3gBM8CCd2AdgzPe1poAmMm",
           "series_id": "CPIAUCSL",
-          "start_date": "2023-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2023-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -984,7 +983,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=WTISPLC: start: (api call: 2023-03-18 vs expected: 2023-03-19), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=CPIAUCSL: start: (api call: 2023-03-18 vs expected: 2023-03-19), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=WTISPLC: start: (api call: 2023-04-03 vs expected: 2023-04-04), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=CPIAUCSL: start: (api call: 2023-04-03 vs expected: 2023-04-04), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -993,13 +992,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_9rqfEjcWzh3iWX2Xfm6KrXIL",
+          "tool_call_id": "call_eJGCUhsSWU6jwfWXjRumzwqb",
           "series_id": "TOTBKCR",
           "start_date": "2020-01-01",
           "end_date": "2020-12-31"
         },
         {
-          "tool_call_id": "call_Tkx5nzW492olWzblXaLtoJKv",
+          "tool_call_id": "call_FGzNrLSw7mIpstSPQtyQS61j",
           "series_id": "BUSLOANS",
           "start_date": "2020-01-01",
           "end_date": "2020-12-31"
@@ -1009,8 +1008,8 @@
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "BUSLOANS",
-          "TOTBKCR"
+          "TOTBKCR",
+          "BUSLOANS"
         ],
         "missing": [],
         "extra": []
@@ -1026,16 +1025,16 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_FVuvd0Ogoo6LjinCOlVBw3gW",
+          "tool_call_id": "call_LNfUJMUZhtsO2Oh9kU0dnwf1",
           "series_id": "EXPCA",
-          "start_date": "2024-09-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-10-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_WSROTfwep4Z43S0nvjqAX6br",
+          "tool_call_id": "call_ZDxzcjNyUGbS3854kFx8qAUt",
           "series_id": "EXPMX",
-          "start_date": "2024-09-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-10-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -1050,7 +1049,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=EXPCA: start: (api call: 2024-09-18 vs expected: 2024-09-24), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=EXPMX: start: (api call: 2024-09-18 vs expected: 2024-09-24), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=EXPCA: start: (api call: 2024-10-03 vs expected: 2024-10-10), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=EXPMX: start: (api call: 2024-10-03 vs expected: 2024-10-10), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -1059,13 +1058,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_4Tg9KqpUwaVw3lGMU9WclvsF",
+          "tool_call_id": "call_3yAhdO8ZVvruBMEhalitAoII",
           "series_id": "UMCSENT",
           "start_date": "2022-01-01",
           "end_date": "2022-12-31"
         },
         {
-          "tool_call_id": "call_Gx8xeZ1NtBceI89Bjd0KWbFL",
+          "tool_call_id": "call_0EJdCmzq84EDAg1qlQgIAWzw",
           "series_id": "PSAVERT",
           "start_date": "2022-01-01",
           "end_date": "2022-12-31"
@@ -1092,31 +1091,31 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_TVncH5KGlHGdHK9NzuGC9R9v",
+          "tool_call_id": "call_RNQWmh3EVB6YrZPOjSw9U208",
           "series_id": "WM1NS",
           "start_date": "2020-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_5zwIiXjfWhgn8Bi99ZLAJlPV",
+          "tool_call_id": "call_CGht5ot8OIWfjxx7PX4ewmYR",
           "series_id": "WM2NS",
           "start_date": "2020-01-01",
-          "end_date": "2026-03-18"
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "WM1NS",
-          "WM2NS"
+          "WM2NS",
+          "WM1NS"
         ],
         "missing": [],
         "extra": []
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=WM1NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=WM2NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=WM1NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=WM2NS: start: (api call: 2020-01-01 vs expected: 2020-01-01), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -1125,13 +1124,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_vhYBnFT4SP19h6kFYx1MFq4Z",
+          "tool_call_id": "call_jNoaYtcszWRbMQs6qorfuSCc",
           "series_id": "AWHMAN",
           "start_date": "2022-07-01",
           "end_date": "2022-12-31"
         },
         {
-          "tool_call_id": "call_5MmcwngfIDQqDtxPOYtUNJHX",
+          "tool_call_id": "call_1s7gifhKHYjdzpmAxMKrB2xC",
           "series_id": "AHEMAN",
           "start_date": "2022-07-01",
           "end_date": "2022-12-31"
@@ -1141,8 +1140,8 @@
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "AWHMAN",
-          "AHEMAN"
+          "AHEMAN",
+          "AWHMAN"
         ],
         "missing": [],
         "extra": []
@@ -1158,13 +1157,13 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_GhRPTtDGDG1Sv7qszQLx4Y4X",
+          "tool_call_id": "call_zMiy4i6Assy0B7blVTzcKOrr",
           "series_id": "FYONET",
           "start_date": "2024-01-01",
           "end_date": "2024-12-31"
         },
         {
-          "tool_call_id": "call_0B9sKRUQhCeR7sbFO6kWpWva",
+          "tool_call_id": "call_fwKq9SFRap03y0hYUUj1tsHO",
           "series_id": "FYFR",
           "start_date": "2024-01-01",
           "end_date": "2024-12-31"
@@ -1174,8 +1173,8 @@
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "FYFR",
-          "FYONET"
+          "FYONET",
+          "FYFR"
         ],
         "missing": [],
         "extra": []
@@ -1191,31 +1190,31 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_tkeBlWU76G7tOFWrPLR2dMr9",
+          "tool_call_id": "call_2NG3a1XS3mcpsMypWyA0LMWD",
           "series_id": "DEXMXUS",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_s2WyxJ92Ba584G285NIlvgRG",
+          "tool_call_id": "call_YRrrKTZ7ZWBbJVRMSugYI7bU",
           "series_id": "DEXCAUS",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
         "score": 1.0,
         "correct_count": 2,
         "correct": [
-          "DEXCAUS",
-          "DEXMXUS"
+          "DEXMXUS",
+          "DEXCAUS"
         ],
         "missing": [],
         "extra": []
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=DEXMXUS: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=DEXCAUS: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=DEXMXUS: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=DEXCAUS: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -1224,22 +1223,22 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_QbIm6gwAS5CsS2bjcdsmNTX9",
+          "tool_call_id": "call_hcOs22uJcido1NIrlv47ygad",
           "series_id": "PERMIT",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_VfdSMt4KMCDsltcz0jz3Ygve",
+          "tool_call_id": "call_Br3uvPVNj73nkHcVt8P6L1gW",
           "series_id": "HSN1F",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_6vQeceBhL7rX2NrbELvbvq8T",
+          "tool_call_id": "call_HSyGtdESbIPgRMIb0vGKUqvu",
           "series_id": "MORTGAGE30US",
-          "start_date": "2025-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2025-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
@@ -1255,7 +1254,7 @@
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=PERMIT: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=HSN1F: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=MORTGAGE30US: start: (api call: 2025-03-18 vs expected: 2025-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=PERMIT: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=HSN1F: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=MORTGAGE30US: start: (api call: 2025-04-03 vs expected: 2025-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -1264,38 +1263,38 @@
       "success": true,
       "actual_calls": [
         {
-          "tool_call_id": "call_EzAuVYI9X14QOaPueY02aoSy",
+          "tool_call_id": "call_OdkJ6xGuUCMckjTq3Ex8BpCx",
           "series_id": "UNRATE",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_2Ygl7ru4nMPAOsRCdRhg7nOy",
+          "tool_call_id": "call_L2SM1XPb5KIEXpiRBun66dCV",
           "series_id": "CE16OV",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         },
         {
-          "tool_call_id": "call_gXnha0ud5wK9Q7O19LKFUNzf",
+          "tool_call_id": "call_lYRPqAWzVd8Ah8iebHQUwK38",
           "series_id": "EMRATIO",
-          "start_date": "2024-03-18",
-          "end_date": "2026-03-18"
+          "start_date": "2024-04-03",
+          "end_date": "2026-04-03"
         }
       ],
       "series_id_evaluation": {
         "score": 1.0,
         "correct_count": 3,
         "correct": [
-          "UNRATE",
+          "CE16OV",
           "EMRATIO",
-          "CE16OV"
+          "UNRATE"
         ],
         "missing": [],
         "extra": []
       },
       "date_range_evaluation": {
         "score": 1.0,
-        "details": "series_id=UNRATE: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=CE16OV: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18); series_id=EMRATIO: start: (api call: 2024-03-18 vs expected: 2024-03-18), end: (api call: 2026-03-18 vs expected: 2026-03-18)"
+        "details": "series_id=UNRATE: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=CE16OV: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03); series_id=EMRATIO: start: (api call: 2024-04-03 vs expected: 2024-04-03), end: (api call: 2026-04-03 vs expected: 2026-04-03)"
       },
       "overall_score": 1.0
     },
@@ -1383,8 +1382,8 @@
     "tool_call_passed": 45,
     "non_tool_call_tests": 5,
     "non_tool_call_passed": 5,
-    "avg_series_id_score": 0.97,
-    "avg_date_range_score": 0.99,
+    "avg_series_id_score": 0.99,
+    "avg_date_range_score": 0.97,
     "avg_overall_score": 0.98
   }
 }

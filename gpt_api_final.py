@@ -8,6 +8,7 @@ from llama_api import (
     call_fred_api_with_fallback
 )
 from llama_api_semantic_retriever import GUIDE_SUFFIX, build_indicator_guide
+from date_parser import parse_date_range
 import json
 from datetime import datetime, timedelta
 import time
@@ -34,6 +35,84 @@ def convert_tools_to_openai_format(tools):
 
 OPENAI_TOOLS = convert_tools_to_openai_format(TOOLS)
 
+# relative date resolver e.g.
+# "-1y", "-2y", "-18m", "-6m", "-3y", "today", "now", "-1y6m"
+_REL_PATTERN = re.compile(
+    r"""^
+    (?P<sign>[-+])?          # optional leading sign
+    (?:(?P<years>\d+)\s*y)?  # e.g. 1y  / 2y
+    (?:(?P<months>\d+)\s*m)? # e.g. 6m  / 18m
+    (?:(?P<days>\d+)\s*d)?   # e.g. 30d
+    $""",
+    re.IGNORECASE | re.VERBOSE,
+)
+
+_TODAY_ALIASES = {"today", "now", "current", "present"}
+
+def resolve_relative_date(value: str, reference: datetime | None = None) -> str | None:
+    """
+    Try to interpret *value* as a relative date offset and return an absolute
+    YYYY-MM-DD string.  Return None if *value* does not look relative.
+
+    Supported formats (case-insensitive, leading/trailing whitespace stripped):
+        "today" / "now" / "current" / "present"  → today
+        "-1y"   / "-2y"  / "-5y"                 → N years ago
+        "-6m"   / "-18m"                          → N months ago
+        "-30d"                                    → N days ago
+        "-1y6m"                                   → 1 year + 6 months ago
+        "+1y"                                     → 1 year in the future (capped to today)
+
+    Returns None for strings that are already absolute YYYY-MM-DD dates,
+    or for any unrecognised format.
+    """
+    if not isinstance(value, str):
+        return None
+
+    clean = value.strip().lower()
+
+    # 1. today aliases
+    if clean in _TODAY_ALIASES:
+        ref = reference or datetime.today()
+        return ref.strftime("%Y-%m-%d")
+
+    # 2. not relative expressions
+    try:
+        datetime.strptime(clean, "%Y-%m-%d")
+        return None
+    except ValueError:
+        pass
+
+    # 3. regex match for offset patterns in relative expressions
+    # detect and strip leading sign, default direction is negative (past)
+    if clean.startswith("+"):
+        sign, body = 1, clean[1:]
+    elif clean.startswith("-"):
+        sign, body = -1, clean[1:]
+    else:
+        sign, body = -1, clean   # bare "1y" / "6m" also treated as "past"
+
+    m = _REL_PATTERN.match(body)
+    if not m or not any(m.group(k) for k in ("years", "months", "days")):
+        return None
+
+    ref = reference or datetime.today()
+    delta = relativedelta(
+        years=sign  * int(m.group("years")  or 0),
+        months=sign * int(m.group("months") or 0),
+        days=sign   * int(m.group("days")   or 0),
+    )
+    result_dt = ref + delta
+
+    # cap future dates to today
+    today = reference or datetime.today()
+    if result_dt > today:
+        result_dt = today
+
+    return result_dt.strftime("%Y-%m-%d")
+
+def is_relative_date(value: str) -> bool:
+    """Return True if *value* looks like a relative offset rather than YYYY-MM-DD."""
+    return resolve_relative_date(value) is not None
 
 class OpenAIFredAgent:
     def __init__(self, model=MODEL, verbose=True, top_k=5):
@@ -105,20 +184,32 @@ class OpenAIFredAgent:
                 "error": str (if failed)
             }
         """
-        # Check A: reject question if no relevant FRED series found above threshold
+        # before calling the LLM,  a semantic retriever is used to find the top-k most relevant series for the given question, 
+        # and only those are passed into the prompt.
         relevant = retriever.retrieve(question, top_k=self.top_k)
         top_score = relevant[0]["similarity"] if relevant else 0
 
+        # Check A:
+        # if the maximum similarity score is too low, indicating that the question may lie outside the scope of the data
+        # skip the tool call entirely and directly generate final summary
         if top_score < min_similarity:
             if self.verbose:
                 print("  [Check A] No relevant FRED series found.")
+
             return {
                 "success": False,
-                "error": (
-                    f"No relevant FRED series found (best score: {top_score:.3f}). "
-                    f"This question may be outside FRED's coverage."
-                )
+                "error": f"No relevant FRED series found (best score: {top_score:.3f}). "
+                        f"This question may be outside FRED's coverage."
             }
+
+        # pre-parse date range from question before calling LLM
+        pre_start, pre_end = parse_date_range(question)
+
+        if self.verbose:
+            if pre_start:
+                print(f"  [DateParser] Detected range: {pre_start} to {pre_end}")
+            else:
+                print(f"  [DateParser] No unambiguous date found, LLM will decide")
 
         # dynamically retrieve top-k relevant series for this question
         guide = build_indicator_guide(question, top_k=self.top_k)

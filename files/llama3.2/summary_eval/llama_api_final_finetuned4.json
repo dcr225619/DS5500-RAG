@@ -18,7 +18,7 @@
       "question": "Show me the effective federal funds rate for all of 2023",
       "key_fact_coverage": 0.0,
       "hallucination_rate": 1.0,
-      "bertscore": 0.7959
+      "bertscore": 0.7958
     },
     {
       "question_id": "T03",
