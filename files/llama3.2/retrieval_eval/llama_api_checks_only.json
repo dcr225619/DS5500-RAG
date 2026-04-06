@@ -1,0 +1,2168 @@
+{
+  "summary": {
+    "total": 50,
+    "successful": 44,
+    "failed": 6,
+    "tool_call_tests": 45,
+    "tool_call_passed": 44,
+    "non_tool_call_tests": 5,
+    "non_tool_call_passed": 0,
+    "avg_series_id_score": 0.8114,
+    "avg_date_range_score": 0.7438,
+    "avg_overall_score": 0.7776
+  },
+  "results": [
+    {
+      "question_id": "T01",
+      "question": "What's the current unemployment rate?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_1mt3pn0f",
+          "series_id": "UNRATE",
+          "start_date": "2025-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "UNRATE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "UNRATE",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T02",
+      "question": "Show me the effective federal funds rate for all of 2023",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_qb4nthxm",
+          "series_id": "FEDFUNDS",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "FEDFUNDS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "FEDFUNDS",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2023-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T03",
+      "question": "How has M2 money supply changed over the past 3 years?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_y99gyla3",
+          "series_id": "WM2NS",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "WM2NS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "WM2NS",
+            "actual_start": "2024-04-04",
+            "expected_start": "2023-04-05",
+            "start_score": 0.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T04",
+      "question": "What were new home sales like in Q2 2021?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_y8mlmv9c",
+          "series_id": "HSN1F",
+          "start_date": "2021-04-01",
+          "end_date": "2021-06-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "HSN1F"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "HSN1F",
+            "actual_start": "2021-04-01",
+            "expected_start": "2021-04-01",
+            "start_score": 1.0,
+            "actual_end": "2021-06-30",
+            "expected_end": "2021-06-30",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T05",
+      "question": "Give me the 10-year treasury yield since the start of 2022",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_shbzxowe",
+          "series_id": "T10Y2Y",
+          "start_date": "2022-01-01",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "DGS10"
+        ],
+        "extra": [
+          "T10Y2Y"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "T10Y2Y",
+            "actual_start": "2022-01-01",
+            "expected_start": "2022-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 1.0,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T06",
+      "question": "How has the US dollar performed against the euro recently?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_c2vw9dzx",
+          "series_id": "DEXUSEU",
+          "start_date": "2025-04-04",
+          "end_date": "2026-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "DEXUSEU"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "DEXUSEU",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T07",
+      "question": "What was CPI during 2019?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_f9btaxd9",
+          "series_id": "CPIAUCSL",
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "CPIAUCSL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "CPIAUCSL",
+            "actual_start": "2019-01-01",
+            "expected_start": "2019-01-01",
+            "start_score": 1.0,
+            "actual_end": "2019-12-31",
+            "expected_end": "2019-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T08",
+      "question": "How did the VIX index change for the first half of 2020",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_4srwv7wa",
+          "series_id": "VIXCLS",
+          "start_date": "2020-01-01",
+          "end_date": "2020-06-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "VIXCLS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "VIXCLS",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2020-06-30",
+            "expected_end": "2020-06-30",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T09",
+      "question": "How have US imports from Mexico trended over the past 2 years?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ygeiinj7",
+          "series_id": "IMPMX",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "IMPMX"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "IMPMX",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T10",
+      "question": "What was the 30-year mortgage rate in Q3 2023?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_3goqp0t5",
+          "series_id": "MORTGAGE30US",
+          "start_date": "2023-09-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "MORTGAGE30US"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.19,
+        "details": [
+          {
+            "series_id": "MORTGAGE30US",
+            "actual_start": "2023-09-01",
+            "expected_start": "2023-07-01",
+            "start_score": 0.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2023-09-30",
+            "end_score": 0.38,
+            "call_score": 0.19
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.19,
+      "overall_score": 0.595
+    },
+    {
+      "question_id": "T11",
+      "question": "Show me personal consumption expenditures for 2022",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_glyxov1f",
+          "series_id": "PCE",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "PCE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "PCE",
+            "actual_start": "2022-01-01",
+            "expected_start": "2022-01-01",
+            "start_score": 1.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T12",
+      "question": "What's the yield curve spread looking like lately?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_2ipcva80",
+          "series_id": "T10Y2Y",
+          "start_date": "2020-01-01",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "T10Y2Y"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "T10Y2Y",
+            "actual_start": "2020-01-01",
+            "expected_start": "2025-04-04",
+            "start_score": 0.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T13",
+      "question": "How did total commercial bank credit change from Q1 to Q2 2023?",
+      "tool_call_required": true,
+      "success": false,
+      "error": "No tool call extracted",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T14",
+      "question": "I'm curious about US exports to Canada over the past 18 months",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_nvtx2xyq",
+          "series_id": "BOPGIMP",
+          "start_date": "2024-04-04",
+          "end_date": "2025-09-03"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "EXPCA"
+        ],
+        "extra": [
+          "BOPGIMP"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": [
+          {
+            "series_id": "BOPGIMP",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-10-11",
+            "start_score": 0.0,
+            "actual_end": "2025-09-03",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T15",
+      "question": "What did the Fed's total assets look like in 2021?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_7mqm6y0c",
+          "series_id": "WALCL",
+          "start_date": "2021-01-01",
+          "end_date": "2021-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "WALCL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "WALCL",
+            "actual_start": "2021-01-01",
+            "expected_start": "2021-01-01",
+            "start_score": 1.0,
+            "actual_end": "2021-12-31",
+            "expected_end": "2021-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T16",
+      "question": "How has the producer price index changed since 2020",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_eyrct6gz",
+          "series_id": "PPIACO",
+          "start_date": "2020-01-01",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "PPIACO"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "PPIACO",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T17",
+      "question": "What's the personal savings rate been over the last 6 months?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_mejlzgsk",
+          "series_id": "PSAVERT",
+          "start_date": "2025-10-01",
+          "end_date": "2026-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "PSAVERT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "PSAVERT",
+            "actual_start": "2025-10-01",
+            "expected_start": "2025-10-06",
+            "start_score": 1.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T18",
+      "question": "How many new building permits were issued in Q4 2022?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_co5ssct6",
+          "series_id": "PERMIT",
+          "start_date": "2022-10-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "PERMIT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "PERMIT",
+            "actual_start": "2022-10-01",
+            "expected_start": "2022-10-01",
+            "start_score": 1.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T19",
+      "question": "Show me how the Japanese yen to dollar exchange rate changed for all of 2024",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_flck3q7v",
+          "series_id": "DEXJPUS",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "DEXJPUS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "DEXJPUS",
+            "actual_start": "2024-01-01",
+            "expected_start": "2024-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-12-31",
+            "expected_end": "2024-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T20",
+      "question": "What's been happening with loan delinquencies over the past 2 years?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_e5nkacgm",
+          "series_id": "DALLCACBEP",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "DALLCACBEP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "DALLCACBEP",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T21",
+      "question": "Show me US GDP for Q3 2022",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_c7289pa1",
+          "series_id": "GDP",
+          "start_date": "2022-09-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "GDP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.19,
+        "details": [
+          {
+            "series_id": "GDP",
+            "actual_start": "2022-09-01",
+            "expected_start": "2022-07-01",
+            "start_score": 0.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-09-30",
+            "end_score": 0.38,
+            "call_score": 0.19
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.19,
+      "overall_score": 0.595
+    },
+    {
+      "question_id": "T22",
+      "question": "How has the St. Louis financial stress index moved over the past year?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_34rsyszz",
+          "series_id": "STLFSI4",
+          "start_date": "2025-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "STLFSI4"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "STLFSI4",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T23",
+      "question": "What was total construction spending in 2023?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_hbc99rwj",
+          "series_id": "TTLCONS",
+          "start_date": "2023-01-01",
+          "end_date": "2024-01-01"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "TTLCONS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "TTLCONS",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-01-01",
+            "expected_end": "2023-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T24",
+      "question": "I'd like to see the employment-to-population ratio since 2021",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_qsmi553j",
+          "series_id": "EMRATIO",
+          "start_date": "2021-01-01",
+          "end_date": "2023-02-26"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "EMRATIO"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "EMRATIO",
+            "actual_start": "2021-01-01",
+            "expected_start": "2021-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-02-26",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T25",
+      "question": "What was the goods trade balance in Q1 2024?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ral27hyb",
+          "series_id": "BOPGSTB",
+          "start_date": "2024-01-01",
+          "end_date": "2024-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "BOPGTB"
+        ],
+        "extra": [
+          "BOPGSTB"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "BOPGSTB",
+            "actual_start": "2024-01-01",
+            "expected_start": "2024-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-03-31",
+            "expected_end": "2024-03-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 1.0,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T26",
+      "question": "How has business inventory trended over the past 5 years?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_vub2l7av",
+          "series_id": "BUSINV",
+          "start_date": "2020-12-31",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "BUSINV"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.675,
+        "details": [
+          {
+            "series_id": "BUSINV",
+            "actual_start": "2020-12-31",
+            "expected_start": "2021-04-05",
+            "start_score": 0.35,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 0.675
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.675,
+      "overall_score": 0.8375
+    },
+    {
+      "question_id": "T27",
+      "question": "How did the discount rate change for the second half of 2022",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_xg1258ru",
+          "series_id": "DPCREDIT",
+          "start_date": "2022-07-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "DPCREDIT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "DPCREDIT",
+            "actual_start": "2022-07-01",
+            "expected_start": "2022-07-01",
+            "start_score": 1.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T28",
+      "question": "What does total consumer credit look like right now?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ihvwz8c6",
+          "series_id": "TOTALSL",
+          "start_date": "2025-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "TOTALSL"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "TOTALSL",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T29",
+      "question": "Show me light vehicle sales from Q2 to Q3 2021",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_da2zih5h",
+          "series_id": "HSN1F",
+          "start_date": "2021-06-01",
+          "end_date": "2021-09-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "ALTSALES"
+        ],
+        "extra": [
+          "HSN1F"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "HSN1F",
+            "actual_start": "2021-06-01",
+            "expected_start": "2021-04-01",
+            "start_score": 0.0,
+            "actual_end": "2021-09-30",
+            "expected_end": "2021-09-30",
+            "end_score": 1.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.25
+    },
+    {
+      "question_id": "T30",
+      "question": "How has the federal government debt changed over the past decade?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_zy1ykr1m",
+          "series_id": "FYOINT",
+          "start_date": "2016-01-01",
+          "end_date": "2025-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "GFDEBTN"
+        ],
+        "extra": [
+          "FYOINT"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.17,
+        "details": [
+          {
+            "series_id": "FYOINT",
+            "actual_start": "2016-01-01",
+            "expected_start": "2016-04-06",
+            "start_score": 0.34,
+            "actual_end": "2025-12-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.17
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 0.17,
+      "overall_score": 0.085
+    },
+    {
+      "question_id": "T31",
+      "question": "How did unemployment and inflation move together in 2023?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_r0c0cwwx",
+          "series_id": "UNRATE",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        },
+        {
+          "tool_call_id": "call_achc539e",
+          "series_id": "CPIAUCSL",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "CPIAUCSL",
+          "UNRATE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "UNRATE",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2023-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "CPIAUCSL",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2023-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T32",
+      "question": "Compare the federal funds rate and 10-year treasury yield over the past 2 years",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_en4pgxdf",
+          "series_id": "FEDFUNDS",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_p8nu3d71",
+          "series_id": "T10Y2Y",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct": [
+          "FEDFUNDS"
+        ],
+        "missing": [
+          "DGS10"
+        ],
+        "extra": [
+          "T10Y2Y"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "FEDFUNDS",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "T10Y2Y",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.5,
+      "date_range_score": 1.0,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T33",
+      "question": "What's the trade balance between the US and China in 2022?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_dg3k5fxl",
+          "series_id": "BOPGEXP",
+          "start_date": "2022-01-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.0,
+        "correct": [],
+        "missing": [
+          "EXPCH",
+          "IMPCH"
+        ],
+        "extra": [
+          "BOPGEXP"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "BOPGEXP",
+            "actual_start": "2022-01-01",
+            "expected_start": "2022-01-01",
+            "start_score": 1.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.0,
+      "date_range_score": 1.0,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T34",
+      "question": "How did personal income and spending change since the start of 2023?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_frz8cy7o",
+          "series_id": "PI",
+          "start_date": "2023-01-01",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_dvp66isg",
+          "series_id": "FYONET",
+          "start_date": "2023-01-01",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct": [
+          "PI"
+        ],
+        "missing": [
+          "PCE"
+        ],
+        "extra": [
+          "FYONET"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "PI",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "FYONET",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.5,
+      "date_range_score": 1.0,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T35",
+      "question": "Show me GDP and GNP side by side for Q1 and Q2 2023",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_4losjamf",
+          "series_id": "GDP",
+          "start_date": "2023-01-01",
+          "end_date": "2023-03-31"
+        },
+        {
+          "tool_call_id": "call_k0pbu6xe",
+          "series_id": "GNP",
+          "start_date": "2023-01-01",
+          "end_date": "2023-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "GDP",
+          "GNP"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "GDP",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-03-31",
+            "expected_end": "2023-06-30",
+            "end_score": 0.0,
+            "call_score": 0.5
+          },
+          {
+            "series_id": "GNP",
+            "actual_start": "2023-01-01",
+            "expected_start": "2023-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-03-31",
+            "expected_end": "2023-06-30",
+            "end_score": 0.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T36",
+      "question": "How have oil prices and CPI moved together over the past 3 years?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_8p09oa3d",
+          "series_id": "WTISPLC",
+          "start_date": "2024-04-04",
+          "end_date": "2026-03-31"
+        },
+        {
+          "tool_call_id": "call_2pav14f6",
+          "series_id": "CPIAUCSL",
+          "start_date": "2024-04-04",
+          "end_date": "2026-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "CPIAUCSL",
+          "WTISPLC"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": [
+          {
+            "series_id": "WTISPLC",
+            "actual_start": "2024-04-04",
+            "expected_start": "2023-04-05",
+            "start_score": 0.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          },
+          {
+            "series_id": "CPIAUCSL",
+            "actual_start": "2024-04-04",
+            "expected_start": "2023-04-05",
+            "start_score": 0.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T37",
+      "question": "What happened to bank credit and commercial loans during 2020?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_wureg5ke",
+          "series_id": "TOTBKCR",
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31"
+        },
+        {
+          "tool_call_id": "call_8l37m0tp",
+          "series_id": "BUSLOANS",
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "BUSLOANS",
+          "TOTBKCR"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "TOTBKCR",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2020-12-31",
+            "expected_end": "2020-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "BUSLOANS",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2020-12-31",
+            "expected_end": "2020-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T38",
+      "question": "Compare US exports to Canada and Mexico over the past 18 months",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_hf4ilc6x",
+          "series_id": "BOPSTB",
+          "start_date": "2023-07-01",
+          "end_date": "2024-06-30"
+        },
+        {
+          "tool_call_id": "call_xptzp60m",
+          "series_id": "EXPCH",
+          "start_date": "2023-07-01",
+          "end_date": "2024-06-30"
+        },
+        {
+          "tool_call_id": "call_w8exw8vs",
+          "series_id": "EXPMX",
+          "start_date": "2023-07-01",
+          "end_date": "2024-06-30"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.4,
+        "correct": [
+          "EXPMX"
+        ],
+        "missing": [
+          "EXPCA"
+        ],
+        "extra": [
+          "BOPSTB",
+          "EXPCH"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": [
+          {
+            "series_id": "BOPSTB",
+            "actual_start": "2023-07-01",
+            "expected_start": "2024-10-11",
+            "start_score": 0.0,
+            "actual_end": "2024-06-30",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          },
+          {
+            "series_id": "EXPCH",
+            "actual_start": "2023-07-01",
+            "expected_start": "2024-10-11",
+            "start_score": 0.0,
+            "actual_end": "2024-06-30",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          },
+          {
+            "series_id": "EXPMX",
+            "actual_start": "2023-07-01",
+            "expected_start": "2024-10-11",
+            "start_score": 0.0,
+            "actual_end": "2024-06-30",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          }
+        ]
+      },
+      "series_id_score": 0.4,
+      "date_range_score": 0.0,
+      "overall_score": 0.2
+    },
+    {
+      "question_id": "T39",
+      "question": "How did consumer sentiment and personal savings rate change in 2022?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_bnlh559w",
+          "series_id": "UMCSENT",
+          "start_date": "2022-01-01",
+          "end_date": "2023-12-31"
+        },
+        {
+          "tool_call_id": "call_l1vlupdm",
+          "series_id": "PSAVERT",
+          "start_date": "2022-01-01",
+          "end_date": "2023-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "PSAVERT",
+          "UMCSENT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "UMCSENT",
+            "actual_start": "2022-01-01",
+            "expected_start": "2022-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 0.0,
+            "call_score": 0.5
+          },
+          {
+            "series_id": "PSAVERT",
+            "actual_start": "2022-01-01",
+            "expected_start": "2022-01-01",
+            "start_score": 1.0,
+            "actual_end": "2023-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 0.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.5,
+      "overall_score": 0.75
+    },
+    {
+      "question_id": "T40",
+      "question": "Show me the M1 and M2 money supply since 2020",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ofjzup70",
+          "series_id": "WM1NS",
+          "start_date": "2020-01-01",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_h3i8mtz8",
+          "series_id": "WM2NS",
+          "start_date": "2020-01-01",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "WM1NS",
+          "WM2NS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "WM1NS",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "WM2NS",
+            "actual_start": "2020-01-01",
+            "expected_start": "2020-01-01",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T41",
+      "question": "How did manufacturing hours and earnings look in Q3 and Q4 2022?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_6enb0xvh",
+          "series_id": "DGORDER",
+          "start_date": "2022-07-01",
+          "end_date": "2022-09-30"
+        },
+        {
+          "tool_call_id": "call_t2xfeqjw",
+          "series_id": "AWHMAN",
+          "start_date": "2022-10-01",
+          "end_date": "2022-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.5,
+        "correct": [
+          "AWHMAN"
+        ],
+        "missing": [
+          "AHEMAN"
+        ],
+        "extra": [
+          "DGORDER"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 0.5,
+        "details": [
+          {
+            "series_id": "DGORDER",
+            "actual_start": "2022-07-01",
+            "expected_start": "2022-07-01",
+            "start_score": 1.0,
+            "actual_end": "2022-09-30",
+            "expected_end": "2022-12-31",
+            "end_score": 0.0,
+            "call_score": 0.5
+          },
+          {
+            "series_id": "AWHMAN",
+            "actual_start": "2022-10-01",
+            "expected_start": "2022-07-01",
+            "start_score": 0.0,
+            "actual_end": "2022-12-31",
+            "expected_end": "2022-12-31",
+            "end_score": 1.0,
+            "call_score": 0.5
+          }
+        ]
+      },
+      "series_id_score": 0.5,
+      "date_range_score": 0.5,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T42",
+      "question": "Compare federal spending and revenue for all of 2024",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_ga8g0clh",
+          "series_id": "FYONET",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        },
+        {
+          "tool_call_id": "call_3itv2lso",
+          "series_id": "FYFR",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        },
+        {
+          "tool_call_id": "call_yvjx0ziy",
+          "series_id": "FYOINT",
+          "start_date": "2024-01-01",
+          "end_date": "2024-12-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 0.8,
+        "correct": [
+          "FYFR",
+          "FYONET"
+        ],
+        "missing": [],
+        "extra": [
+          "FYOINT"
+        ]
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "FYONET",
+            "actual_start": "2024-01-01",
+            "expected_start": "2024-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-12-31",
+            "expected_end": "2024-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "FYFR",
+            "actual_start": "2024-01-01",
+            "expected_start": "2024-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-12-31",
+            "expected_end": "2024-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "FYOINT",
+            "actual_start": "2024-01-01",
+            "expected_start": "2024-01-01",
+            "start_score": 1.0,
+            "actual_end": "2024-12-31",
+            "expected_end": "2024-12-31",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 0.8,
+      "date_range_score": 1.0,
+      "overall_score": 0.9
+    },
+    {
+      "question_id": "T43",
+      "question": "How have the peso and Canadian dollar moved against the USD over the past year?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_dnnkzt4o",
+          "series_id": "DEXCAUS",
+          "start_date": "2025-04-04",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_2is8gjhq",
+          "series_id": "DEXMXUS",
+          "start_date": "2025-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "DEXCAUS",
+          "DEXMXUS"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "DEXCAUS",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "DEXMXUS",
+            "actual_start": "2025-04-04",
+            "expected_start": "2025-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T44",
+      "question": "What does the housing market look like right now - permits, sales, and mortgage rates?",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_vimec44o",
+          "series_id": "PERMIT",
+          "start_date": "2024-04-01",
+          "end_date": "2026-03-31"
+        },
+        {
+          "tool_call_id": "call_ryz4xr8t",
+          "series_id": "HSN1F",
+          "start_date": "2024-04-01",
+          "end_date": "2026-03-31"
+        },
+        {
+          "tool_call_id": "call_4lmhjctw",
+          "series_id": "MORTGAGE30US",
+          "start_date": "2024-04-01",
+          "end_date": "2026-03-31"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "HSN1F",
+          "MORTGAGE30US",
+          "PERMIT"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 0.0,
+        "details": [
+          {
+            "series_id": "PERMIT",
+            "actual_start": "2024-04-01",
+            "expected_start": "2025-04-04",
+            "start_score": 0.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          },
+          {
+            "series_id": "HSN1F",
+            "actual_start": "2024-04-01",
+            "expected_start": "2025-04-04",
+            "start_score": 0.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          },
+          {
+            "series_id": "MORTGAGE30US",
+            "actual_start": "2024-04-01",
+            "expected_start": "2025-04-04",
+            "start_score": 0.0,
+            "actual_end": "2026-03-31",
+            "expected_end": "2026-04-04",
+            "end_score": 0.0,
+            "call_score": 0.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.5
+    },
+    {
+      "question_id": "T45",
+      "question": "Give me a snapshot of the labor market: unemployment, workforce size, and employment ratio over the past 2 years",
+      "tool_call_required": true,
+      "success": true,
+      "actual_calls": [
+        {
+          "tool_call_id": "call_8notz9f1",
+          "series_id": "UNRATE",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_ngips8ft",
+          "series_id": "CE16OV",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        },
+        {
+          "tool_call_id": "call_vpilugbz",
+          "series_id": "EMRATIO",
+          "start_date": "2024-04-04",
+          "end_date": "2026-04-04"
+        }
+      ],
+      "series_id_evaluation": {
+        "score": 1.0,
+        "correct": [
+          "CE16OV",
+          "EMRATIO",
+          "UNRATE"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "date_range_evaluation": {
+        "score": 1.0,
+        "details": [
+          {
+            "series_id": "UNRATE",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "CE16OV",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          },
+          {
+            "series_id": "EMRATIO",
+            "actual_start": "2024-04-04",
+            "expected_start": "2024-04-04",
+            "start_score": 1.0,
+            "actual_end": "2026-04-04",
+            "expected_end": "2026-04-04",
+            "end_score": 1.0,
+            "call_score": 1.0
+          }
+        ]
+      },
+      "series_id_score": 1.0,
+      "date_range_score": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "question_id": "T46",
+      "question": "What does GDP stand for and how is it different from GNP?",
+      "tool_call_required": false,
+      "success": false,
+      "error": "Unexpected tool call made",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T47",
+      "question": "Which indicators should I look at to get a sense of how tight monetary policy is?",
+      "tool_call_required": false,
+      "success": false,
+      "error": "Unexpected tool call made",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T48",
+      "question": "Show me Nvidia stock price data for 2024",
+      "tool_call_required": false,
+      "success": false,
+      "error": "Unexpected tool call made",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T49",
+      "question": "What does an inverted yield curve signal about the economy?",
+      "tool_call_required": false,
+      "success": false,
+      "error": "Unexpected tool call made",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "question_id": "T50",
+      "question": "Give me some economic data",
+      "tool_call_required": false,
+      "success": false,
+      "error": "Unexpected tool call made",
+      "series_id_score": 0.0,
+      "date_range_score": 0.0,
+      "overall_score": 0.0
+    }
+  ]
+}

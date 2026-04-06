@@ -310,7 +310,7 @@ class FredLLMAgent:
         start_date, end_date = fix_date_parameters(start_date, end_date)
         return start_date, end_date
 
-    def extract_tool_calls(self, question, min_similarity=0.3):
+    def extract_tool_calls(self, question, min_similarity=0.35):
         """
         extract tool calls without execution
         

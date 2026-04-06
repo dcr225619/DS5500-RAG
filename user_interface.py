@@ -4,6 +4,7 @@ import joblib
 import streamlit as st
 import plotly.graph_objects as go
 from llama_api_final import FredLLMAgent
+from gpt_api_final import OpenAIFredAgent
 
 # constants
 MODEL_ROLE = "ai"
@@ -14,7 +15,8 @@ os.makedirs(HISTORY_DIR, exist_ok=True)
 
 # initialize session_state
 if "agent" not in st.session_state:
-    st.session_state.agent = FredLLMAgent(model="llama3.2", verbose=True)
+    st.session_state.agent = FredLLMAgent(model="llama3.2", verbose=True, few_shot=True)
+    # st.session_state.agent = OpenAIFredAgent(verbose=True)
 if "chat_id" not in st.session_state:
     st.session_state.chat_id = str(time.time())
 if "chat_title" not in st.session_state:
@@ -170,19 +172,9 @@ st.markdown("""
 /* hide Streamlit default page edges */
 .block-container { padding-top: 1rem !important; padding-bottom: 0 !important; }
 
-/* fixed chart */
-#chart-panel {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 8px;
-}
-
 /* scrollable chat container */
 #chat-history {
-    height: 380px;
+    height: 750px;
     overflow-y: auto;
     padding: 12px 16px;
     background: #fafafa;
@@ -199,27 +191,6 @@ st.markdown("""
 
 # main page layout
 st.write("# Chat with FRED Agent")
-
-# fixed chart area
-st.markdown('<div id="chart-panel">', unsafe_allow_html=True)
-if st.session_state.chart_data:
-    render_chart(st.session_state.chart_data)
-    cols = st.columns(len(st.session_state.chart_data))
-    for col, s in zip(cols, st.session_state.chart_data):
-        if s["values"]:
-            col.metric(
-                label=s["series_id"],
-                value=f"{s['values'][-1]:.2f} {s['units']}",
-                delta=f"{s['values'][-1] - s['values'][-2]:.2f}" if len(s["values"]) > 1 else None,
-            )
-else:
-    st.markdown(
-        '<div style="height:80px; display:flex; align-items:center; '
-        'justify-content:center; color:#aaa; font-size:14px;">'
-        '📈 Chart will appear here after your first query</div>',
-        unsafe_allow_html=True
-    )
-st.markdown('</div>', unsafe_allow_html=True)
 
 # scrollable chat history
 chat_html = messages_to_html(st.session_state.messages)
@@ -249,9 +220,6 @@ if prompt := st.chat_input("Ask me about economic data..."):
 
     if result.get("success"):
         full_response = result["final_answer"]
-        new_series = extract_chart_series(result.get("api_results", []))
-        if new_series:
-            st.session_state.chart_data = new_series
     else:
         full_response = f"⚠️ Error: {result.get('error', 'Unknown error')}"
 

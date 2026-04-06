@@ -12,6 +12,7 @@ from date_parser import parse_date_range
 import json
 from datetime import datetime, timedelta
 import time
+import re
 
 client = OpenAI(api_key=gpt_key)
 MODEL = "gpt-4o-mini"
