@@ -49,12 +49,12 @@ Two directions are planned for future development:
 
 2. **Configure API keys**
    
-   Create `fred_key.py`:
+   Create `src/fred_key.py`:
    ```python
    fred_key = "your_fred_api_key_here"
    ```
    
-   Create `gpt_key.py`:
+   Create `src/gpt_key.py`:
    ```python
    gpt_key = "your_openai_api_key_here"
    ```
@@ -62,10 +62,10 @@ Two directions are planned for future development:
 3. **Generate indicator metadata**
    ```bash
    # Crawl FRED series from Wikipedia tables
-   python wikitable_crawler.py
+   python preparation/wikitable_crawler.py
    
    # Generate compact indicator guide for LLMs
-   python indicator_formatter.py
+   python preparation/indicator_formatter.py
    ```
 
 ---
@@ -83,16 +83,16 @@ ollama pull llama3.2
 ```
 
 For **GPT-4o-mini**:
-- Ensure OpenAI API key is configured in `gpt_key.py`
+- Ensure OpenAI API key is configured in `src/gpt_key.py`
 
 ### Run Experiments
 
 ```bash
 # Test with LLaMA 3.2
-python llama_api.py
+python src/llama_api.py
 
 # Test with GPT-4o-mini
-python gpt_api.py
+python src/gpt_api.py
 ```
 
 **Test Data**: 
@@ -109,13 +109,13 @@ python gpt_api.py
 
 1. **Generate series descriptions** (using GPT-4o-mini)
    ```bash
-   python generate_series_description.py
+   python preparation/generate_series_description.py
    ```
-   This creates detailed descriptions for each series in `output.json`.
+   This creates detailed descriptions for each series in `src/output.json`.
 
 2. **Build FAISS index**
    ```bash
-   python build_series_index.py
+   python preparation/build_series_index.py
    ```
    This generates embeddings and builds the FAISS index for retrieval.
 
@@ -123,10 +123,10 @@ python gpt_api.py
 
 ```bash
 # LLaMA 3.2 with semantic retrieval
-python llama_api_semantic_retriever.py
+python src/llama_api_semantic_retriever.py
 
 # GPT-4o-mini with semantic retrieval
-python gpt_api_semantic_retriever.py
+python src/gpt_api_semantic_retriever.py
 ```
 
 ---
@@ -148,10 +148,10 @@ python gpt_api_semantic_retriever.py
 
 ```bash
 # LLaMA 3.2 with full enhancements
-python llama_api_final.py
+python src/llama_api_final.py
 
 # GPT-4o-mini with self-checks
-python gpt_api_final.py
+python src/gpt_api_final.py
 ```
 
 ---
@@ -171,12 +171,12 @@ jupyter notebook retrieval_accuracy_benchmark.ipynb
 
 | # | File | Model | Components |
 |---|------|-------|-----------|
-| 1 | [`llama_api.py`](llama_api.py) | LLaMA 3.2 | Full guide |
-| 2 | [`llama_api_semantic_retriever.py`](llama_api_semantic_retriever.py) | LLaMA 3.2 | Semantic retrieval |
-| 3 | [`llama_api_final.py`](llama_api_final.py) | LLaMA 3.2 | Semantic + date parser + checks |
-| 4 | [`gpt_api.py`](gpt_api.py) | GPT-4o-mini | Full guide |
-| 5 | [`gpt_api_semantic_retriever.py`](gpt_api_semantic_retriever.py) | GPT-4o-mini | Semantic retrieval |
-| 6 | [`gpt_api_final.py`](gpt_api_final.py) | GPT-4o-mini | Semantic + checks |
+| 1 | [`src/llama_api.py`](src/llama_api.py) | LLaMA 3.2 | Full guide |
+| 2 | [`src/llama_api_semantic_retriever.py`](src/llama_api_semantic_retriever.py) | LLaMA 3.2 | Semantic retrieval |
+| 3 | [`src/llama_api_final.py`](src/llama_api_final.py) | LLaMA 3.2 | Semantic + date parser + checks |
+| 4 | [`src/gpt_api.py`](src/gpt_api.py) | GPT-4o-mini | Full guide |
+| 5 | [`src/gpt_api_semantic_retriever.py`](src/gpt_api_semantic_retriever.py) | GPT-4o-mini | Semantic retrieval |
+| 6 | [`src/gpt_api_final.py`](src/gpt_api_final.py) | GPT-4o-mini | Semantic + checks |
 
 **Metrics**:
 - Series ID F1 Score
@@ -232,12 +232,12 @@ jupyter notebook summary_evaluation_benchmark.ipynb
 Add high-quality example summaries to guide the model.
 
 **Setup**:
-1. Add human-written examples to [`few_shot_examples.py`](few_shot_examples.py)
+1. Add human-written examples to [`src/few_shot_examples.py`](src/few_shot_examples.py)
 2. Set `few_shot=True` when running any main file
 
 **Example**:
 ```python
-# In llama_api.py
+# In src/llama_api.py
 result = agent.process_question(question, few_shot=True)
 ```
 
@@ -251,13 +251,13 @@ Fine-tune LLaMA 3.2 on GPT-generated high-quality summaries.
 
 1. **Generate training data**
    ```bash
-   jupyter notebook QA_gpt_transformer.ipynb
+   jupyter notebook preparation/QA_gpt_transformer.ipynb
    ```
    This uses GPT-4o-mini to generate reference summaries.
 
 2. **Fine-tune LLaMA 3.2**
    ```bash
-   jupyter notebook llama_finetune.ipynb
+   jupyter notebook fine_tune/llama_finetune.ipynb
    ```
    Choose to download:
    - Full fine-tuned model, or
@@ -271,7 +271,7 @@ Fine-tune LLaMA 3.2 on GPT-generated high-quality summaries.
 
 4. **Use in experiments**
    ```python
-   # Modify llama_api.py to use fine-tuned model
+   # Modify src/llama_api.py to use fine-tuned model
    agent = FredLLMAgent(model='llama3.2-finetuned')
    ```
 
@@ -299,7 +299,7 @@ MODEL = 'llama3.2'  # or 'gpt-4o-mini' or 'llama3.2-finetuned'
 
 ### Planned Enhancements
 
-1. **News Integration** (`news_api.py`)
+1. **News Integration**
    - Retrieve real-time news articles from [NewsAPI](https://newsapi.org/)
    - Contextualize economic data with current events
    - Add analyst commentary and market reactions
