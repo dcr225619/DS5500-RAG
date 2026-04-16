@@ -95,7 +95,7 @@ class TimeSeriesAnalyzer:
         slope = np.polyfit(x, y, 1)[0]
         correlation = np.corrcoef(x, y)[0, 1]
         
-        if abs(correlation) < 0.3:
+        if not np.isfinite(correlation) or abs(correlation) < 0.3:
             trend = "stable"
         elif slope > 0:
             trend = "increasing"
