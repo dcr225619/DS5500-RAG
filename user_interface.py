@@ -1,5 +1,8 @@
 import time
+import sys
 import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
+
 import joblib
 import streamlit as st
 import plotly.graph_objects as go

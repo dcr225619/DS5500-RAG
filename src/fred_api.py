@@ -8,8 +8,6 @@ import os
 import sys
 #import matplotlib.pyplot as plt
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
 # observations
 obs_endpoint = "series/observations"
 
@@ -18,6 +16,8 @@ api_key = fred_key
 # url
 base_url = "https://api.stlouisfed.org/fred/"
 base_dir = os.path.dirname(os.path.abspath(__file__))
+# add the current directory to Python's path so that imports like `from fred_key import fred_key` can locate modules in the same directory
+sys.path.insert(0, base_dir)
 
 def load_indicator_metadata():
     with open(os.path.join(base_dir, "output_with_descriptions.json"), "r", encoding="utf-8") as f:
